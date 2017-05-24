@@ -15,12 +15,12 @@ public protocol EventCallbackDelegate {
 }
 
 public struct PortalSetting {
-    var pingIntervalMs   :UInt
-    var authServiceRoot  :String
-    var appServiceRoot   :String
-    var commonServiceRoot:String
+    var pingIntervalMs:     UInt
+    var authServiceRoot:    String
+    var appServiceRoot:     String
+    var commonServiceRoot:  String
     
-   public init(pingIntervalMs: UInt, authServiceRoot: String, appServiceRoot: String, commonServiceRoot: String ) {
+    public init(pingIntervalMs: UInt, authServiceRoot: String, appServiceRoot: String, commonServiceRoot: String ) {
         self.pingIntervalMs     = pingIntervalMs
         self.authServiceRoot    = authServiceRoot
         self.appServiceRoot     = appServiceRoot
@@ -29,9 +29,9 @@ public struct PortalSetting {
 }
 
 public struct OperationCallBack {
-    var onSuccess        :(() -> ())?
-    var onError          :((_ error:Error) -> ())?
-    var onProgress       :((_ delayMs:UInt, _ message:String) -> ())?
+    var onSuccess:  (() -> ())?
+    var onError:    ((_ error:Error) -> ())?
+    var onProgress: ((_ delayMs:UInt, _ message:String) -> ())?
     
     public init(onSuccess:(() -> ())?, onError:((_ error:Error) -> ())?, onProgress:((_ delayMs:UInt, _ message:String) -> ())?){
         self.onSuccess  = onSuccess
@@ -41,16 +41,16 @@ public struct OperationCallBack {
 }
 
 public struct DataOperationCallBack {
-    var onSuccess        :((_ dataJson:Array<Any>,()) -> ())?
-    var onError          :((_ error:Error) -> ())?
-    var onProgress       :((_ delayMs:UInt, _ message:String) -> ())?
+    var onSuccess:  ((_ dataJson:Array<Any>,()) -> ())?
+    var onError:    ((_ error:Error) -> ())?
+    var onProgress: ((_ delayMs:UInt, _ message:String) -> ())?
 }
 
 public struct EventCallBack {
-    var eventDelegate    :EventCallbackDelegate?
-    var onLoginExpired   :(() -> ())?
-    var onPingFailed     :((_ error:Error) -> ())?
-    var onCommandReceived:((_ name:String,_ params:[String:Any]) -> ())?
+    var eventDelegate:      EventCallbackDelegate?
+    var onLoginExpired:     (() -> ())?
+    var onPingFailed:       ((_ error:Error) -> ())?
+    var onCommandReceived:  ((_ name:String,_ params:[String:Any]) -> ())?
     
     public init(eventDelegate:EventCallbackDelegate?, onLoginExpired:(() -> ())?, onPingFailed:((_ error:Error) -> ())?, onCommandReceived:((_ name:String,_ params:[String:Any]) -> ())?){
         self.eventDelegate      = eventDelegate
@@ -81,9 +81,11 @@ public typealias StatusOperation = (unigId:UInt8, type:RequestOperationType, sta
 
 public class PortalCommunicator: NSObject{
     
-    fileprivate var setting         :PortalSetting
-    fileprivate var eventCallBack   :EventCallBack
-    fileprivate var credentials     :PortalCredentials
+    fileprivate var setting             :PortalSetting
+    fileprivate var eventCallBack       :EventCallBack
+    fileprivate var credentials         :PortalCredentials
+    
+    fileprivate var currentOperations   :[UInt8:RequestOperation]?
     
     fileprivate var token           :UUID?
     
@@ -99,25 +101,38 @@ public class PortalCommunicator: NSObject{
         self.credentials   = credentials
         super.init()
     }
+
+    //MARK: - public method
     
     /* This method is used for logging in. Library manages auth-specific data automatically, so the method does not return any data.*/
     public func login(params:[String:Any], callBack:OperationCallBack) {
-        let operation = RequestOperation(serviceRoot: setting.authServiceRoot, type: .login)
+        
+        let urlAuthService = URL.init(string: setting.authServiceRoot)
+        
+        guard urlAuthService != nil else {
+            if let errorCallBack = callBack.onError {
+                let error = NSError(domain: "AuthServiceRoot is not correct", code: 10001, userInfo: nil)
+                errorCallBack(error)
+            }
+            return
+        }
+        
+        let operation = RequestOperation(serviceRoot: urlAuthService!, type: .login)
         operation.name = "login"
         operation.completionBlock = { () -> Void in
-        
-        sleep(5)
+            
+            sleep(5)
             print("login \(Date.init(timeIntervalSinceNow: 0))")
             
         }
         operation.start()
-       
-
+        
+        
     }
     
     /*This method is used for cancelling request. It may happen if the result of the request is no longer needed.*/
     public func cancel(requestId:UUID){
- 
+        
     }
     
     /*This method is used for getting any data from the app service. Both parameters and request.*/
@@ -127,17 +142,23 @@ public class PortalCommunicator: NSObject{
     }
     /*This method is used for getting any data from the app service. Both parameters and request.*/
     public func sendData(methodName:String, params:[String:Any], callBack:OperationCallBack) -> UInt8{
-
+        
         return 2
     }
     /*This method is used for updating library settings.*/
     public func setSettings(settings:PortalSetting){
-
+        self.setting = settings
     }
     
-    public func status() -> [StatusOperation] {
+    public func statusOperations() -> [StatusOperation] {
+        //test
         let status:StatusOperation = (1, RequestOperationType.login, RequestOperationState.ready)
-      return [status]
+        return [status]
     }
+    
+    //MARK: - EventCallBack
+    
+    
+    //MARK: - private method
 }
 

@@ -12,23 +12,14 @@
 		15FADFE91ED4951A00BA6C4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15FADFE81ED4951A00BA6C4F /* Assets.xcassets */; };
 		15FADFEC1ED4951A00BA6C4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15FADFEA1ED4951A00BA6C4F /* LaunchScreen.storyboard */; };
 		15FADFF51ED4953A00BA6C4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FADFF41ED4953A00BA6C4F /* ViewController.swift */; };
-		15FADFFC1ED4955500BA6C4F /* PortalCommunication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15FADFFB1ED4954C00BA6C4F /* PortalCommunication.framework */; };
-		15FADFFD1ED4955500BA6C4F /* PortalCommunication.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 15FADFFB1ED4954C00BA6C4F /* PortalCommunication.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		15FADFFA1ED4954C00BA6C4F /* PBXContainerItemProxy */ = {
+		15AC18161ED57E8B0029A43B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 15FADFF61ED4954C00BA6C4F /* PortalCommunication.xcodeproj */;
+			containerPortal = 15AC18121ED57E8A0029A43B /* PortalCommunication.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 15E6C97A1ED4923500325060;
-			remoteInfo = PortalCommunication;
-		};
-		15FADFFE1ED4955500BA6C4F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 15FADFF61ED4954C00BA6C4F /* PortalCommunication.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 15E6C9791ED4923500325060;
 			remoteInfo = PortalCommunication;
 		};
 /* End PBXContainerItemProxy section */
@@ -40,7 +31,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				15FADFFD1ED4955500BA6C4F /* PortalCommunication.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,6 +38,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		15AC18121ED57E8A0029A43B /* PortalCommunication.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PortalCommunication.xcodeproj; path = ../../Library/PortalCommunication/PortalCommunication.xcodeproj; sourceTree = "<group>"; };
 		15FADFDE1ED4951900BA6C4F /* appTestCommunicationPortal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appTestCommunicationPortal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15FADFE11ED4951900BA6C4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15FADFE61ED4951900BA6C4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -55,7 +46,6 @@
 		15FADFEB1ED4951A00BA6C4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15FADFED1ED4951A00BA6C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15FADFF41ED4953A00BA6C4F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		15FADFF61ED4954C00BA6C4F /* PortalCommunication.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PortalCommunication.xcodeproj; path = ../../Library/PortalCommunication/PortalCommunication.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,17 +53,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15FADFFC1ED4955500BA6C4F /* PortalCommunication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15AC18131ED57E8A0029A43B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				15AC18171ED57E8B0029A43B /* PortalCommunication.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		15FADFD51ED4951900BA6C4F = {
 			isa = PBXGroup;
 			children = (
-				15FADFF61ED4954C00BA6C4F /* PortalCommunication.xcodeproj */,
+				15AC18121ED57E8A0029A43B /* PortalCommunication.xcodeproj */,
 				15FADFE01ED4951900BA6C4F /* appTestCommunicationPortal */,
 				15FADFDF1ED4951900BA6C4F /* Products */,
 			);
@@ -100,14 +97,6 @@
 			path = appTestCommunicationPortal;
 			sourceTree = "<group>";
 		};
-		15FADFF71ED4954C00BA6C4F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				15FADFFB1ED4954C00BA6C4F /* PortalCommunication.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -123,7 +112,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				15FADFFF1ED4955500BA6C4F /* PBXTargetDependency */,
 			);
 			name = appTestCommunicationPortal;
 			productName = appTestCommunicationPortal;
@@ -159,8 +147,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 15FADFF71ED4954C00BA6C4F /* Products */;
-					ProjectRef = 15FADFF61ED4954C00BA6C4F /* PortalCommunication.xcodeproj */;
+					ProductGroup = 15AC18131ED57E8A0029A43B /* Products */;
+					ProjectRef = 15AC18121ED57E8A0029A43B /* PortalCommunication.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -171,11 +159,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		15FADFFB1ED4954C00BA6C4F /* PortalCommunication.framework */ = {
+		15AC18171ED57E8B0029A43B /* PortalCommunication.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = PortalCommunication.framework;
-			remoteRef = 15FADFFA1ED4954C00BA6C4F /* PBXContainerItemProxy */;
+			remoteRef = 15AC18161ED57E8B0029A43B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -204,14 +192,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		15FADFFF1ED4955500BA6C4F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = PortalCommunication;
-			targetProxy = 15FADFFE1ED4955500BA6C4F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		15FADFE51ED4951900BA6C4F /* Main.storyboard */ = {
@@ -335,6 +315,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = appTestCommunicationPortal/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = by.stylesoft.appTestCommunicationPortal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -350,6 +331,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = appTestCommunicationPortal/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = by.stylesoft.appTestCommunicationPortal;
 				PRODUCT_NAME = "$(TARGET_NAME)";

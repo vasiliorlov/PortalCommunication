@@ -11,6 +11,7 @@
 		15E6C9871ED4926200325060 /* PortalCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6C9851ED4926200325060 /* PortalCommunicator.swift */; };
 		15E6C9881ED4926200325060 /* RequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6C9861ED4926200325060 /* RequestOperation.swift */; };
 		15FADFD41ED492D900BA6C4F /* UniqId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FADFD31ED492D900BA6C4F /* UniqId.swift */; };
+		AC9093D8A2638E80F8BFD351 /* Pods_PortalCommunication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4011A1D794B91C4C15A09F6 /* Pods_PortalCommunication.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,9 @@
 		15E6C9851ED4926200325060 /* PortalCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortalCommunicator.swift; sourceTree = "<group>"; };
 		15E6C9861ED4926200325060 /* RequestOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestOperation.swift; sourceTree = "<group>"; };
 		15FADFD31ED492D900BA6C4F /* UniqId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniqId.swift; sourceTree = "<group>"; };
+		7FC2E1D6FF13D6B7A8402EBA /* Pods-PortalCommunication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortalCommunication.release.xcconfig"; path = "Pods/Target Support Files/Pods-PortalCommunication/Pods-PortalCommunication.release.xcconfig"; sourceTree = "<group>"; };
+		B4C7944E7FD89EB71681777C /* Pods-PortalCommunication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortalCommunication.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PortalCommunication/Pods-PortalCommunication.debug.xcconfig"; sourceTree = "<group>"; };
+		C4011A1D794B91C4C15A09F6 /* Pods_PortalCommunication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortalCommunication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC9093D8A2638E80F8BFD351 /* Pods_PortalCommunication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +43,8 @@
 			children = (
 				15E6C97C1ED4923500325060 /* PortalCommunication */,
 				15E6C97B1ED4923500325060 /* Products */,
+				9BD61AC3FC9863E79227B5FC /* Pods */,
+				DC34BCE92556F5084EB455BA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +68,23 @@
 			path = PortalCommunication;
 			sourceTree = "<group>";
 		};
+		9BD61AC3FC9863E79227B5FC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B4C7944E7FD89EB71681777C /* Pods-PortalCommunication.debug.xcconfig */,
+				7FC2E1D6FF13D6B7A8402EBA /* Pods-PortalCommunication.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DC34BCE92556F5084EB455BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C4011A1D794B91C4C15A09F6 /* Pods_PortalCommunication.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -79,10 +103,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 15E6C9821ED4923500325060 /* Build configuration list for PBXNativeTarget "PortalCommunication" */;
 			buildPhases = (
+				7D0575BC88B28B388A4A9780 /* [CP] Check Pods Manifest.lock */,
 				15E6C9751ED4923500325060 /* Sources */,
 				15E6C9761ED4923500325060 /* Frameworks */,
 				15E6C9771ED4923500325060 /* Headers */,
 				15E6C9781ED4923500325060 /* Resources */,
+				087190173BA259FBCF93A491 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -134,6 +160,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		087190173BA259FBCF93A491 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PortalCommunication/Pods-PortalCommunication-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D0575BC88B28B388A4A9780 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		15E6C9751ED4923500325060 /* Sources */ = {
@@ -252,6 +311,7 @@
 		};
 		15E6C9831ED4923500325060 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4C7944E7FD89EB71681777C /* Pods-PortalCommunication.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -261,6 +321,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = PortalCommunication/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = by.stylesoft.PortalCommunication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -272,6 +333,7 @@
 		};
 		15E6C9841ED4923500325060 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FC2E1D6FF13D6B7A8402EBA /* Pods-PortalCommunication.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -281,6 +343,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = PortalCommunication/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = by.stylesoft.PortalCommunication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
