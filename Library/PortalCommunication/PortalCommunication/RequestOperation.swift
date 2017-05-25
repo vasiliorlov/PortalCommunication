@@ -11,8 +11,7 @@ import Alamofire
 
 public enum RequestOperationType {
     case login
-    case getData
-    case sendData
+    case data
     case ping
 }
 
@@ -32,19 +31,27 @@ struct ResponseAsync {
 }
 
 class RequestOperation: Operation {
-    let serviceRoot :URL
-    let type        :RequestOperationType
-    var state       :RequestOperationState
-    
+    let serviceRoot     :URL
+    let type            :RequestOperationType
+    var state           :RequestOperationState
+    var uniqId          :UInt8
     var serviceRootForStatus:URL {
-        return serviceRoot.appendingPathComponent("Status")
+        return serviceRoot.appendingPathComponent(MethodNameConstans.status)
     }
     
     init(serviceRoot:URL, type:RequestOperationType) {
         self.serviceRoot    = serviceRoot
         self.type           = type
         self.state          = .ready
+        do{
+            self.uniqId     = try UniqId.shared.getId()
+            print("Generate new uniq id = \(self.uniqId)")
+        } catch {
+            self.uniqId     = 0
+            assert(false, "Full set uniq Id")
+        }
         super.init()
+        
     }
     
     /*
@@ -52,8 +59,10 @@ class RequestOperation: Operation {
      return true
      }
      */
+    //MARK: - override operation method
     
-    func getResponseAfterCheckedStatus(asyncResponce:ResponseAsync, onSuccess:@escaping (_ responseDict:[String:Any]) -> (), onError:@escaping ( _ error:Error) -> ()){
+    //MARK: - custom method
+    func getResponseAfterCheckedStatus(asyncResponce:ResponseAsync, callBack: OperationCallBack){
         
         let delay = asyncResponce.asyncDelay
         self.state = .waiting(delayMs: delay)
@@ -71,34 +80,34 @@ class RequestOperation: Operation {
                         if let delay = responseDict["async_delay"] as? UInt{
                             if let token = responseDict["async_token"] as? String{
                                 let asyncResponse = ResponseAsync(asyncToken: token , asyncDelay: delay )
-                                self.getResponseAfterCheckedStatus(asyncResponce: asyncResponse , onSuccess: onSuccess, onError: onError)
+                                self.getResponseAfterCheckedStatus(asyncResponce: asyncResponse , callBack: callBack)
                             }else{
                                 let error = NSError(domain: "Async response doesn't have async_token value ", code: 10004, userInfo: nil)
-                                onError(error)
+                                callBack.onError(error)
                             }
                         }else{
                             let error = NSError(domain: "Async response doesn't have delay value ", code: 10003, userInfo: nil)
-                            onError(error)
+                            callBack.onError(error)
                         }
                     } else {//sync
-                        if let dataDic:[String:Any] = responseDict["data"] as? [String : Any] {
-                            onSuccess(dataDic)
-                        } else{
-                            let error = NSError(domain: "Sync response doesn't have data value", code: 10002, userInfo: nil)
-                            onError(error)
-                        }
+                        let dataDic:[String:Any]? = responseDict["data"] as? [String : Any]
+                        callBack.onSuccess(dataDic)
+                        
                     }
                 } else {
-                    let error = NSError(domain: "Response Status is not Dict[String:Any]", code: 10001, userInfo: nil)
-                    onError(error)
+                    let error = NSError(domain: "Response Status is not Dict[String:Any]", code: 10002, userInfo: nil)
+                    callBack.onError(error)
                 }
                 
             case .failure(let error):
                 print(error)
-                onError(error)
+                callBack.onError(error)
             }
         }
     }
-
     
+    deinit {
+        print("Erase uniq id = \(uniqId)")
+        let _ = UniqId.shared.eraseId(uniqId: uniqId)
+    }
 }

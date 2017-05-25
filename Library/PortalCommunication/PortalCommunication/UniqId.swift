@@ -35,7 +35,6 @@ class UniqId: NSObject {
         }
     }
     
-    
     func eraseId(uniqId:UInt8) -> Bool{
         
         guard setUniqId.contains(uniqId) else {

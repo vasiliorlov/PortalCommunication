@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15BFECBC1ED6FA0E005409F3 /* DataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BFECBB1ED6FA0E005409F3 /* DataOperation.swift */; };
 		15E6C97F1ED4923500325060 /* PortalCommunication.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E6C97D1ED4923500325060 /* PortalCommunication.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		15E6C9871ED4926200325060 /* PortalCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6C9851ED4926200325060 /* PortalCommunicator.swift */; };
 		15E6C9881ED4926200325060 /* RequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6C9861ED4926200325060 /* RequestOperation.swift */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15BFECBB1ED6FA0E005409F3 /* DataOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataOperation.swift; sourceTree = "<group>"; };
 		15E6C97A1ED4923500325060 /* PortalCommunication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PortalCommunication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		15E6C97D1ED4923500325060 /* PortalCommunication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PortalCommunication.h; sourceTree = "<group>"; };
 		15E6C97E1ED4923500325060 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				15E6C97D1ED4923500325060 /* PortalCommunication.h */,
 				15E6C9851ED4926200325060 /* PortalCommunicator.swift */,
 				15E6C9861ED4926200325060 /* RequestOperation.swift */,
+				15BFECBB1ED6FA0E005409F3 /* DataOperation.swift */,
 				15FADFD31ED492D900BA6C4F /* UniqId.swift */,
 				15E6C97E1ED4923500325060 /* Info.plist */,
 			);
@@ -202,6 +205,7 @@
 				15FADFD41ED492D900BA6C4F /* UniqId.swift in Sources */,
 				15E6C9871ED4926200325060 /* PortalCommunicator.swift in Sources */,
 				15E6C9881ED4926200325060 /* RequestOperation.swift in Sources */,
+				15BFECBC1ED6FA0E005409F3 /* DataOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
