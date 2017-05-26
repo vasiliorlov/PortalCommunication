@@ -62,7 +62,7 @@ class RequestOperation: Operation {
     //MARK: - override operation method
     
     //MARK: - custom method
-    func getResponseAfterCheckedStatus(asyncResponce:ResponseAsync, callBack: OperationCallBack){
+    func getResponseAfterCheckedStatus(asyncResponce:ResponseAsync, callBack: OperationCallBack, onLoginExpired:@escaping () -> ()){
         
         let delay = asyncResponce.asyncDelay
         self.state = .waiting(delayMs: delay)
@@ -75,12 +75,27 @@ class RequestOperation: Operation {
             switch response.result {
                 
             case .success(let JSON):
+                
                 if let responseDict = JSON as? [String:Any]{
+                    
+                    guard responseDict["is_success"] as! Bool   else {
+                        let error = NSError(domain: "Service returns incorrct response", code: 10007, userInfo: nil)
+                        callBack.onError(error)
+                        return
+                    }
+                    
+                    guard (responseDict["message"] as! String) != "SessionExpired"    else {
+                        _ = onLoginExpired
+                        return
+                    }
+                    
                     if (responseDict["is_async"] as? Bool) != nil {//async
                         if let delay = responseDict["async_delay"] as? UInt{
                             if let token = responseDict["async_token"] as? String{
                                 let asyncResponse = ResponseAsync(asyncToken: token , asyncDelay: delay )
-                                self.getResponseAfterCheckedStatus(asyncResponce: asyncResponse , callBack: callBack)
+                                let message = responseDict["message"] as? String
+                                callBack.onProgress(delay, message ?? "")
+                                self.getResponseAfterCheckedStatus(asyncResponce: asyncResponse , callBack: callBack, onLoginExpired: onLoginExpired)
                             }else{
                                 let error = NSError(domain: "Async response doesn't have async_token value ", code: 10004, userInfo: nil)
                                 callBack.onError(error)

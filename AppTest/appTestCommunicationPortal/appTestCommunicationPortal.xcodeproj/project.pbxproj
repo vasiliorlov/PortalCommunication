@@ -14,16 +14,6 @@
 		15FADFF51ED4953A00BA6C4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FADFF41ED4953A00BA6C4F /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		15AC18161ED57E8B0029A43B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 15AC18121ED57E8A0029A43B /* PortalCommunication.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 15E6C97A1ED4923500325060;
-			remoteInfo = PortalCommunication;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		15FAE0001ED4955500BA6C4F /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -38,7 +28,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		15AC18121ED57E8A0029A43B /* PortalCommunication.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PortalCommunication.xcodeproj; path = ../../Library/PortalCommunication/PortalCommunication.xcodeproj; sourceTree = "<group>"; };
 		15FADFDE1ED4951900BA6C4F /* appTestCommunicationPortal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appTestCommunicationPortal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15FADFE11ED4951900BA6C4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15FADFE61ED4951900BA6C4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -59,18 +48,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		15AC18131ED57E8A0029A43B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				15AC18171ED57E8B0029A43B /* PortalCommunication.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		15FADFD51ED4951900BA6C4F = {
 			isa = PBXGroup;
 			children = (
-				15AC18121ED57E8A0029A43B /* PortalCommunication.xcodeproj */,
 				15FADFE01ED4951900BA6C4F /* appTestCommunicationPortal */,
 				15FADFDF1ED4951900BA6C4F /* Products */,
 			);
@@ -145,28 +125,12 @@
 			mainGroup = 15FADFD51ED4951900BA6C4F;
 			productRefGroup = 15FADFDF1ED4951900BA6C4F /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 15AC18131ED57E8A0029A43B /* Products */;
-					ProjectRef = 15AC18121ED57E8A0029A43B /* PortalCommunication.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				15FADFDD1ED4951900BA6C4F /* appTestCommunicationPortal */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		15AC18171ED57E8B0029A43B /* PortalCommunication.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = PortalCommunication.framework;
-			remoteRef = 15AC18161ED57E8B0029A43B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		15FADFDC1ED4951900BA6C4F /* Resources */ = {

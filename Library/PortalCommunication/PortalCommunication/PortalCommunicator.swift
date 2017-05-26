@@ -12,17 +12,12 @@ struct MethodNameConstans {
     static let status   = "status"
     static let ping     = "ping"
 }
-public protocol EventCallbackDelegate {
-    func onLoginExpired()
-    func onPingFailed(error:Error)
-    func onCommandReceived(name:String,params:[String:Any])
-}
 
 public struct PortalSetting {
-    var pingIntervalMs:     UInt
-    var authServiceRoot:    String
-    var appServiceRoot:     String
-    var commonServiceRoot:  String
+    var pingIntervalMs      :UInt
+    var authServiceRoot     :String
+    var appServiceRoot      :String
+    var commonServiceRoot   :String
     
     public init(pingIntervalMs: UInt, authServiceRoot: String, appServiceRoot: String, commonServiceRoot: String ) {
         self.pingIntervalMs     = pingIntervalMs
@@ -34,23 +29,22 @@ public struct PortalSetting {
 
 
 public struct OperationCallBack {
-    var onSuccess:  (_ dataJson:[String:Any]?) -> ()
-    var onError:    (_ error:Error) -> ()
-    var onProgress: (_ delayMs:UInt, _ message:String) -> ()
+    var onSuccess           :(_ dataJson:[String:Any]?) -> ()
+    var onError             :(_ error:Error) -> ()
+    var onProgress          :(_ delayMs:UInt, _ message:String) -> ()
 }
 
 public struct EventCallBack {
-    var eventDelegate:      EventCallbackDelegate?
-    var onLoginExpired:     () -> ()
-    var onPingFailed:       (_ error:Error) -> ()
-    var onCommandReceived:  (_ name:String,_ params:[String:Any]) -> ()
+    var onLoginExpired      :() -> ()
+    var onPingFailed        :(_ error:Error) -> ()
+    var onCommandReceived   :(_ name:String,_ params:[String:Any]) -> ()
     
-    public init(eventDelegate:EventCallbackDelegate?, onLoginExpired:@escaping (() -> ()), onPingFailed:@escaping ((_ error:Error) -> ()), onCommandReceived:@escaping ((_ name:String,_ params:[String:Any]) -> ())){
-        self.eventDelegate      = eventDelegate
+    public init( onLoginExpired:@escaping (() -> ()), onPingFailed:@escaping ((_ error:Error) -> ()), onCommandReceived:@escaping ((_ name:String,_ params:[String:Any]) -> ())){
         self.onLoginExpired     = onLoginExpired
         self.onPingFailed       = onPingFailed
         self.onCommandReceived  = onCommandReceived
     }
+    
 }
 
 public struct PortalCredentials {
@@ -121,7 +115,7 @@ public class PortalCommunicator: NSObject{
             callBack.onSuccess(nil)
         }
         
-        let operation = DataOperation(serviceRoot: urlAuthService!, type:.login, params: params, callBack: authCallBack)
+        let operation = DataOperation(serviceRoot: urlAuthService!, type:.login, params: params, callBack: authCallBack, onLoginExpired: self.eventCallBack.onLoginExpired)
         operation.start()
         
         currentOperations?[operation.uniqId] = operation
@@ -145,7 +139,7 @@ public class PortalCommunicator: NSObject{
             return nil
         }
         
-        let operation = DataOperation(serviceRoot: urlGetDataService!, type:.data, params: params/*add auth*/, callBack: callBack)
+        let operation = DataOperation(serviceRoot: urlGetDataService!, type:.data, params: params/*add auth*/, callBack: callBack, onLoginExpired: self.eventCallBack.onLoginExpired)
         operation.start()
         currentOperations?[operation.uniqId] = operation
         
@@ -163,7 +157,7 @@ public class PortalCommunicator: NSObject{
             return nil
         }
         
-        let operation = DataOperation(serviceRoot: urlGetDataService!,type:.data, params: params/*add auth*/, callBack: callBack)
+        let operation = DataOperation(serviceRoot: urlGetDataService!,type:.data, params: params/*add auth*/, callBack: callBack, onLoginExpired: self.eventCallBack.onLoginExpired)
         operation.start()
         currentOperations?[operation.uniqId] = operation
         
@@ -196,6 +190,7 @@ public class PortalCommunicator: NSObject{
         let repeatInterval = TimeInterval(setting.pingIntervalMs / 1000) //in Sec
         timer = Timer.scheduledTimer(timeInterval: repeatInterval, target: self, selector: #selector(pingServer), userInfo: nil, repeats: true)
     }
+    
     /* This method is used for fetching the commands that can be executed by a mobile app.*/
     func pingServer(){
         
@@ -207,22 +202,32 @@ public class PortalCommunicator: NSObject{
             eventCallBack.onPingFailed(error)
             return
         }
-        let params = ["auth_token":self.token]
+
         
         let pingCallBack = OperationCallBack(onSuccess: { data in
-            //<#code#>
+            if let data = data{
+                if  let commands = data["commands"] as? [[String:Any]] {
+                    for command in commands {
+                        if let name  = command["name"] as? String {
+                            let params = command["params"] as! [String:Any]
+                            self.eventCallBack.onCommandReceived(name, params)
+                        }
+                    }
+                }
+            }
         }, onError: { (error) in
-            //<#code#>
+            self.eventCallBack.onPingFailed(error)
         }) { (delaySec, message) in
-           // <#code#>
+            //code
         }
-       
         
-        let operation = DataOperation(serviceRoot: urlPingService!,type:.data, params: params/*add auth*/, callBack: pingCallBack)
+        let paramsAuth:[String:Any] = ["auth_token":self.token ?? ""]
+        
+        let operation = DataOperation(serviceRoot: urlPingService!,type:.data, params: paramsAuth/*add auth*/, callBack: pingCallBack, onLoginExpired: self.eventCallBack.onLoginExpired)
         operation.start()
         currentOperations?[operation.uniqId] = operation
     }
-    //MARK: - 
+    //MARK: -
     deinit {
         timer.invalidate()
     }

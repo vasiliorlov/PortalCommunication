@@ -12,11 +12,13 @@ import Alamofire
 class DataOperation: RequestOperation {
     let params          :[String:Any]
     let callBack        :OperationCallBack
+    let onLoginExpired  :() -> ()
     
     
-    init(serviceRoot:URL, type:RequestOperationType, params:[String:Any], callBack:OperationCallBack) {
+    init(serviceRoot:URL, type:RequestOperationType, params:[String:Any], callBack:OperationCallBack, onLoginExpired:@escaping () -> ()) {
         self.params             = params
         self.callBack           = callBack
+        self.onLoginExpired     = onLoginExpired 
         super.init(serviceRoot: serviceRoot, type: .data)
     }
     //MARK: - override operation method
@@ -33,7 +35,7 @@ class DataOperation: RequestOperation {
                         if let delay = responseDict["async_delay"] as? UInt{
                             if let token = responseDict["async_token"] as? String{
                                 let asyncResponse = ResponseAsync(asyncToken: token , asyncDelay: delay )
-                                self.getResponseAfterCheckedStatus(asyncResponce: asyncResponse , callBack: self.callBack)
+                                self.getResponseAfterCheckedStatus(asyncResponce: asyncResponse , callBack: self.callBack, onLoginExpired:self.onLoginExpired)
                             }else{
                                 let error = NSError(domain: "Async response doesn't have async_token value ", code: 10004, userInfo: nil)
                                 self.callBack.onError(error)
