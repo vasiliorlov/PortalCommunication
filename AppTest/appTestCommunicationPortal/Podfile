@@ -6,6 +6,6 @@ target 'appTestCommunicationPortal' do
   use_frameworks!
 
   # Pods for appTestCommunicationPortal
-pod 'PortalCommunication', :path => 'https://github.com/vasiliorlov/PortalCommunication/tree/master/Library/PortalCommunication'
+pod 'PortalCommunication', :path => '/Users/vasilij_orlov/Documents/Portal/Library/PortalCommunication'
 
 end

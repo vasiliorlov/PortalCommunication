@@ -54,11 +54,11 @@ class RequestOperation: Operation {
         
     }
     
-    /*
-     override var isAsynchronous: Bool{
-     return true
-     }
-     */
+    
+    override var isAsynchronous: Bool{
+        return true
+    }
+    
     //MARK: - override operation method
     
     //MARK: - custom method

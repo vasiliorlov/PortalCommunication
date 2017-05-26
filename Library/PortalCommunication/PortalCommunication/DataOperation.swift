@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 
+
 class DataOperation: RequestOperation {
     let params          :[String:Any]
     let callBack        :OperationCallBack
@@ -18,15 +19,20 @@ class DataOperation: RequestOperation {
     init(serviceRoot:URL, type:RequestOperationType, params:[String:Any], callBack:OperationCallBack, onLoginExpired:@escaping () -> ()) {
         self.params             = params
         self.callBack           = callBack
-        self.onLoginExpired     = onLoginExpired 
+        self.onLoginExpired     = onLoginExpired
         super.init(serviceRoot: serviceRoot, type: .data)
     }
     //MARK: - override operation method
-    override func main() {
+    
+    
+    override func start() {
+
         
+        print("repeat")
+        sleep(5)
         self.state = .checkingStatus
         
-        Alamofire.request(self.serviceRoot, method: .post, parameters: self.params, encoding: URLEncoding.default, headers: nil).validate().responseJSON { [unowned self]  response in
+        Alamofire.request(self.serviceRoot, method: .post, parameters: self.params, encoding: URLEncoding.default, headers: nil).validate().responseJSON { response in
             switch response.result {
                 
             case .success(let JSON):
@@ -56,8 +62,11 @@ class DataOperation: RequestOperation {
             case .failure(let error):
                 print(error)
                 self.callBack.onError(error)
+
+
             }
         }
-    }
+        
+       }
     
 }

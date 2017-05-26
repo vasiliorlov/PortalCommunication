@@ -1,0 +1,6 @@
+framework module PortalCommunication {
+  umbrella header "PortalCommunication-umbrella.h"
+
+  export *
+  module * { export * }
+}

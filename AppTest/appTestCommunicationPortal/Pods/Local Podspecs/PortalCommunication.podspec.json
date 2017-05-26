@@ -1,0 +1,30 @@
+{
+  "name": "PortalCommunication",
+  "version": "1.0.0",
+  "summary": "PortalCommunication",
+  "description": "PortalCommunication",
+  "homepage": "https://github.com/vasiliorlov/PortalCommunication/tree/master/Library",
+  "license": "MIT",
+  "authors": {
+    "Vasilij Orlov": "Vasilij_Orlov@STYLESOFT.BY"
+  },
+  "platforms": {
+    "ios": "8.2"
+  },
+  "source": {
+    "path": "."
+  },
+  "source_files": [
+    "PortalCommunication",
+    "PortalCommunication/**/*.{h,m,swift}"
+  ],
+  "exclude_files": "Classes/Exclude",
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "3"
+  },
+  "dependencies": {
+    "Alamofire": [
+
+    ]
+  }
+}

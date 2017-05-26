@@ -32,6 +32,12 @@ public struct OperationCallBack {
     var onSuccess           :(_ dataJson:[String:Any]?) -> ()
     var onError             :(_ error:Error) -> ()
     var onProgress          :(_ delayMs:UInt, _ message:String) -> ()
+    
+    public init(onSuccess:@escaping (_ dataJson:[String:Any]?) -> (), onError:@escaping (_ error:Error) -> (), onProgress:@escaping (_ delayMs:UInt, _ message:String) -> ()){
+        self.onSuccess  = onSuccess
+        self.onError    = onError
+        self.onProgress = onProgress
+    }
 }
 
 public struct EventCallBack {

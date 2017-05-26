@@ -11,7 +11,7 @@ import PortalCommunication
 
 
 
-class ViewController: UIViewController, EventCallbackDelegate {
+class ViewController: UIViewController {
     
 
 
@@ -20,7 +20,7 @@ class ViewController: UIViewController, EventCallbackDelegate {
         
         
         let setting         = PortalSetting(pingIntervalMs: 10000, authServiceRoot: "https://authServiceRoot", appServiceRoot: "https://appServiceRoot", commonServiceRoot: "https://commonServiceRoot")
-        let eventCallBack   = EventCallBack(eventDelegate: self, onLoginExpired: {
+        let eventCallBack   = EventCallBack(onLoginExpired: {
             //code
         }, onPingFailed: { (error) in
             //code
@@ -31,11 +31,14 @@ class ViewController: UIViewController, EventCallbackDelegate {
         
         //login
         let loginParam:[String:Any] = ["companyCode":"CompanyCode"]
-        let operationCallBack = OperationCallBack(onSuccess: {
+        
+        let operationCallBack = OperationCallBack(onSuccess: { (data) in
             //code
+            print("success \(Date.init(timeIntervalSinceNow: 0))")
         }, onError: { (error) in
             //code
-        }) { (delayMs, message) in
+            print("error \(Date.init(timeIntervalSinceNow: 0)) error = \(error)")
+        }) { (delayMS, message) in
             //code
         }
         
