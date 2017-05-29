@@ -33,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		15BFECBE1ED82983005409F3 /* PortalCommunication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PortalCommunication.framework; path = "../../../../Library/Developer/Xcode/DerivedData/appTestCommunicationPortal-avnqkfxihaiimigpohlnspmglpzh/Build/Products/Debug-iphonesimulator/PortalCommunication/PortalCommunication.framework"; sourceTree = "<group>"; };
+		15C2C8CC1EDC42CE008A9F45 /* appTestCommunicationPortal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = appTestCommunicationPortal.entitlements; sourceTree = "<group>"; };
 		15FADFDE1ED4951900BA6C4F /* appTestCommunicationPortal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appTestCommunicationPortal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15FADFE11ED4951900BA6C4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15FADFE61ED4951900BA6C4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -79,6 +80,7 @@
 		15FADFE01ED4951900BA6C4F /* appTestCommunicationPortal */ = {
 			isa = PBXGroup;
 			children = (
+				15C2C8CC1EDC42CE008A9F45 /* appTestCommunicationPortal.entitlements */,
 				15FADFE11ED4951900BA6C4F /* AppDelegate.swift */,
 				15FADFF41ED4953A00BA6C4F /* ViewController.swift */,
 				15FADFE51ED4951900BA6C4F /* Main.storyboard */,
@@ -144,6 +146,11 @@
 					15FADFDD1ED4951900BA6C4F = {
 						CreatedOnToolsVersion = 8.3.2;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -359,6 +366,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = appTestCommunicationPortal/appTestCommunicationPortal.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = appTestCommunicationPortal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
@@ -376,6 +385,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = appTestCommunicationPortal/appTestCommunicationPortal.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = appTestCommunicationPortal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;

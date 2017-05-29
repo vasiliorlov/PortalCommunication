@@ -37,7 +37,7 @@ class ViewController: UIViewController {
             print("success \(Date.init(timeIntervalSinceNow: 0))")
         }, onError: { (error) in
             //code
-            print("error \(Date.init(timeIntervalSinceNow: 0)) error = \(error)")
+            print("error \(Date.init(timeIntervalSinceNow: 0)) error = \(error.localizedDescription) ")
         }) { (delayMS, message) in
             //code
         }
@@ -50,6 +50,8 @@ class ViewController: UIViewController {
        portal.login(params: loginParam, callBack: operationCallBack)
        portal.login(params: loginParam, callBack: operationCallBack)
        portal.login(params: loginParam, callBack: operationCallBack)
+        
+             _ = portal.statusOperations()
         
         // Do any additional setup after loading the view, typically from a nib.
     }

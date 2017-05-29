@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 struct MethodNameConstans {
     static let status   = "status"
@@ -78,11 +79,10 @@ public class PortalCommunicator: NSObject{
     fileprivate var eventCallBack       :EventCallBack
     fileprivate var credentials         :PortalCredentials
     
-    fileprivate var currentOperations   :[UInt8:RequestOperation]?
-    
+    fileprivate var queueOperation      = OperationQueue()
     fileprivate var token               :String?
     
-    var timer   = Timer()
+    fileprivate var timer                = Timer()
     
     public static let sharedInstance:(_ setting:PortalSetting, _ eventCallBack:EventCallBack, _ credentials:PortalCredentials) -> PortalCommunicator = {
         setting, eventCallBack, credetials in
@@ -122,19 +122,24 @@ public class PortalCommunicator: NSObject{
         }
         
         let operation = DataOperation(serviceRoot: urlAuthService!, type:.login, params: params, callBack: authCallBack, onLoginExpired: self.eventCallBack.onLoginExpired)
-        operation.start()
+        queueOperation.addOperation(operation)
         
-        currentOperations?[operation.uniqId] = operation
     }
     
-    /*This method is used for cancelling request. It may happen if the result of the request is no longer needed.*/
+    /*This method is used for cancelling request. It may happen if the result of the request is no longer needed. RequestId = 0 is error*/
     public func cancel(requestId:UInt8){
-        let operation = currentOperations?[requestId]
-        operation?.cancel()
+        for operation in queueOperation.operations{
+            let dataOperation = operation as! DataOperation
+            if dataOperation.uniqId == requestId {
+                dataOperation.cancel()
+                dataOperation.finish()
+            }
+            
+        }
     }
     
-    /*This method is used for getting any data from the app service. Both parameters and request.*/
-    public func getData(methodName:String, params:[String:Any], callBack:OperationCallBack) -> UInt8?{
+    /*This method is used for getting any data from the app service. Both parameters and request. RequestId = 0 is error*/
+    public func getData(methodName:String, params:[String:Any], callBack:OperationCallBack) -> UInt8{
         
         var urlGetDataService = URL.init(string: setting.appServiceRoot)
         urlGetDataService?.appendPathComponent(methodName)
@@ -142,17 +147,16 @@ public class PortalCommunicator: NSObject{
         guard urlGetDataService != nil else {
             let error = NSError(domain: "AuthServiceRoot is not correct", code: 10001, userInfo: nil)
             callBack.onError(error)
-            return nil
+            return 0
         }
         
         let operation = DataOperation(serviceRoot: urlGetDataService!, type:.data, params: params/*add auth*/, callBack: callBack, onLoginExpired: self.eventCallBack.onLoginExpired)
-        operation.start()
-        currentOperations?[operation.uniqId] = operation
+        queueOperation.addOperation(operation)
         
         return operation.uniqId
     }
-    /*This method is used for getting any data from the app service. Both parameters and request.*/
-    public func sendData(methodName:String, params:[String:Any], callBack:OperationCallBack) -> UInt8?{
+    /*This method is used for getting any data from the app service. Both parameters and request.  RequestId = 0 is error*/
+    public func sendData(methodName:String, params:[String:Any], callBack:OperationCallBack) -> UInt8{
         
         var urlGetDataService = URL.init(string: setting.appServiceRoot)
         urlGetDataService?.appendPathComponent(methodName)
@@ -160,32 +164,29 @@ public class PortalCommunicator: NSObject{
         guard urlGetDataService != nil else {
             let error = NSError(domain: "AuthServiceRoot is not correct", code: 10001, userInfo: nil)
             callBack.onError(error)
-            return nil
+            return 0
         }
         
         let operation = DataOperation(serviceRoot: urlGetDataService!,type:.data, params: params/*add auth*/, callBack: callBack, onLoginExpired: self.eventCallBack.onLoginExpired)
-        operation.start()
-        currentOperations?[operation.uniqId] = operation
+        queueOperation.addOperation(operation)
         
         return operation.uniqId
     }
     /*This method is used for updating library settings.*/
     public func setSettings(settings:PortalSetting){
         self.setting = settings
-        
     }
     
     public func statusOperations() -> [StatusOperation] {
         
         var operationsStatus = [StatusOperation]()
         print("########### Current operation ###########")
-        if let dictOperations = currentOperations {
-            for uniqKey in dictOperations.keys{
-                if let operation = dictOperations[uniqKey] {
-                    let status:StatusOperation = (uniqKey, operation.type, operation.state)
-                    operationsStatus.append(status)
-                }
-            }
+        
+        for operation in queueOperation.operations{
+            let dataOperation = operation as! DataOperation
+            let status:StatusOperation = (dataOperation.uniqId, dataOperation.type, dataOperation.state)
+            operationsStatus.append(status)
+            print("id \(dataOperation.uniqId) type \(dataOperation.type) state \(dataOperation.state)")
         }
         print("#########################################")
         return operationsStatus
@@ -195,6 +196,7 @@ public class PortalCommunicator: NSObject{
     func prepareEventCallBack(){
         let repeatInterval = TimeInterval(setting.pingIntervalMs / 1000) //in Sec
         timer = Timer.scheduledTimer(timeInterval: repeatInterval, target: self, selector: #selector(pingServer), userInfo: nil, repeats: true)
+        
     }
     
     /* This method is used for fetching the commands that can be executed by a mobile app.*/
@@ -208,7 +210,6 @@ public class PortalCommunicator: NSObject{
             eventCallBack.onPingFailed(error)
             return
         }
-
         
         let pingCallBack = OperationCallBack(onSuccess: { data in
             if let data = data{
@@ -222,6 +223,7 @@ public class PortalCommunicator: NSObject{
                 }
             }
         }, onError: { (error) in
+            
             self.eventCallBack.onPingFailed(error)
         }) { (delaySec, message) in
             //code
@@ -230,10 +232,33 @@ public class PortalCommunicator: NSObject{
         let paramsAuth:[String:Any] = ["auth_token":self.token ?? ""]
         
         let operation = DataOperation(serviceRoot: urlPingService!,type:.data, params: paramsAuth/*add auth*/, callBack: pingCallBack, onLoginExpired: self.eventCallBack.onLoginExpired)
-        operation.start()
-        currentOperations?[operation.uniqId] = operation
+        queueOperation.addOperation(operation)
+        
     }
-    //MARK: -
+    
+    /*This method is used for register device for receiving push notifications.*/
+    func registerForPush(){
+        
+        let application = UIApplication.shared
+        if #available(iOS 10.0, *) {
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: []) { (granted, error) in
+                if granted {
+                    application.registerForRemoteNotifications()
+                    center.delegate = self as? UNUserNotificationCenterDelegate
+                }
+            }
+            application.registerForRemoteNotifications()
+        } else {
+            let notificationSettings = UIUserNotificationSettings(types: [], categories: nil)
+            application.registerUserNotificationSettings(notificationSettings)
+        }
+    }
+    
+    func receiveRemoteNotification(){
+        pingServer()
+    }
+    //MARK: - memory control
     deinit {
         timer.invalidate()
     }

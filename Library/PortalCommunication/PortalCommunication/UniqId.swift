@@ -27,7 +27,7 @@ class UniqId: NSObject {
         
         while (true)
         {
-            id = UInt8(arc4random() % 255)
+            id = 1 + UInt8(arc4random() % 255) //0 - error
             if !setUniqId.contains(id){
                 setUniqId.insert(id)
                 return id
