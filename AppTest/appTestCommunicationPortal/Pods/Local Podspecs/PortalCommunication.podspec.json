@@ -16,7 +16,7 @@
   },
   "source_files": [
     "PortalCommunication",
-    "PortalCommunication/**/*.{h,m,swift}"
+    "PortalCommunication/**/*.{h,m,swift,xcdatamodeld}"
   ],
   "exclude_files": "Classes/Exclude",
   "pod_target_xcconfig": {

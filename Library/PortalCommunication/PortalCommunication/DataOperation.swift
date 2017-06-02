@@ -27,6 +27,7 @@ class DataOperation: RequestOperation {
     
     
     override func start() {
+        print("[\(Date())] start")
         _executing = true
 
 
@@ -74,5 +75,8 @@ class DataOperation: RequestOperation {
         }
         
     }
-    
+
+    override func main() {
+        print("[\(Date())] main")
+    }
 }

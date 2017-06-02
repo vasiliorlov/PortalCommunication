@@ -12,7 +12,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  PortalCommunication: d8804de8f2806b544149e7f9064caa5d573d5250
+  PortalCommunication: 89f09cbd91cd96353555eee4ad1cc2f1c99c50bd
 
 PODFILE CHECKSUM: 2ae9d3bdcf35bdbc19f827e97bf86c44bdc1d669
 

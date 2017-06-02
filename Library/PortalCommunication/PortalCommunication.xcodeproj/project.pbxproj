@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		15BFECBC1ED6FA0E005409F3 /* DataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BFECBB1ED6FA0E005409F3 /* DataOperation.swift */; };
+		15C2C8D41EDC6800008A9F45 /* PortalCommunicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C2C8D31EDC6800008A9F45 /* PortalCommunicationTests.swift */; };
+		15C2C8D61EDC6800008A9F45 /* PortalCommunication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E6C97A1ED4923500325060 /* PortalCommunication.framework */; };
+		15C2C9051EE05ACE008A9F45 /* asyncOperation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 15C2C9031EE05ACE008A9F45 /* asyncOperation.xcdatamodeld */; };
+		15C2C9161EE06449008A9F45 /* AsyncOperation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C2C9141EE06449008A9F45 /* AsyncOperation+CoreDataClass.swift */; };
+		15C2C9171EE06449008A9F45 /* AsyncOperation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C2C9151EE06449008A9F45 /* AsyncOperation+CoreDataProperties.swift */; };
 		15E6C97F1ED4923500325060 /* PortalCommunication.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E6C97D1ED4923500325060 /* PortalCommunication.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		15E6C9871ED4926200325060 /* PortalCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6C9851ED4926200325060 /* PortalCommunicator.swift */; };
 		15E6C9881ED4926200325060 /* RequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6C9861ED4926200325060 /* RequestOperation.swift */; };
@@ -15,8 +20,24 @@
 		AC9093D8A2638E80F8BFD351 /* Pods_PortalCommunication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4011A1D794B91C4C15A09F6 /* Pods_PortalCommunication.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		15C2C8D71EDC6800008A9F45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 15E6C9711ED4923500325060 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 15E6C9791ED4923500325060;
+			remoteInfo = PortalCommunication;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		15BFECBB1ED6FA0E005409F3 /* DataOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataOperation.swift; sourceTree = "<group>"; };
+		15C2C8D11EDC6800008A9F45 /* PortalCommunicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PortalCommunicationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		15C2C8D31EDC6800008A9F45 /* PortalCommunicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalCommunicationTests.swift; sourceTree = "<group>"; };
+		15C2C8D51EDC6800008A9F45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15C2C9041EE05ACE008A9F45 /* asyncOperation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = asyncOperation.xcdatamodel; sourceTree = "<group>"; };
+		15C2C9141EE06449008A9F45 /* AsyncOperation+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AsyncOperation+CoreDataClass.swift"; path = "../AsyncOperation+CoreDataClass.swift"; sourceTree = "<group>"; };
+		15C2C9151EE06449008A9F45 /* AsyncOperation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AsyncOperation+CoreDataProperties.swift"; path = "../AsyncOperation+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		15E6C97A1ED4923500325060 /* PortalCommunication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PortalCommunication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		15E6C97D1ED4923500325060 /* PortalCommunication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PortalCommunication.h; sourceTree = "<group>"; };
 		15E6C97E1ED4923500325060 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -29,6 +50,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		15C2C8CE1EDC6800008A9F45 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15C2C8D61EDC6800008A9F45 /* PortalCommunication.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		15E6C9761ED4923500325060 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -40,10 +69,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15C2C8D21EDC6800008A9F45 /* PortalCommunicationTests */ = {
+			isa = PBXGroup;
+			children = (
+				15C2C8D31EDC6800008A9F45 /* PortalCommunicationTests.swift */,
+				15C2C8D51EDC6800008A9F45 /* Info.plist */,
+			);
+			path = PortalCommunicationTests;
+			sourceTree = "<group>";
+		};
 		15E6C9701ED4923500325060 = {
 			isa = PBXGroup;
 			children = (
 				15E6C97C1ED4923500325060 /* PortalCommunication */,
+				15C2C8D21EDC6800008A9F45 /* PortalCommunicationTests */,
 				15E6C97B1ED4923500325060 /* Products */,
 				9BD61AC3FC9863E79227B5FC /* Pods */,
 				DC34BCE92556F5084EB455BA /* Frameworks */,
@@ -54,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				15E6C97A1ED4923500325060 /* PortalCommunication.framework */,
+				15C2C8D11EDC6800008A9F45 /* PortalCommunicationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -65,6 +105,9 @@
 				15E6C9851ED4926200325060 /* PortalCommunicator.swift */,
 				15E6C9861ED4926200325060 /* RequestOperation.swift */,
 				15BFECBB1ED6FA0E005409F3 /* DataOperation.swift */,
+				15C2C9031EE05ACE008A9F45 /* asyncOperation.xcdatamodeld */,
+				15C2C9141EE06449008A9F45 /* AsyncOperation+CoreDataClass.swift */,
+				15C2C9151EE06449008A9F45 /* AsyncOperation+CoreDataProperties.swift */,
 				15FADFD31ED492D900BA6C4F /* UniqId.swift */,
 				15E6C97E1ED4923500325060 /* Info.plist */,
 			);
@@ -102,6 +145,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		15C2C8D01EDC6800008A9F45 /* PortalCommunicationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15C2C8DB1EDC6800008A9F45 /* Build configuration list for PBXNativeTarget "PortalCommunicationTests" */;
+			buildPhases = (
+				15C2C8CD1EDC6800008A9F45 /* Sources */,
+				15C2C8CE1EDC6800008A9F45 /* Frameworks */,
+				15C2C8CF1EDC6800008A9F45 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				15C2C8D81EDC6800008A9F45 /* PBXTargetDependency */,
+			);
+			name = PortalCommunicationTests;
+			productName = PortalCommunicationTests;
+			productReference = 15C2C8D11EDC6800008A9F45 /* PortalCommunicationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		15E6C9791ED4923500325060 /* PortalCommunication */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 15E6C9821ED4923500325060 /* Build configuration list for PBXNativeTarget "PortalCommunication" */;
@@ -128,9 +189,15 @@
 		15E6C9711ED4923500325060 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Stylesoft LLC";
 				TargetAttributes = {
+					15C2C8D01EDC6800008A9F45 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 66FXUD76DR;
+						ProvisioningStyle = Automatic;
+					};
 					15E6C9791ED4923500325060 = {
 						CreatedOnToolsVersion = 8.3.2;
 						ProvisioningStyle = Manual;
@@ -150,11 +217,19 @@
 			projectRoot = "";
 			targets = (
 				15E6C9791ED4923500325060 /* PortalCommunication */,
+				15C2C8D01EDC6800008A9F45 /* PortalCommunicationTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		15C2C8CF1EDC6800008A9F45 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		15E6C9781ED4923500325060 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -198,20 +273,63 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		15C2C8CD1EDC6800008A9F45 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15C2C8D41EDC6800008A9F45 /* PortalCommunicationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		15E6C9751ED4923500325060 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15C2C9161EE06449008A9F45 /* AsyncOperation+CoreDataClass.swift in Sources */,
 				15FADFD41ED492D900BA6C4F /* UniqId.swift in Sources */,
 				15E6C9871ED4926200325060 /* PortalCommunicator.swift in Sources */,
+				15C2C9051EE05ACE008A9F45 /* asyncOperation.xcdatamodeld in Sources */,
 				15E6C9881ED4926200325060 /* RequestOperation.swift in Sources */,
+				15C2C9171EE06449008A9F45 /* AsyncOperation+CoreDataProperties.swift in Sources */,
 				15BFECBC1ED6FA0E005409F3 /* DataOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		15C2C8D81EDC6800008A9F45 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 15E6C9791ED4923500325060 /* PortalCommunication */;
+			targetProxy = 15C2C8D71EDC6800008A9F45 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		15C2C8D91EDC6800008A9F45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 66FXUD76DR;
+				INFOPLIST_FILE = PortalCommunicationTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = by.stylesoft.PortalCommunicationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		15C2C8DA1EDC6800008A9F45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 66FXUD76DR;
+				INFOPLIST_FILE = PortalCommunicationTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = by.stylesoft.PortalCommunicationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		15E6C9801ED4923500325060 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -360,6 +478,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		15C2C8DB1EDC6800008A9F45 /* Build configuration list for PBXNativeTarget "PortalCommunicationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15C2C8D91EDC6800008A9F45 /* Debug */,
+				15C2C8DA1EDC6800008A9F45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		15E6C9741ED4923500325060 /* Build configuration list for PBXProject "PortalCommunication" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -379,6 +506,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		15C2C9031EE05ACE008A9F45 /* asyncOperation.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				15C2C9041EE05ACE008A9F45 /* asyncOperation.xcdatamodel */,
+			);
+			currentVersion = 15C2C9041EE05ACE008A9F45 /* asyncOperation.xcdatamodel */;
+			path = asyncOperation.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 15E6C9711ED4923500325060 /* Project object */;
 }

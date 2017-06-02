@@ -9,14 +9,17 @@
 import UIKit
 import Alamofire
 
+
 public enum RequestOperationType {
     case login
     case data
     case ping
+    case registerForPush
 }
 
 public enum RequestOperationState {
     case ready
+    case pause
     case waiting(delayMs:UInt)
     case requesting(requestpath:String)
     case checkingStatus
@@ -35,7 +38,11 @@ class RequestOperation: Operation {
     var state           :RequestOperationState
     var uniqId          :UInt8
     var serviceRootForStatus:URL {
-        return serviceRoot.appendingPathComponent(MethodNameConstans.status)
+        return serviceRoot.appendingPathComponent(Constans.Methodname.status)
+    }
+    
+    override var isAsynchronous: Bool {
+        return true
     }
     
     var _finished = false {
@@ -47,8 +54,13 @@ class RequestOperation: Operation {
         }
     }
     
-    override var isAsynchronous: Bool {
-        return true
+    var _canceled = false{
+        willSet {
+            willChangeValue(forKey: "isCancelled")
+        }
+        didSet {
+            didChangeValue(forKey: "isCancelled")
+        }
     }
     
     var _executing = false {
@@ -68,12 +80,12 @@ class RequestOperation: Operation {
         return _finished
     }
     
-    
-    func finish() {
-        state = .finished
-        _executing = false
-        _finished = true
+    override var isCancelled: Bool{
+        return _canceled
     }
+    
+    
+    
     
     init(serviceRoot:URL, type:RequestOperationType) {
         self.serviceRoot    = serviceRoot
@@ -83,12 +95,21 @@ class RequestOperation: Operation {
             uniqId     = try UniqId.shared.getId()
             print("Generate new uniq id = \(self.uniqId) for operation \(type)")
         } catch {
-            uniqId     = 0
             assert(false, "Full set uniq Id")
+            uniqId     = 0
         }
         super.init()
     }
     
+    //MARK: - control operation method
+    /* This method is used for stopping operation. The current asynctoken's cycle will be closed immediately. The request's status won't be checked.*/
+    func finish() {
+        print("[\(Date())] Operation id = \(uniqId) type = \(type) was finished ")
+        state = .finished
+        _executing = false
+        _finished = true
+    }
+
     
     //MARK: - override operation method
     
@@ -98,7 +119,7 @@ class RequestOperation: Operation {
         let delay = asyncResponce.asyncDelay
         self.state = .waiting(delayMs: delay)
         DispatchQueue.main.asyncAfter(deadline: .now() + Double(delay) / 1000){ [unowned self] in
-      
+            
             self.state = .checkingStatus
             
             let param:Parameters = ["asyncToken":asyncResponce.asyncToken]
@@ -110,14 +131,14 @@ class RequestOperation: Operation {
                     
                     if let responseDict = JSON as? [String:Any]{
                         
-                        guard responseDict["is_success"] as! Bool   else {
+                        guard responseDict["is_success"] as! Bool else {
                             let error = NSError(domain: "Service returns incorrct response", code: 10007, userInfo: nil)
                             callBack.onError(error)
                             self.finish()
                             return
                         }
                         
-                        guard (responseDict["message"] as! String) != "SessionExpired"    else {
+                        guard (responseDict["message"] as! String) != "SessionExpired" else {
                             _ = onLoginExpired
                             return
                         }
@@ -159,6 +180,17 @@ class RequestOperation: Operation {
                 }
             }
         }
+    }
+    
+    //
+    func saveOperationIfNeed(asyncDelay:UInt) -> Bool{
+        let dateCheckedStatus   = Date(timeIntervalSinceNow: TimeInterval(asyncDelay))
+        let dateEndSafeInterval = Date(timeIntervalSinceNow: UIApplication.shared.backgroundTimeRemaining - TimeInterval(Constans.safeIntervalSec))
+        if dateCheckedStatus.compare(dateEndSafeInterval) == .orderedDescending {
+            //save
+            return true
+        }
+        return false
     }
     
     deinit {

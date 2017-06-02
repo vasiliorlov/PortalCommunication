@@ -19,7 +19,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         
-        let setting         = PortalSetting(pingIntervalMs: 10000, authServiceRoot: "https://authServiceRoot", appServiceRoot: "https://appServiceRoot", commonServiceRoot: "https://commonServiceRoot")
+     
+        
+        let setting         = PortalSetting(pingIntervalMs: 1000000, authServiceRoot: "https://authServiceRoot", appServiceRoot: "https://appServiceRoot", commonServiceRoot: "https://commonServiceRoot")
         let eventCallBack   = EventCallBack(onLoginExpired: {
             //code
         }, onPingFailed: { (error) in
@@ -48,11 +50,13 @@ class ViewController: UIViewController {
       let portal = PortalCommunicator.sharedInstance(setting, eventCallBack, credentials)
          print("login start \(Date.init(timeIntervalSinceNow: 0))")
        portal.login(params: loginParam, callBack: operationCallBack)
-       portal.login(params: loginParam, callBack: operationCallBack)
-       portal.login(params: loginParam, callBack: operationCallBack)
+       /*
         
+       portal.login(params: loginParam, callBack: operationCallBack)
+       portal.login(params: loginParam, callBack: operationCallBack)
+        */
              _ = portal.statusOperations()
-        
+       
         // Do any additional setup after loading the view, typically from a nib.
     }
 

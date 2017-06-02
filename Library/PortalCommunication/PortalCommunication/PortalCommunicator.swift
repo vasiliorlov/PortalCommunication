@@ -9,9 +9,15 @@
 import UIKit
 import UserNotifications
 
-struct MethodNameConstans {
-    static let status   = "status"
-    static let ping     = "ping"
+struct Constans {
+    struct Methodname {
+        static let status       = "status"
+        static let ping         = "ping"
+        static let registerPush = "registerForPush"
+    }
+    
+    static let safeIntervalSec  = 5 //safe work interval before suspended in Sec
+   
 }
 
 public struct PortalSetting {
@@ -126,7 +132,7 @@ public class PortalCommunicator: NSObject{
         
     }
     
-    /*This method is used for cancelling request. It may happen if the result of the request is no longer needed. RequestId = 0 is error*/
+    /*This method is used for cancelling request. It may happen if the result of the request is no longer needed. */
     public func cancel(requestId:UInt8){
         for operation in queueOperation.operations{
             let dataOperation = operation as! DataOperation
@@ -138,8 +144,8 @@ public class PortalCommunicator: NSObject{
         }
     }
     
-    /*This method is used for getting any data from the app service. Both parameters and request. RequestId = 0 is error*/
-    public func getData(methodName:String, params:[String:Any], callBack:OperationCallBack) -> UInt8{
+    /*This method is used for getting any data from the app service. Both parameters and request.*/
+    public func getData(methodName:String, params:[String:Any], callBack:OperationCallBack) -> UInt8?{
         
         var urlGetDataService = URL.init(string: setting.appServiceRoot)
         urlGetDataService?.appendPathComponent(methodName)
@@ -147,7 +153,7 @@ public class PortalCommunicator: NSObject{
         guard urlGetDataService != nil else {
             let error = NSError(domain: "AuthServiceRoot is not correct", code: 10001, userInfo: nil)
             callBack.onError(error)
-            return 0
+            return nil
         }
         
         let operation = DataOperation(serviceRoot: urlGetDataService!, type:.data, params: params/*add auth*/, callBack: callBack, onLoginExpired: self.eventCallBack.onLoginExpired)
@@ -155,8 +161,9 @@ public class PortalCommunicator: NSObject{
         
         return operation.uniqId
     }
-    /*This method is used for getting any data from the app service. Both parameters and request.  RequestId = 0 is error*/
-    public func sendData(methodName:String, params:[String:Any], callBack:OperationCallBack) -> UInt8{
+    
+    /*This method is used for getting any data from the app service. Both parameters and request. */
+    public func sendData(methodName:String, params:[String:Any], callBack:OperationCallBack) -> UInt8?{
         
         var urlGetDataService = URL.init(string: setting.appServiceRoot)
         urlGetDataService?.appendPathComponent(methodName)
@@ -164,7 +171,7 @@ public class PortalCommunicator: NSObject{
         guard urlGetDataService != nil else {
             let error = NSError(domain: "AuthServiceRoot is not correct", code: 10001, userInfo: nil)
             callBack.onError(error)
-            return 0
+            return nil
         }
         
         let operation = DataOperation(serviceRoot: urlGetDataService!,type:.data, params: params/*add auth*/, callBack: callBack, onLoginExpired: self.eventCallBack.onLoginExpired)
@@ -172,6 +179,7 @@ public class PortalCommunicator: NSObject{
         
         return operation.uniqId
     }
+    
     /*This method is used for updating library settings.*/
     public func setSettings(settings:PortalSetting){
         self.setting = settings
@@ -186,13 +194,14 @@ public class PortalCommunicator: NSObject{
             let dataOperation = operation as! DataOperation
             let status:StatusOperation = (dataOperation.uniqId, dataOperation.type, dataOperation.state)
             operationsStatus.append(status)
-            print("id \(dataOperation.uniqId) type \(dataOperation.type) state \(dataOperation.state)")
+            print("id =  \(dataOperation.uniqId) type = \(dataOperation.type) state = \(dataOperation.state)")
         }
         print("#########################################")
         return operationsStatus
     }
     
     //MARK: - EventCallBack
+    
     func prepareEventCallBack(){
         let repeatInterval = TimeInterval(setting.pingIntervalMs / 1000) //in Sec
         timer = Timer.scheduledTimer(timeInterval: repeatInterval, target: self, selector: #selector(pingServer), userInfo: nil, repeats: true)
@@ -203,7 +212,7 @@ public class PortalCommunicator: NSObject{
     func pingServer(){
         
         var urlPingService = URL.init(string: setting.commonServiceRoot)
-        urlPingService?.appendPathComponent(MethodNameConstans.ping)
+        urlPingService?.appendPathComponent(Constans.Methodname.ping)
         
         guard urlPingService != nil else {
             let error = NSError(domain: "urlPingService is not correct", code: 10001, userInfo: nil)
@@ -231,28 +240,29 @@ public class PortalCommunicator: NSObject{
         
         let paramsAuth:[String:Any] = ["auth_token":self.token ?? ""]
         
-        let operation = DataOperation(serviceRoot: urlPingService!,type:.data, params: paramsAuth/*add auth*/, callBack: pingCallBack, onLoginExpired: self.eventCallBack.onLoginExpired)
+        let operation = DataOperation(serviceRoot: urlPingService!,type:.ping, params: paramsAuth/*add auth*/, callBack: pingCallBack, onLoginExpired: self.eventCallBack.onLoginExpired)
         queueOperation.addOperation(operation)
         
     }
     
-    /*This method is used for register device for receiving push notifications.*/
-    func registerForPush(){
+    /*This method is used for register device for receiving push notifications. The only usage for now "push-to-ping"*/
+    public func registerForPush(pushToken:String, callBack:OperationCallBack) -> UInt8?{
+        var urlRegisterpushService = URL.init(string: setting.commonServiceRoot)
+        urlRegisterpushService?.appendPathComponent(Constans.Methodname.registerPush)
         
-        let application = UIApplication.shared
-        if #available(iOS 10.0, *) {
-            let center = UNUserNotificationCenter.current()
-            center.requestAuthorization(options: []) { (granted, error) in
-                if granted {
-                    application.registerForRemoteNotifications()
-                    center.delegate = self as? UNUserNotificationCenterDelegate
-                }
-            }
-            application.registerForRemoteNotifications()
-        } else {
-            let notificationSettings = UIUserNotificationSettings(types: [], categories: nil)
-            application.registerUserNotificationSettings(notificationSettings)
+        guard urlRegisterpushService != nil else {
+            let error = NSError(domain: "urlRegisterForPushService is not correct", code: 10001, userInfo: nil)
+            eventCallBack.onPingFailed(error)
+            return nil
         }
+        
+        
+        
+        let paramsPush:[String:Any] = ["auth_token":self.token ?? "", "push_token":pushToken, "push_service":"APNS" ]
+        
+        let operation = DataOperation(serviceRoot: urlRegisterpushService!,type:.registerForPush, params: paramsPush, callBack: callBack, onLoginExpired: self.eventCallBack.onLoginExpired)
+        queueOperation.addOperation(operation)
+        return operation.uniqId
     }
     
     func receiveRemoteNotification(){
