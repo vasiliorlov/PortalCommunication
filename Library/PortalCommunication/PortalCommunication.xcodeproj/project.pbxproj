@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		150074371EE543A400FB6716 /* AsyncOperation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150074351EE543A400FB6716 /* AsyncOperation+CoreDataClass.swift */; };
+		150074381EE543A400FB6716 /* AsyncOperation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150074361EE543A400FB6716 /* AsyncOperation+CoreDataProperties.swift */; };
+		1500743A1EE546C500FB6716 /* DateBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150074391EE546C500FB6716 /* DateBaseManager.swift */; };
 		15BFECBC1ED6FA0E005409F3 /* DataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BFECBB1ED6FA0E005409F3 /* DataOperation.swift */; };
 		15C2C8D41EDC6800008A9F45 /* PortalCommunicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C2C8D31EDC6800008A9F45 /* PortalCommunicationTests.swift */; };
 		15C2C8D61EDC6800008A9F45 /* PortalCommunication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E6C97A1ED4923500325060 /* PortalCommunication.framework */; };
 		15C2C9051EE05ACE008A9F45 /* asyncOperation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 15C2C9031EE05ACE008A9F45 /* asyncOperation.xcdatamodeld */; };
-		15C2C9161EE06449008A9F45 /* AsyncOperation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C2C9141EE06449008A9F45 /* AsyncOperation+CoreDataClass.swift */; };
-		15C2C9171EE06449008A9F45 /* AsyncOperation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C2C9151EE06449008A9F45 /* AsyncOperation+CoreDataProperties.swift */; };
 		15E6C97F1ED4923500325060 /* PortalCommunication.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E6C97D1ED4923500325060 /* PortalCommunication.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		15E6C9871ED4926200325060 /* PortalCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6C9851ED4926200325060 /* PortalCommunicator.swift */; };
 		15E6C9881ED4926200325060 /* RequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6C9861ED4926200325060 /* RequestOperation.swift */; };
@@ -31,13 +32,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		150074351EE543A400FB6716 /* AsyncOperation+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AsyncOperation+CoreDataClass.swift"; path = "../AsyncOperation+CoreDataClass.swift"; sourceTree = "<group>"; };
+		150074361EE543A400FB6716 /* AsyncOperation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AsyncOperation+CoreDataProperties.swift"; path = "../AsyncOperation+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		150074391EE546C500FB6716 /* DateBaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateBaseManager.swift; sourceTree = "<group>"; };
 		15BFECBB1ED6FA0E005409F3 /* DataOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataOperation.swift; sourceTree = "<group>"; };
 		15C2C8D11EDC6800008A9F45 /* PortalCommunicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PortalCommunicationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		15C2C8D31EDC6800008A9F45 /* PortalCommunicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalCommunicationTests.swift; sourceTree = "<group>"; };
 		15C2C8D51EDC6800008A9F45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15C2C9041EE05ACE008A9F45 /* asyncOperation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = asyncOperation.xcdatamodel; sourceTree = "<group>"; };
-		15C2C9141EE06449008A9F45 /* AsyncOperation+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AsyncOperation+CoreDataClass.swift"; path = "../AsyncOperation+CoreDataClass.swift"; sourceTree = "<group>"; };
-		15C2C9151EE06449008A9F45 /* AsyncOperation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AsyncOperation+CoreDataProperties.swift"; path = "../AsyncOperation+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		15E6C97A1ED4923500325060 /* PortalCommunication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PortalCommunication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		15E6C97D1ED4923500325060 /* PortalCommunication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PortalCommunication.h; sourceTree = "<group>"; };
 		15E6C97E1ED4923500325060 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,13 +103,14 @@
 		15E6C97C1ED4923500325060 /* PortalCommunication */ = {
 			isa = PBXGroup;
 			children = (
+				150074351EE543A400FB6716 /* AsyncOperation+CoreDataClass.swift */,
+				150074361EE543A400FB6716 /* AsyncOperation+CoreDataProperties.swift */,
 				15E6C97D1ED4923500325060 /* PortalCommunication.h */,
 				15E6C9851ED4926200325060 /* PortalCommunicator.swift */,
 				15E6C9861ED4926200325060 /* RequestOperation.swift */,
+				150074391EE546C500FB6716 /* DateBaseManager.swift */,
 				15BFECBB1ED6FA0E005409F3 /* DataOperation.swift */,
 				15C2C9031EE05ACE008A9F45 /* asyncOperation.xcdatamodeld */,
-				15C2C9141EE06449008A9F45 /* AsyncOperation+CoreDataClass.swift */,
-				15C2C9151EE06449008A9F45 /* AsyncOperation+CoreDataProperties.swift */,
 				15FADFD31ED492D900BA6C4F /* UniqId.swift */,
 				15E6C97E1ED4923500325060 /* Info.plist */,
 			);
@@ -285,12 +288,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15C2C9161EE06449008A9F45 /* AsyncOperation+CoreDataClass.swift in Sources */,
+				150074371EE543A400FB6716 /* AsyncOperation+CoreDataClass.swift in Sources */,
 				15FADFD41ED492D900BA6C4F /* UniqId.swift in Sources */,
 				15E6C9871ED4926200325060 /* PortalCommunicator.swift in Sources */,
 				15C2C9051EE05ACE008A9F45 /* asyncOperation.xcdatamodeld in Sources */,
+				1500743A1EE546C500FB6716 /* DateBaseManager.swift in Sources */,
 				15E6C9881ED4926200325060 /* RequestOperation.swift in Sources */,
-				15C2C9171EE06449008A9F45 /* AsyncOperation+CoreDataProperties.swift in Sources */,
+				150074381EE543A400FB6716 /* AsyncOperation+CoreDataProperties.swift in Sources */,
 				15BFECBC1ED6FA0E005409F3 /* DataOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

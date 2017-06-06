@@ -2,7 +2,7 @@
 //  AsyncOperation+CoreDataProperties.swift
 //  PortalCommunication
 //
-//  Created by Vasilij Orlov on 6/1/17.
+//  Created by Vasilij Orlov on 6/5/17.
 //  Copyright © 2017 Stylesoft LLC. All rights reserved.
 //
 
