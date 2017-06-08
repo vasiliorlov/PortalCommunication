@@ -13,15 +13,11 @@ import PortalCommunication
 
 class ViewController: UIViewController {
     
-
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    let portal = { () -> PortalCommunicator in
+        // ##########################
+        // --- Init ---
         
-        
-     
-        
-        let setting         = PortalSetting(pingIntervalMs: 1000000, authServiceRoot: "https://authServiceRoot", appServiceRoot: "https://appServiceRoot", commonServiceRoot: "https://commonServiceRoot")
+        let setting         = PortalSetting(pingIntervalMs: 1000000, authServiceRoot: "http://localhost:8080//api/login", appServiceRoot: "http://localhost:8080//api/", commonServiceRoot: "http://localhost:8080//api/")
         let eventCallBack   = EventCallBack(onLoginExpired: {
             //code
         }, onPingFailed: { (error) in
@@ -29,42 +25,101 @@ class ViewController: UIViewController {
         }) { (command, dictParam) in
             //code
         }
-        let credentials   = PortalCredentials(appId: "appId", deviceId: "deviceId")
+        let credentials   = PortalCredentials(appId: "qwerty", deviceId: "asdf")
+        return PortalCommunicator.sharedInstance(setting, eventCallBack, credentials)
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        //login
-        let loginParam:[String:Any] = ["companyCode":"CompanyCode"]
         
-        let operationCallBack = OperationCallBack(onSuccess: { (data) in
+        
+        
+        /*
+         
+         portal.login(params: loginParam, callBack: operationCallBack)
+         portal.login(params: loginParam, callBack: operationCallBack)
+         */
+        // _ = portal.statusOperations()
+        
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        
+    }
+    
+    
+    @IBAction func login(_ sender: Any) {
+        // ##########################
+        // --- login ---
+        let loginParam:[String:Any] = [:]
+        
+        let loginOperationCallBack = OperationCallBack(onSuccess: { (data) in
             //code
-            print("success \(Date.init(timeIntervalSinceNow: 0))")
+            
+            print("success \(Date.init(timeIntervalSinceNow: 0)) data \(String(describing: data))")
         }, onError: { (error) in
             //code
             print("error \(Date.init(timeIntervalSinceNow: 0)) error = \(error.localizedDescription) ")
         }) { (delayMS, message) in
             //code
         }
+        print("login start \(Date.init(timeIntervalSinceNow: 0))")
+        portal.login(params: loginParam, callBack: loginOperationCallBack)
         
-        
-        
-        
-      let portal = PortalCommunicator.sharedInstance(setting, eventCallBack, credentials)
-         print("login start \(Date.init(timeIntervalSinceNow: 0))")
-       portal.login(params: loginParam, callBack: operationCallBack)
-       /*
-        
-       portal.login(params: loginParam, callBack: operationCallBack)
-       portal.login(params: loginParam, callBack: operationCallBack)
-        */
-             _ = portal.statusOperations()
-       
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
+    @IBAction func getDataSync(_ sender: Any) {
+        // ##########################
+        // --- GetData ---
+        // ------- sync ---
+        let getParam:[String:Any] = ["param1":"param1", "param2":"param2"]
+        let methodName = "getData/sync"
+        
+        let getDataSyncOperationCallBack = OperationCallBack(onSuccess: { (data) in
+            //code
+            
+            print("success \(Date.init(timeIntervalSinceNow: 0)) data \(String(describing: data))")
+        }, onError: { (error) in
+            //code
+            print("error \(Date.init(timeIntervalSinceNow: 0)) error = \(error.localizedDescription) ")
+        }) { (delayMS, message) in
+            //code
+        }
+        print("getDataSync start \(Date.init(timeIntervalSinceNow: 0))")
+        _ = portal.getData(methodName: methodName, params: getParam, callBack: getDataSyncOperationCallBack)
+    }
+    
+    @IBAction func getDataAsync(_ sender: Any) {
+        // ##########################
+        // --- GetData ---
+        // ------- Async ---
+        let getParam:[String:Any] = ["param1":"param1", "param2":"param2"]
+        let methodName = "getData/async"
+        
+        let getDataAsyncOperationCallBack = OperationCallBack(onSuccess: { (data) in
+            //code
+            
+            print("success \(Date.init(timeIntervalSinceNow: 0)) data \(String(describing: data))")
+        }, onError: { (error) in
+            //code
+            print("error \(Date.init(timeIntervalSinceNow: 0)) error = \(error.localizedDescription) ")
+        }) { (delayMS, message) in
+            //code
+        }
+        print("getDataAync start \(Date.init(timeIntervalSinceNow: 0))")
+        _ = portal.getData(methodName: methodName, params: getParam, callBack: getDataAsyncOperationCallBack)
+    }
+    
+    @IBAction func setDataSync(_ sender: Any) {
+    }
+    
+    @IBOutlet weak var setDataAsync: UIButton!
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-//MARK:
+    //MARK:
     func onLoginExpired(){
         
     }

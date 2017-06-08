@@ -38,7 +38,8 @@ class RequestOperation: Operation {
     var state           :RequestOperationState
     var uniqId          :UInt8
     var serviceRootForStatus:URL {
-        return serviceRoot.appendingPathComponent(Constans.Methodname.status)
+        return URL.init(string:"http://localhost:8080//api/status/ready")! //for loca test
+        //return serviceRoot.appendingPathComponent(Constans.Methodname.status)
     }
     
     override var isAsynchronous: Bool {

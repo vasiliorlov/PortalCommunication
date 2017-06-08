@@ -119,15 +119,33 @@ public class PortalCommunicator: NSObject{
             return
         }
         
+        guard credentials.appId != "" else {
+            let error = NSError(domain: "Application ID is not inastaled", code: 10100, userInfo: nil)
+            callBack.onError(error)
+            return
+        }
+        
+        guard credentials.deviceId != "" else {
+            let error = NSError(domain: "Device ID is not inastaled", code: 10101, userInfo: nil)
+            callBack.onError(error)
+            return
+        }
+        
+        var authParams          = params
+        authParams["app_id"]    = credentials.appId
+        authParams["device_id"] = credentials.deviceId
+        
+        
         var authCallBack = callBack
         authCallBack.onSuccess = { [unowned self] data in
             if let token = data?["auth_token"]{
                 self.token = token as? String
+                print("Auth token \(String(describing: self.token!)) was saved")
             }
-            callBack.onSuccess(nil)
+            callBack.onSuccess(data)
         }
         
-        let operation = DataOperation(serviceRoot: urlAuthService!, type:.login, params: params, callBack: authCallBack, onLoginExpired: self.eventCallBack.onLoginExpired)
+        let operation = DataOperation(serviceRoot: urlAuthService!, type:.login, params: authParams, callBack: authCallBack, onLoginExpired: self.eventCallBack.onLoginExpired)
         queueOperation.addOperation(operation)
         
     }
