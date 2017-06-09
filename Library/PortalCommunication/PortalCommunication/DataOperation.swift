@@ -31,7 +31,7 @@ class DataOperation: RequestOperation {
         _executing = true
 
 
-        state = .requesting(requestpath: self.serviceRoot.absoluteString)
+        state = .requesting(requestPath: self.serviceRoot.absoluteString)
         
         
         Alamofire.request(self.serviceRoot, method: .post, parameters: self.params, encoding: URLEncoding.default, headers: nil).validate().responseJSON { response in
@@ -45,7 +45,7 @@ class DataOperation: RequestOperation {
                             if let token = responseDict["async_token"] as? String{
                                 let asyncResponse = ResponseAsync(asyncToken: token , asyncDelay: delay )
                                 if !self.isFinished {
-                                    self.getResponseAfterCheckedStatus(asyncResponce: asyncResponse , callBack: self.callBack, onLoginExpired:self.onLoginExpired)
+                                    self.getResponseFromCheckLoop(asyncResponce: asyncResponse , callBack: self.callBack, onLoginExpired:self.onLoginExpired)
                                 }
                             }else{
                                 let error = NSError(domain: "Async response doesn't have async_token value ", code: 10004, userInfo: nil)

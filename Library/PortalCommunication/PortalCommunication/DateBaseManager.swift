@@ -27,6 +27,7 @@ class DateBaseManager: NSObject {
             realm.add(model, update: true)
         }
     }
+
     
     func readAll()  -> [AsyncOperationModel]?{
         let models = Array(realm.objects(AsyncOperationModel.self))

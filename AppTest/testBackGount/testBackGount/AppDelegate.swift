@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var countStart:Int = 0
     
     var count:Int = 0
-    var bgTask:UIBackgroundTaskIdentifier = -1
+    var backgroundTaskID:UIBackgroundTaskIdentifier = -1
     let defUser = UserDefaults.standard
     
     
@@ -30,10 +30,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
     }
+    /*
+    func backgrounfSycle(){
+        bgTask = UIApplication.shared.beginBackgroundTask {
+           self.backgrounfSycle()
+            var duserTxt = (self.defUser.string(forKey:"txt") ?? "") + "| \(Date.init(timeIntervalSinceNow: 0))"
+            self.defUser.set(duserTxt, forKey: "txt")
+            UIApplication.shared.endBackgroundTask(self.bgTask)
+   
+        }
+*/
+    
     
     func applicationDidEnterBackground(_ application: UIApplication) {
       
-        
+
+    
+        }
+
         
         
       
@@ -86,7 +100,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 */
         
-    }
+
  
     
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -100,14 +114,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
+    /*
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         var fetch = defUser.integer(forKey: "test2")
         fetch = fetch + 1
        defUser.set(fetch, forKey: "test2")
         
         completionHandler(.newData)
-    }
+    }*/
     func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
         
     }

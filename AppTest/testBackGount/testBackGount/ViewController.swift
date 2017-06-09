@@ -15,51 +15,33 @@ class ViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     let defUser = UserDefaults.standard
     var sec:Int = 0
-    var backgroundTask:UIBackgroundTaskIdentifier = 0
+    var backgroundTaskID:UIBackgroundTaskIdentifier? = nil
     
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let sec = defUser.integer(forKey: "test")
-        let fetch = defUser.integer(forKey: "test2")
-        textView.text = "\(sec) + fetch + \(fetch)"
-        defUser.removeObject(forKey: "test")
-    }
-    
-    func setupBackgrounding (){
-        NotificationCenter.default.addObserver(self, selector: #selector(appBackgrounding), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+        textView.text = " \(defUser.integer(forKey: "int"))"
         
-        NotificationCenter.default.addObserver(self, selector: #selector(appForegrounding), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+        
+        
+        
     }
     
-    func appBackgrounding(notification:NSNotification){
-        keepAlive()
-    }
-    
-    func keepAlive(){
-        backgroundTask = UIApplication.shared.beginBackgroundTask(expirationHandler: {
-            self.backgroundTask = UIBackgroundTaskInvalid
-            self.keepAlive()
-        })
-    }
-    
-    func appForegrounding(){
-        if backgroundTask != UIBackgroundTaskInvalid{
-            UIApplication.shared.endBackgroundTask(backgroundTask)
-            backgroundTask = UIBackgroundTaskInvalid
-        }
+    @IBAction func start(_ sender: Any) {
+        print("start")
+        var timer = Timer.scheduledTimer(timeInterval: 300, target: self, selector: #selector(timedCalc), userInfo: nil, repeats: true)
+   
     }
     
     
-    @IBAction func refresh(_ sender: Any) {
-           timeLabel.text = "\(UIApplication.shared.backgroundTimeRemaining)"
+    
+    func timedCalc(){
+        print("delay end \(self.sec)")
+        self.sec += 300
+        self.defUser.set(self.sec, forKey: "int")
+        self.textView.text = " \(self.defUser.integer(forKey: "int"))"
+        
     }
     
-    func update(){
-        sec = sec + 1
-        defUser.set(sec, forKey: "test")
-    }
 }
-

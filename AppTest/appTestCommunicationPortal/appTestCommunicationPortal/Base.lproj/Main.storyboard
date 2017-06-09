@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -53,28 +54,75 @@
                                 <rect key="frame" x="140" y="164" width="95" height="30"/>
                                 <state key="normal" title="setDataAsync"/>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nja-U8-nA7">
+                                <rect key="frame" x="16" y="270" width="343" height="389"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhh-xW-9D0">
+                                <rect key="frame" x="165" y="194" width="44" height="30"/>
+                                <state key="normal" title="Status">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="getStatus:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n5d-bY-7Nh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6O-DA-TZj">
+                                <rect key="frame" x="98" y="232" width="180" height="30"/>
+                                <state key="normal" title="Cancel operation with Id ="/>
+                                <connections>
+                                    <action selector="canceledOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gfP-Qi-501"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gLv-A4-5ab">
+                                <rect key="frame" x="286" y="232" width="40" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="phf-jG-hCz"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="xeY-pF-5l4"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="A8k-as-2Xt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1Hw-6r-rqN"/>
+                            <constraint firstItem="vhh-xW-9D0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1q7-u2-nbU"/>
                             <constraint firstItem="A8k-as-2Xt" firstAttribute="top" secondItem="Elo-7D-Beu" secondAttribute="bottom" constant="8" id="4lX-OL-hJ7"/>
                             <constraint firstItem="ppB-l5-ZqE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5f4-aH-wti"/>
+                            <constraint firstItem="Nja-U8-nA7" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="7of-Vq-KQt"/>
+                            <constraint firstItem="M6O-DA-TZj" firstAttribute="top" secondItem="vhh-xW-9D0" secondAttribute="bottom" constant="8" id="BNk-7U-sJ8"/>
                             <constraint firstItem="8k1-N7-gY1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Fjp-gN-nvH"/>
+                            <constraint firstItem="Nja-U8-nA7" firstAttribute="top" secondItem="gLv-A4-5ab" secondAttribute="bottom" constant="8" id="KZM-ES-zKP"/>
                             <constraint firstItem="Elo-7D-Beu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NFv-ls-I4i"/>
                             <constraint firstItem="DWf-TZ-Vme" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="S9E-mT-riA"/>
                             <constraint firstItem="DWf-TZ-Vme" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SMe-DE-bkz"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Nja-U8-nA7" secondAttribute="bottom" constant="8" id="fxP-bh-RmY"/>
+                            <constraint firstItem="gLv-A4-5ab" firstAttribute="leading" secondItem="M6O-DA-TZj" secondAttribute="trailing" constant="8" id="kmk-Kh-wRP"/>
                             <constraint firstItem="Elo-7D-Beu" firstAttribute="top" secondItem="8k1-N7-gY1" secondAttribute="bottom" constant="8" id="obi-yM-LkG"/>
+                            <constraint firstItem="M6O-DA-TZj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pj5-eR-6Sc"/>
+                            <constraint firstItem="Nja-U8-nA7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="sGF-Ac-TW2"/>
                             <constraint firstItem="ppB-l5-ZqE" firstAttribute="top" secondItem="A8k-as-2Xt" secondAttribute="bottom" id="u5B-Uu-Npe"/>
+                            <constraint firstItem="gLv-A4-5ab" firstAttribute="centerY" secondItem="M6O-DA-TZj" secondAttribute="centerY" id="uGu-hV-cze"/>
                             <constraint firstItem="8k1-N7-gY1" firstAttribute="top" secondItem="DWf-TZ-Vme" secondAttribute="bottom" constant="8" id="z9O-xi-s8a"/>
+                            <constraint firstItem="vhh-xW-9D0" firstAttribute="top" secondItem="ppB-l5-ZqE" secondAttribute="bottom" id="zqP-UT-9aq"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cancelOperationId" destination="gLv-A4-5ab" id="RpW-AJ-7QK"/>
+                        <outlet property="consoleTextView" destination="Nja-U8-nA7" id="frg-72-VV8"/>
                         <outlet property="setDataAsync" destination="ppB-l5-ZqE" id="fyQ-qH-9F2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="226" y="131"/>
+            <point key="canvasLocation" x="224.80000000000001" y="130.88455772113943"/>
         </scene>
     </scenes>
 </document>

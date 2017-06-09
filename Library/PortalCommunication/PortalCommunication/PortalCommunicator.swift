@@ -17,7 +17,7 @@ struct Constans {
     }
     
     static let safeIntervalSec  = 5 //safe work interval before suspended in Sec
-   
+    
 }
 
 public struct PortalSetting {
@@ -151,14 +151,26 @@ public class PortalCommunicator: NSObject{
     }
     
     /*This method is used for cancelling request. It may happen if the result of the request is no longer needed. */
-    public func cancel(requestId:UInt8){
+    public func cancel(requestId:UInt8) -> Bool{
         for operation in queueOperation.operations{
             let dataOperation = operation as! DataOperation
             if dataOperation.uniqId == requestId {
                 dataOperation.cancel()
                 dataOperation.finish()
+                return true
             }
-            
+        }
+        print("Opertion id = \(requestId) isn't found in stack")
+        return false
+    }
+    
+    /*This method is used for cancelling all requests. It may happen if the result of the request is no longer needed. */
+    public func cancelAll(){
+        for operation in queueOperation.operations{
+            let dataOperation = operation as! DataOperation
+            dataOperation.cancel()
+            dataOperation.finish()
+            print("Opertion id = \(dataOperation.uniqId) is canceled")
         }
     }
     
