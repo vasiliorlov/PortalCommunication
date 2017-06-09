@@ -13,7 +13,6 @@ import PortalCommunication
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
-    
     @IBOutlet weak var consoleTextView: UITextView!
     @IBOutlet weak var cancelOperationId: UITextField!
     
@@ -35,7 +34,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         
         
