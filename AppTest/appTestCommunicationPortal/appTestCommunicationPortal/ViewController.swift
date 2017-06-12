@@ -20,12 +20,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // ##########################
         // --- Init ---
         
-        let setting         = PortalSetting(pingIntervalMs: 1000000, authServiceRoot: "http://localhost:8080//api/login", appServiceRoot: "http://localhost:8080//api/", commonServiceRoot: "http://localhost:8080//api/")
+        let setting         = PortalSetting(pingIntervalMs: 100000, authServiceRoot: "http://localhost:8080//api/login", appServiceRoot: "http://localhost:8080//api/", commonServiceRoot: "http://localhost:8080//api/")
         let eventCallBack   = EventCallBack(onLoginExpired: {
             //code
         }, onPingFailed: { (error) in
             //code
         }) { (command, dictParam) in
+            print("ping command \(dictParam)")
             //code
         }
         let credentials   = PortalCredentials(appId: "qwerty", deviceId: "asdf")
@@ -34,8 +35,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         
         /*
          
@@ -128,16 +127,61 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // ##########################
         // --- Cancel Operation --
         if let idOperation = UInt8(self.cancelOperationId.text ?? "0"){
-            self.consoleTextView.text.append("try cancel operation id = \(String(describing: idOperation)) \n")
+            self.consoleTextView.text.append("try to cancel operation id = \(String(describing: idOperation)) \n")
             let result = portal.cancel(requestId: idOperation)
             self.consoleTextView.text.append("canceled \(result ? "Ok" : "Failure") \n")
         }
     }
     
     @IBAction func setDataSync(_ sender: Any) {
+        // ##########################
+        // --- SetData ---
+        // ------- sync ---
+        let setParam:[String:Any] = ["param1":"param1", "param2":"param2", "locations":["loc1":["id":"id1", "sourceId":"sourceId1", "descr":"descr1"],"loc2":["id":"id2", "sourceId":"sourceId2", "descr":"descr2"]]]
+        let methodName = "setData/sync"
+        
+        let setDataSyncOperationCallBack = OperationCallBack(onSuccess: { (data) in
+            //code
+            self.consoleTextView.text.append("success \(Date.init(timeIntervalSinceNow: 0)) data \(String(describing: data)) \n")
+            print("success \(Date.init(timeIntervalSinceNow: 0)) data \(String(describing: data))")
+        }, onError: { (error) in
+            //code
+            self.consoleTextView.text.append("error \(Date.init(timeIntervalSinceNow: 0)) error = \(error.localizedDescription) \n")
+            print("error \(Date.init(timeIntervalSinceNow: 0)) error = \(error.localizedDescription) ")
+        }) { (delayMS, message) in
+            //code
+            self.consoleTextView.text.append("progress \(Date.init(timeIntervalSinceNow: 0)) delay = \(delayMS) \(message) \n")
+        }
+        print("getDataSync start \(Date.init(timeIntervalSinceNow: 0))")
+        let idSetDataSync = portal.sendData(methodName: methodName, params: setParam, callBack: setDataSyncOperationCallBack)
+        consoleTextView.text.append("started operation with id = \(String(describing: idSetDataSync!))\n")
     }
-    
-    @IBOutlet weak var setDataAsync: UIButton!
+ 
+    @IBAction func setDataAsync(_ sender: Any) {
+        // ##########################
+        // --- SetData ---
+        // ------- Async ---
+        let setParam:[String:Any] = ["param1":"param1", "param2":"param2", "locations":["loc1":["id":"id1", "sourceId":"sourceId1", "descr":"descr1"],"loc2":["id":"id2", "sourceId":"sourceId2", "descr":"descr2"]]]
+        let methodName = "setData/async"
+        
+        let setDataAsyncOperationCallBack = OperationCallBack(onSuccess: { (data) in
+            //code
+            self.consoleTextView.text.append("success \(Date.init(timeIntervalSinceNow: 0)) data \(String(describing: data)) \n")
+            print("success \(Date.init(timeIntervalSinceNow: 0)) data \(String(describing: data))")
+        }, onError: { (error) in
+            //code
+            self.consoleTextView.text.append("error \(Date.init(timeIntervalSinceNow: 0)) error = \(error.localizedDescription) \n")
+            print("error \(Date.init(timeIntervalSinceNow: 0)) error = \(error.localizedDescription) ")
+            
+        }) { (delayMS, message) in
+            //code
+            print ("progress \(Date.init(timeIntervalSinceNow: 0)) delay = \(delayMS) \(message) ")
+            self.consoleTextView.text.append("progress \(Date.init(timeIntervalSinceNow: 0)) delay = \(delayMS) \(message) \n")
+        }
+        print("getDataAync start \(Date.init(timeIntervalSinceNow: 0))")
+        let  idSetDataAsync = portal.sendData(methodName: methodName, params: setParam, callBack: setDataAsyncOperationCallBack)
+        consoleTextView.text.append("started operation with id = \(String(describing: idSetDataAsync!))\n")
+    }
     
     
     @IBAction func getStatus(_ sender: Any) {
@@ -146,6 +190,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let operations = portal.statusOperations()
         self.consoleTextView.text.append("status \(String(describing: operations)) \n")
         
+    }
+    @IBAction func clearTextView(_ sender: Any) {
+         consoleTextView.text = ""
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

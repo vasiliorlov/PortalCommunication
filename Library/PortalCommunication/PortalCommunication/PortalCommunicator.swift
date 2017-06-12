@@ -195,16 +195,16 @@ public class PortalCommunicator: NSObject{
     /*This method is used for getting any data from the app service. Both parameters and request. */
     public func sendData(methodName:String, params:[String:Any], callBack:OperationCallBack) -> UInt8?{
         
-        var urlGetDataService = URL.init(string: setting.appServiceRoot)
-        urlGetDataService?.appendPathComponent(methodName)
+        var urlSetDataService = URL.init(string: setting.appServiceRoot)
+        urlSetDataService?.appendPathComponent(methodName)
         
-        guard urlGetDataService != nil else {
+        guard urlSetDataService != nil else {
             let error = NSError(domain: "AuthServiceRoot is not correct", code: 10001, userInfo: nil)
             callBack.onError(error)
             return nil
         }
         
-        let operation = DataOperation(serviceRoot: urlGetDataService!,type:.data, params: params/*add auth*/, callBack: callBack, onLoginExpired: self.eventCallBack.onLoginExpired)
+        let operation = DataOperation(serviceRoot: urlSetDataService!,type:.data, params: params/*add auth*/, callBack: callBack, onLoginExpired: self.eventCallBack.onLoginExpired)
         queueOperation.addOperation(operation)
         
         return operation.uniqId

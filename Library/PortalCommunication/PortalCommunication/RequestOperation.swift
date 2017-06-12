@@ -42,6 +42,7 @@ class RequestOperation: Operation {
         return URL.init(string:"http://localhost:8080//api/status/noready")! //for localhost simulator test
         // return serviceRoot.appendingPathComponent(Constans.Methodname.status)
     }
+    let dataManager         = DateBaseManager.sharedInstance
     
     override var isAsynchronous: Bool {
         return true
@@ -109,9 +110,11 @@ class RequestOperation: Operation {
     /* This method is used for stopping operation. The current asynctoken's cycle will be closed immediately. The request's status won't be checked.*/
     func finish() {
         print("[\(Date())] Operation id = \(uniqId) type = \(type) was finished ")
+        dataManager.delete(idOperation: uniqId)
         state = .finished
         _executing = false
         _finished = true
+        
     }
     
     
@@ -124,6 +127,8 @@ class RequestOperation: Operation {
             let delayMs = asyncResponce.asyncDelay
             self.state = .waiting(delayMs: delayMs)
             self.dateCheckedStatus = Date.init(timeIntervalSinceNow: TimeInterval(delayMs / 1000))
+            self.saveOperation(asyncResponce: asyncResponce)
+            
             print ("\(Date())  - \(String(describing: self.dateCheckedStatus)) ")
             
             while true {
@@ -200,15 +205,22 @@ class RequestOperation: Operation {
             }
         }
     }
-    //
-    func saveOperationIfNeed(asyncDelay:UInt) -> Bool{
-        let dateCheckedStatus   = Date(timeIntervalSinceNow: TimeInterval(asyncDelay))
-        let dateEndSafeInterval = Date(timeIntervalSinceNow: UIApplication.shared.backgroundTimeRemaining - TimeInterval(Constans.safeIntervalSec))
-        if dateCheckedStatus.compare(dateEndSafeInterval) == .orderedDescending {
-            //save
-            return true
+    
+    //save / update async operation
+    
+    func saveOperation(asyncResponce:ResponseAsync){
+        let asyncToken = asyncResponce.asyncToken
+        let delay      = asyncResponce.asyncDelay
+        
+        if let model = dataManager.read(idOperation: uniqId){
+            model.asyncToken = asyncToken
+            model.asyncDelay = Int(delay)
+            model.dateChecked = self.dateCheckedStatus
+            dataManager.save(model: model)
+        } else {
+            let model = dataManager.initModel(idOperation: uniqId, asyncToken: asyncToken, dateChecked: self.dateCheckedStatus, asyncDelay: delay)
+            dataManager.save(model: model)
         }
-        return false
     }
     
     deinit {
