@@ -10,54 +10,46 @@ import UIKit
 //import RealmSwift
 
 class DateBaseManager: NSObject {
-    //let realm = try! Realm()
-    static let sharedInstance = DateBaseManager()
     
-    func initModel(idOperation:UInt8 , asyncToken:String, dateChecked:Date?, asyncDelay:UInt) -> AsyncOperationModel {
-        let model           = AsyncOperationModel()
-        model.asyncToken    = asyncToken
-        model.dateChecked   = dateChecked
-        model.asyncDelay    = Int(asyncDelay)
-        model.id            = Int(idOperation)
-        
-        return model
-    }
+    static let sharedInstance = DateBaseManager()
+    let coreManager = CoreDataManager.sharedInstance
+    
+    
     
     func save(model:AsyncOperationModel) {
-    /*    try! realm.write {
-            realm.add(model, update: true)
-        }*/
+        coreManager.saveContext(idOperation: model.id!, asyncToken: model.asyncToken!, dateChecked: model.dateChecked!, asyncDelay: model.asyncDelay!)
     }
     
     func read(idOperation:UInt8) -> AsyncOperationModel?{
-       /* let asyncModel = realm.objects(AsyncOperationModel.self).filter("id == \(idOperation)").first*/
-        return nil//asyncModel
+        if let asyncOperation = coreManager.read(idOperation: idOperation) {
+            return AsyncOperationModel(asyncOperation: asyncOperation)
+        }
+        return nil
     }
     
     func readAll()  -> [AsyncOperationModel]?{
-       /* let models = Array(realm.objects(AsyncOperationModel.self))
-        return models.count>0 ? models : nil*/
+        if let asyncOperations = coreManager.readAll() {
+            var models:[AsyncOperationModel]?
+            for asyncOperation in asyncOperations{
+                let model = AsyncOperationModel(asyncOperation: asyncOperation)
+                models?.append(model)
+            }
+            return models
+        }
         return nil
     }
     
     func delete(idOperation:UInt8){
-        /*
-        if let asyncModel = realm.objects(AsyncOperationModel.self).filter("id == \(idOperation)").first {
-            try! realm.write {
-                realm.delete(asyncModel)
-            }
-        }*/
+        coreManager.delete(idOperation: idOperation)
     }
     
     func delete(model:AsyncOperationModel){
-  /*      try! realm.write {
-            realm.delete(model)
-        }*/
+        if  let idOperation = model.id{
+            delete(idOperation: idOperation)
+        }
     }
     
     func deleteAll(){
-      /*  try! realm.write {
-            realm.deleteAll()
-        }*/
+        coreManager.deleteAll()
     }
 }

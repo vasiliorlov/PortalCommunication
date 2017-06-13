@@ -212,7 +212,7 @@ class RequestOperation: Operation {
         let asyncToken = asyncResponce.asyncToken
         let delay      = asyncResponce.asyncDelay
         
-        let model = dataManager.initModel(idOperation: uniqId, asyncToken: asyncToken, dateChecked: self.dateCheckedStatus, asyncDelay: delay)
+        let model = AsyncOperationModel(idOperation: uniqId, asyncToken: asyncToken, dateChecked: self.dateCheckedStatus, asyncDelay: delay)
         dataManager.save(model: model)
         
     }

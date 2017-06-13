@@ -246,10 +246,11 @@ public class PortalCommunicator: NSObject{
     func getDataBase(){
         if  let savedOperations = dataManager.readAll(){
             for operation in savedOperations {
-                _log("id = \(operation.id) asyncDelay= \(operation.asyncDelay) dateCheked= \(String(describing: operation.dateChecked)) asyncToken= \(String(describing: operation.asyncToken))")
+                _log("\(operation.description)")
             }
         }
     }
+    
     //MARK: - EventCallBack
     
     func prepareEventCallBack(){
