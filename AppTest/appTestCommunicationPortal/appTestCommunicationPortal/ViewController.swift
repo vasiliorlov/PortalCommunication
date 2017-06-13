@@ -13,9 +13,8 @@ import PortalCommunication
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var consoleTextView: UITextView!
     @IBOutlet weak var cancelOperationId: UITextField!
-    
+    @IBOutlet weak var consoleLabel: UILabel!
     let portal = { () -> PortalCommunicator in
         // ##########################
         // --- Init ---
@@ -56,15 +55,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         let loginOperationCallBack = OperationCallBack(onSuccess: { (data) in
             //code
-            self.consoleTextView.text.append("success \(Date.init(timeIntervalSinceNow: 0)) data \(String(describing: data)) \n")
+            self.console("success \(Date.init(timeIntervalSinceNow: 0)) data \(String(describing: data)) \n")
             print("success \(Date.init(timeIntervalSinceNow: 0)) data \(String(describing: data))")
         }, onError: { (error) in
             //code
-            self.consoleTextView.text.append("error \(Date.init(timeIntervalSinceNow: 0)) error = \(error.localizedDescription) \n")
+            self.console("error \(Date.init(timeIntervalSinceNow: 0)) error = \(error.localizedDescription) \n")
             print("error \(Date.init(timeIntervalSinceNow: 0)) error = \(error.localizedDescription) ")
         }) { (delayMS, message) in
             //code
-            self.consoleTextView.text.append("progress \(Date.init(timeIntervalSinceNow: 0)) delay = \(delayMS) \(message) \n")
+            self.console("progress \(Date.init(timeIntervalSinceNow: 0)) delay = \(delayMS) \(message) \n")
         }
         print("login start \(Date.init(timeIntervalSinceNow: 0))")
         portal.login(params: loginParam, callBack: loginOperationCallBack)
@@ -80,19 +79,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         let getDataSyncOperationCallBack = OperationCallBack(onSuccess: { (data) in
             //code
-            self.consoleTextView.text.append("success \(Date.init(timeIntervalSinceNow: 0)) data \(String(describing: data)) \n")
+            self.console("success \(Date.init(timeIntervalSinceNow: 0)) data \(String(describing: data)) \n")
             print("success \(Date.init(timeIntervalSinceNow: 0)) data \(String(describing: data))")
         }, onError: { (error) in
             //code
-            self.consoleTextView.text.append("error \(Date.init(timeIntervalSinceNow: 0)) error = \(error.localizedDescription) \n")
+            self.console("error \(Date.init(timeIntervalSinceNow: 0)) error = \(error.localizedDescription) \n")
             print("error \(Date.init(timeIntervalSinceNow: 0)) error = \(error.localizedDescription) ")
         }) { (delayMS, message) in
             //code
-            self.consoleTextView.text.append("progress \(Date.init(timeIntervalSinceNow: 0)) delay = \(delayMS) \(message) \n")
+            self.console("progress \(Date.init(timeIntervalSinceNow: 0)) delay = \(delayMS) \(message) \n")
         }
         print("getDataSync start \(Date.init(timeIntervalSinceNow: 0))")
         let idGetDataSync = portal.getData(methodName: methodName, params: getParam, callBack: getDataSyncOperationCallBack)
-        consoleTextView.text.append("started operation with id = \(String(describing: idGetDataSync!))\n")
+        self.console("started operation with id = \(String(describing: idGetDataSync!))\n")
     }
     
     @IBAction func getDataAsync(_ sender: Any) {
@@ -104,31 +103,30 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         let getDataAsyncOperationCallBack = OperationCallBack(onSuccess: { (data) in
             //code
-            self.consoleTextView.text.append("success \(Date.init(timeIntervalSinceNow: 0)) data \(String(describing: data)) \n")
+            self.console("success \(Date.init(timeIntervalSinceNow: 0)) data \(String(describing: data)) \n")
             print("success \(Date.init(timeIntervalSinceNow: 0)) data \(String(describing: data))")
         }, onError: { (error) in
             //code
-            self.consoleTextView.text.append("error \(Date.init(timeIntervalSinceNow: 0)) error = \(error.localizedDescription) \n")
+            self.console("error \(Date.init(timeIntervalSinceNow: 0)) error = \(error.localizedDescription) \n")
             print("error \(Date.init(timeIntervalSinceNow: 0)) error = \(error.localizedDescription) ")
             
         }) { (delayMS, message) in
             //code
             print ("progress \(Date.init(timeIntervalSinceNow: 0)) delay = \(delayMS) \(message) ")
-            self.consoleTextView.text.append("progress \(Date.init(timeIntervalSinceNow: 0)) delay = \(delayMS) \(message) \n")
-            print("console \(self.consoleTextView.text)")
+            self.console("progress \(Date.init(timeIntervalSinceNow: 0)) delay = \(delayMS) \(message) \n")
+            
         }
         print("getDataAync start \(Date.init(timeIntervalSinceNow: 0))")
         let  idGetDataAsync = portal.getData(methodName: methodName, params: getParam, callBack: getDataAsyncOperationCallBack)
-        consoleTextView.text.append("started operation with id = \(String(describing: idGetDataAsync!))\n")
+        self.console("started operation with id = \(String(describing: idGetDataAsync!))\n")
         
     }
-    
     
     @IBAction func canceledOperation(_ sender: Any) {
         // ##########################
         // --- Cancel Operation --
         if let idOperation = UInt8(self.cancelOperationId.text ?? "0"){
-            self.consoleTextView.text.append("cancel operation id = \(String(describing: idOperation)) \n")
+            self.console("cancel operation id = \(String(describing: idOperation)) \n")
             portal.cancel(requestId: idOperation)
             
         }
@@ -143,19 +141,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         let setDataSyncOperationCallBack = OperationCallBack(onSuccess: { (data) in
             //code
-            self.consoleTextView.text.append("success \(Date.init(timeIntervalSinceNow: 0)) data \(String(describing: data)) \n")
+            self.console("success \(Date.init(timeIntervalSinceNow: 0)) data \(String(describing: data)) \n")
             print("success \(Date.init(timeIntervalSinceNow: 0)) data \(String(describing: data))")
         }, onError: { (error) in
             //code
-            self.consoleTextView.text.append("error \(Date.init(timeIntervalSinceNow: 0)) error = \(error.localizedDescription) \n")
+            self.console("error \(Date.init(timeIntervalSinceNow: 0)) error = \(error.localizedDescription) \n")
             print("error \(Date.init(timeIntervalSinceNow: 0)) error = \(error.localizedDescription) ")
         }) { (delayMS, message) in
             //code
-            self.consoleTextView.text.append("progress \(Date.init(timeIntervalSinceNow: 0)) delay = \(delayMS) \(message) \n")
+            self.console("progress \(Date.init(timeIntervalSinceNow: 0)) delay = \(delayMS) \(message) \n")
         }
         print("getDataSync start \(Date.init(timeIntervalSinceNow: 0))")
         let idSetDataSync = portal.sendData(methodName: methodName, params: setParam, callBack: setDataSyncOperationCallBack)
-        consoleTextView.text.append("started operation with id = \(String(describing: idSetDataSync!))\n")
+        self.console("started operation with id = \(String(describing: idSetDataSync!))\n")
     }
     
     @IBAction func setDataAsync(_ sender: Any) {
@@ -167,21 +165,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         let setDataAsyncOperationCallBack = OperationCallBack(onSuccess: { (data) in
             //code
-            self.consoleTextView.text.append("success \(Date.init(timeIntervalSinceNow: 0)) data \(String(describing: data)) \n")
+            self.console("success \(Date.init(timeIntervalSinceNow: 0)) data \(String(describing: data)) \n")
             print("success \(Date.init(timeIntervalSinceNow: 0)) data \(String(describing: data))")
         }, onError: { (error) in
             //code
-            self.consoleTextView.text.append("error \(Date.init(timeIntervalSinceNow: 0)) error = \(error.localizedDescription) \n")
+            self.console("error \(Date.init(timeIntervalSinceNow: 0)) error = \(error.localizedDescription) \n")
             print("error \(Date.init(timeIntervalSinceNow: 0)) error = \(error.localizedDescription) ")
             
         }) { (delayMS, message) in
             //code
             print ("progress \(Date.init(timeIntervalSinceNow: 0)) delay = \(delayMS) \(message) ")
-            self.consoleTextView.text.append("progress \(Date.init(timeIntervalSinceNow: 0)) delay = \(delayMS) \(message) \n")
+            self.console("progress \(Date.init(timeIntervalSinceNow: 0)) delay = \(delayMS) \(message) \n")
         }
         print("getDataAync start \(Date.init(timeIntervalSinceNow: 0))")
         let  idSetDataAsync = portal.sendData(methodName: methodName, params: setParam, callBack: setDataAsyncOperationCallBack)
-        consoleTextView.text.append("started operation with id = \(String(describing: idSetDataAsync!))\n")
+        console("started operation with id = \(String(describing: idSetDataAsync!))\n")
     }
     
     
@@ -189,11 +187,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // ##########################
         // --- Status Operations ---
         let operations = portal.statusOperations()
-        self.consoleTextView.text.append("status \(String(describing: operations)) \n")
+        console("status \(String(describing: operations)) \n")
         
     }
+    func console(_ addText:String){
+        if (consoleLabel.text != nil) {
+            consoleLabel.text =  consoleLabel.text! + addText
+        } else {
+            consoleLabel.text = addText
+        }
+    }
+    
     @IBAction func clearTextView(_ sender: Any) {
-        consoleTextView.text = ""
+        consoleLabel.text = ""
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
