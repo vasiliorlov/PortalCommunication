@@ -19,14 +19,17 @@ class CoreDataManager: NSObject {
     }()
     
     lazy var managedObjectModel:NSManagedObjectModel = {
-        print(Bundle.main.bundleURL)
-        let modelUrl = Bundle.main.url(forResource: "asyncOperation", withExtension: "momd")!
-        return NSManagedObjectModel(contentsOf: modelUrl)!
+        let bundleURL = Bundle.init(for: CoreDataManager.self).url(forResource: "PortalCommunication", withExtension: "bundle")!
+        let frameworkBundle = Bundle.init(url: bundleURL)!
+        let momURL = frameworkBundle.url(forResource: "AsyncOperation", withExtension: "momd")!
+        
+        
+        return NSManagedObjectModel(contentsOf: momURL)!
     }()
     
     lazy var persistentStoreCoordinator:NSPersistentStoreCoordinator = {
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let url = self.applicationDocumentDirectory.appendingPathComponent("asyncOperation.sqlite")
+        let url = self.applicationDocumentDirectory.appendingPathComponent("AsyncOperation.sqlite")
         do {
             try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
         }
@@ -38,22 +41,26 @@ class CoreDataManager: NSObject {
     
     lazy var managedObjectContext:NSManagedObjectContext = {
         let coordinator = self.persistentStoreCoordinator
-        var managedContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        var managedContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
         managedContext.persistentStoreCoordinator = coordinator
         return managedContext
     }()
     
     //MARK: - Core Data Method
     
+    func fetchRequest(withIdOperation:UInt8) -> NSFetchRequest<AsyncOperation> {
+        let predicate                                   = NSPredicate(format: "id == %@", String(withIdOperation))
+        let fetchRequest:NSFetchRequest<AsyncOperation> = AsyncOperation.fetchRequest()
+        fetchRequest.predicate                          = predicate
+        return fetchRequest
+    }
+    
     func saveContext(idOperation:UInt8 , asyncToken:String, dateChecked:Date, asyncDelay:UInt){
         
         // if operation is exist then update else insert new entity
-        let predicate                                   = NSPredicate(format: "id == %@", idOperation)
-        let fetchRequest:NSFetchRequest<AsyncOperation> = AsyncOperation.fetchRequest()
-        fetchRequest.predicate                          = predicate
-        
+        let request = fetchRequest(withIdOperation: idOperation)
         do {
-            let fetchedEntities = try self.managedObjectContext.fetch(fetchRequest)
+            let fetchedEntities = try self.managedObjectContext.fetch(request)
             if let asyncOperation = fetchedEntities.first {
                 asyncOperation.asyncToken = asyncToken
                 asyncOperation.dateChecked = dateChecked as NSDate
@@ -73,12 +80,10 @@ class CoreDataManager: NSObject {
     }
     
     func read(idOperation:UInt8) -> AsyncOperation?{
-        let predicate                                   = NSPredicate(format: "id == %@", idOperation)
-        let fetchRequest:NSFetchRequest<AsyncOperation> = AsyncOperation.fetchRequest()
-        fetchRequest.predicate                          = predicate
+        let request = fetchRequest(withIdOperation: idOperation)
         
         do {
-            let fetchedEntities = try self.managedObjectContext.fetch(fetchRequest)
+            let fetchedEntities = try self.managedObjectContext.fetch(request)
             return fetchedEntities.first
         } catch {
             fatalError("Failure to read context: \(error)")
@@ -97,12 +102,10 @@ class CoreDataManager: NSObject {
     }
     
     func delete(idOperation:UInt8){
-        let predicate                                   = NSPredicate(format: "id == %@", idOperation)
-        let fetchRequest:NSFetchRequest<AsyncOperation> = AsyncOperation.fetchRequest()
-        fetchRequest.predicate                          = predicate
+        let request = fetchRequest(withIdOperation: idOperation)
         
         do {
-            let fetchedEntities = try self.managedObjectContext.fetch(fetchRequest)
+            let fetchedEntities = try self.managedObjectContext.fetch(request)
             if let entityToDelete = fetchedEntities.first {
                 self.managedObjectContext.delete(entityToDelete)
             }

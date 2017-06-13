@@ -32,6 +32,6 @@ class AsyncOperationModel:NSObject {
     }
     
     override var description: String{
-        return("id = \(String(describing: id)) asyncDelay= \(String(describing: asyncDelay)) dateCheked= \(String(describing: dateChecked)) asyncToken= \(String(describing: asyncToken))))")
+        return("id = \(String(describing: id!)) asyncDelay= \(String(describing: asyncDelay!)) dateCheked= \(String(describing: dateChecked!)) asyncToken= \(String(describing: asyncToken!))))")
     }
 }

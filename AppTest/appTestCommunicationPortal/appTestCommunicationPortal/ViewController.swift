@@ -115,6 +115,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             //code
             print ("progress \(Date.init(timeIntervalSinceNow: 0)) delay = \(delayMS) \(message) ")
             self.consoleTextView.text.append("progress \(Date.init(timeIntervalSinceNow: 0)) delay = \(delayMS) \(message) \n")
+            print("console \(self.consoleTextView.text)")
         }
         print("getDataAync start \(Date.init(timeIntervalSinceNow: 0))")
         let  idGetDataAsync = portal.getData(methodName: methodName, params: getParam, callBack: getDataAsyncOperationCallBack)

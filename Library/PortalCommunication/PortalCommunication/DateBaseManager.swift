@@ -29,10 +29,10 @@ class DateBaseManager: NSObject {
     
     func readAll()  -> [AsyncOperationModel]?{
         if let asyncOperations = coreManager.readAll() {
-            var models:[AsyncOperationModel]?
+            var models = [AsyncOperationModel]()
             for asyncOperation in asyncOperations{
                 let model = AsyncOperationModel(asyncOperation: asyncOperation)
-                models?.append(model)
+                models.append(model)
             }
             return models
         }

@@ -16,13 +16,25 @@
   },
   "source_files": [
     "PortalCommunication",
-    "PortalCommunication/**/*.{h,m,swift}"
+    "PortalCommunication/**/*.{h,m,swift}",
+    "PortalCommunication/AsyncOperation.xcdatamodeld",
+    "PortalCommunication/AsyncOperation.xcdatamodeld/*.xcdatamodel"
+  ],
+  "resources": [
+    "PortalCommunication/AsyncOperation.xcdatamodeld",
+    "PortalCommunication/AsyncOperation.xcdatamodeld/*.xcdatamodel"
   ],
   "exclude_files": "Classes/Exclude",
-  "resources": "PortalCommunication/asyncOperation.xcdatamodeld",
+  "preserve_paths": "PortalCommunication/AsyncOperation.xcdatamodeld",
+  "resource_bundles": {
+    "PortalCommunication": [
+      "PortalCommunication/*.xcdatamodeld"
+    ]
+  },
   "pod_target_xcconfig": {
     "SWIFT_VERSION": "3"
   },
+  "requires_arc": true,
   "dependencies": {
     "Alamofire": [
 
