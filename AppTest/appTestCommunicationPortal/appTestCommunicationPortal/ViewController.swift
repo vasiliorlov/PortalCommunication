@@ -127,9 +127,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // ##########################
         // --- Cancel Operation --
         if let idOperation = UInt8(self.cancelOperationId.text ?? "0"){
-            self.consoleTextView.text.append("try to cancel operation id = \(String(describing: idOperation)) \n")
-            let result = portal.cancel(requestId: idOperation)
-            self.consoleTextView.text.append("canceled \(result ? "Ok" : "Failure") \n")
+            self.consoleTextView.text.append("cancel operation id = \(String(describing: idOperation)) \n")
+            portal.cancel(requestId: idOperation)
+            
         }
     }
     
@@ -156,7 +156,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let idSetDataSync = portal.sendData(methodName: methodName, params: setParam, callBack: setDataSyncOperationCallBack)
         consoleTextView.text.append("started operation with id = \(String(describing: idSetDataSync!))\n")
     }
- 
+    
     @IBAction func setDataAsync(_ sender: Any) {
         // ##########################
         // --- SetData ---
@@ -192,7 +192,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
     }
     @IBAction func clearTextView(_ sender: Any) {
-         consoleTextView.text = ""
+        consoleTextView.text = ""
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -213,5 +213,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    
+    
 }
 

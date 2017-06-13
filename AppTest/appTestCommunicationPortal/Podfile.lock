@@ -2,12 +2,6 @@ PODS:
   - Alamofire (4.4.0)
   - PortalCommunication (1.0.0):
     - Alamofire
-    - RealmSwift
-  - Realm (2.8.0):
-    - Realm/Headers (= 2.8.0)
-  - Realm/Headers (2.8.0)
-  - RealmSwift (2.8.0):
-    - Realm (= 2.8.0)
 
 DEPENDENCIES:
   - PortalCommunication (from `/Users/vasilij_orlov/Documents/Portal/Library/PortalCommunication`)
@@ -18,9 +12,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  PortalCommunication: 902157029840f20e09e7377091f9dcb81062e977
-  Realm: 929243ad2b618b3232e70658bedc61110e7563f1
-  RealmSwift: 5b7079b891f2833d1849294161ba3e092bbda3f6
+  PortalCommunication: d8804de8f2806b544149e7f9064caa5d573d5250
 
 PODFILE CHECKSUM: 2ae9d3bdcf35bdbc19f827e97bf86c44bdc1d669
 

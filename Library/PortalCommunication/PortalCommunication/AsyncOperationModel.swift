@@ -7,15 +7,15 @@
 //
 
 import Foundation
-import RealmSwift
+//import RealmSwift
 
-class AsyncOperationModel:Object {
+class AsyncOperationModel:NSObject {
   
     dynamic var asyncToken          = ""
     dynamic var dateChecked:Date?   = nil
     dynamic var asyncDelay:Int     = 0
     dynamic var id                  = -1
-    override static func primaryKey() -> String? {
+  /*  override static func primaryKey() -> String? {
         return "id"
-    }
+    }*/
 }

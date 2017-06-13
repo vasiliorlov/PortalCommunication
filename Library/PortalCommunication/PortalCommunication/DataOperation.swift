@@ -27,12 +27,10 @@ class DataOperation: RequestOperation {
     
     
     override func start() {
-        print("[\(Date())] start")
+        _log("[\(Date())] start")
         _executing = true
 
-
         state = .requesting(requestPath: self.serviceRoot.absoluteString)
-        
         
         Alamofire.request(self.serviceRoot, method: .post, parameters: self.params, encoding: URLEncoding.default, headers: nil).validate().responseJSON { response in
             
@@ -77,6 +75,6 @@ class DataOperation: RequestOperation {
     }
 
     override func main() {
-        print("[\(Date())] main")
+        _log("[\(Date())] main")
     }
 }

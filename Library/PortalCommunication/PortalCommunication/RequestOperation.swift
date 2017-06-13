@@ -98,7 +98,7 @@ class RequestOperation: Operation {
         self.state          = .ready
         do{
             uniqId     = try UniqId.shared.getId()
-            print("Generate new uniq id = \(self.uniqId) for operation \(type)")
+            _log("Generate new uniq id = \(self.uniqId) for operation \(type)")
         } catch {
             assert(false, "Full set uniq Id")
             uniqId     = 0
@@ -109,7 +109,7 @@ class RequestOperation: Operation {
     //MARK: - control operation method
     /* This method is used for stopping operation. The current asynctoken's cycle will be closed immediately. The request's status won't be checked.*/
     func finish() {
-        print("[\(Date())] Operation id = \(uniqId) type = \(type) was finished ")
+        _log("[\(Date())] Operation id = \(uniqId) type = \(type) was finished ")
         dataManager.delete(idOperation: uniqId)
         state = .finished
         _executing = false
@@ -123,14 +123,14 @@ class RequestOperation: Operation {
     //MARK: - custom method
     func getResponseFromCheckLoop(asyncResponce:ResponseAsync, callBack: OperationCallBack, onLoginExpired:@escaping () -> ()){
         
+        
+        let delayMs = asyncResponce.asyncDelay
+        self.state = .waiting(delayMs: delayMs)
+        self.dateCheckedStatus = Date.init(timeIntervalSinceNow: TimeInterval(delayMs / 1000))
+        self.saveOperation(asyncResponce: asyncResponce)
+        
+        _log("\(Date())  - \(String(describing: self.dateCheckedStatus)) ")
         DispatchQueue.global().async {
-            let delayMs = asyncResponce.asyncDelay
-            self.state = .waiting(delayMs: delayMs)
-            self.dateCheckedStatus = Date.init(timeIntervalSinceNow: TimeInterval(delayMs / 1000))
-            self.saveOperation(asyncResponce: asyncResponce)
-            
-            print ("\(Date())  - \(String(describing: self.dateCheckedStatus)) ")
-            
             while true {
                 guard !self.isFinished     else { break }
                 guard !self.isCancelled    else { break }
@@ -212,19 +212,13 @@ class RequestOperation: Operation {
         let asyncToken = asyncResponce.asyncToken
         let delay      = asyncResponce.asyncDelay
         
-        if let model = dataManager.read(idOperation: uniqId){
-            model.asyncToken = asyncToken
-            model.asyncDelay = Int(delay)
-            model.dateChecked = self.dateCheckedStatus
-            dataManager.save(model: model)
-        } else {
-            let model = dataManager.initModel(idOperation: uniqId, asyncToken: asyncToken, dateChecked: self.dateCheckedStatus, asyncDelay: delay)
-            dataManager.save(model: model)
-        }
+        let model = dataManager.initModel(idOperation: uniqId, asyncToken: asyncToken, dateChecked: self.dateCheckedStatus, asyncDelay: delay)
+        dataManager.save(model: model)
+        
     }
     
     deinit {
-        print("Erase uniq id = \(uniqId)")
+        _log("Erase uniq id = \(uniqId)")
         let _ = UniqId.shared.eraseId(uniqId: uniqId)
     }
 }

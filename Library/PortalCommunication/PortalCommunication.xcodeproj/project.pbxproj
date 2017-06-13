@@ -10,6 +10,7 @@
 		1500743A1EE546C500FB6716 /* DateBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150074391EE546C500FB6716 /* DateBaseManager.swift */; };
 		1588CF081EE98DC400E178AB /* AsyncOperationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1588CF071EE98DC400E178AB /* AsyncOperationModel.swift */; };
 		1588CF0A1EE98E7000E178AB /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1588CF091EE98E7000E178AB /* Realm.framework */; };
+		1588CF0D1EEFC3AB00E178AB /* AsyncOperation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1588CF0B1EEFC3AB00E178AB /* AsyncOperation.xcdatamodeld */; };
 		15BFECBC1ED6FA0E005409F3 /* DataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BFECBB1ED6FA0E005409F3 /* DataOperation.swift */; };
 		15C2C8D41EDC6800008A9F45 /* PortalCommunicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C2C8D31EDC6800008A9F45 /* PortalCommunicationTests.swift */; };
 		15C2C8D61EDC6800008A9F45 /* PortalCommunication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E6C97A1ED4923500325060 /* PortalCommunication.framework */; };
@@ -34,6 +35,7 @@
 		150074391EE546C500FB6716 /* DateBaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateBaseManager.swift; sourceTree = "<group>"; };
 		1588CF071EE98DC400E178AB /* AsyncOperationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncOperationModel.swift; sourceTree = "<group>"; };
 		1588CF091EE98E7000E178AB /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = build/Debug/Realm.framework; sourceTree = "<group>"; };
+		1588CF0C1EEFC3AB00E178AB /* asyncOperation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = asyncOperation.xcdatamodel; sourceTree = "<group>"; };
 		15BFECBB1ED6FA0E005409F3 /* DataOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataOperation.swift; sourceTree = "<group>"; };
 		15C2C8D11EDC6800008A9F45 /* PortalCommunicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PortalCommunicationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		15C2C8D31EDC6800008A9F45 /* PortalCommunicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalCommunicationTests.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				1588CF071EE98DC400E178AB /* AsyncOperationModel.swift */,
 				15BFECBB1ED6FA0E005409F3 /* DataOperation.swift */,
 				15FADFD31ED492D900BA6C4F /* UniqId.swift */,
+				1588CF0B1EEFC3AB00E178AB /* AsyncOperation.xcdatamodeld */,
 				15E6C97E1ED4923500325060 /* Info.plist */,
 			);
 			path = PortalCommunication;
@@ -291,6 +294,7 @@
 				15E6C9871ED4926200325060 /* PortalCommunicator.swift in Sources */,
 				1500743A1EE546C500FB6716 /* DateBaseManager.swift in Sources */,
 				15E6C9881ED4926200325060 /* RequestOperation.swift in Sources */,
+				1588CF0D1EEFC3AB00E178AB /* AsyncOperation.xcdatamodeld in Sources */,
 				15BFECBC1ED6FA0E005409F3 /* DataOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,10 +445,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = PortalCommunication/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
@@ -467,10 +468,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = PortalCommunication/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
@@ -514,6 +512,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1588CF0B1EEFC3AB00E178AB /* AsyncOperation.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1588CF0C1EEFC3AB00E178AB /* asyncOperation.xcdatamodel */,
+			);
+			currentVersion = 1588CF0C1EEFC3AB00E178AB /* asyncOperation.xcdatamodel */;
+			path = AsyncOperation.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 15E6C9711ED4923500325060 /* Project object */;
 }

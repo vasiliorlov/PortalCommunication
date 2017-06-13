@@ -9,6 +9,7 @@
 import UIKit
 import UserNotifications
 
+
 struct Constans {
     struct Methodname {
         static let status       = "status"
@@ -16,8 +17,8 @@ struct Constans {
         static let registerPush = "registerForPush"
     }
     
-    static let safeIntervalSec  = 5 //safe work interval before suspended in Sec
-    
+    static let safeIntervalSec  = 5     //safe work interval before suspended in Sec
+    static let debugLog         = true  //print debug info
 }
 
 public struct PortalSetting {
@@ -79,6 +80,12 @@ public struct PortalCredentials {
 
 public typealias StatusOperation = (unigId:UInt8, type:RequestOperationType, state:RequestOperationState)
 
+func _log(_ info:String) {
+    if Constans.debugLog {
+        Swift.print(info)
+    }
+}
+
 public class PortalCommunicator: NSObject{
     
     fileprivate var setting             :PortalSetting
@@ -89,6 +96,8 @@ public class PortalCommunicator: NSObject{
     fileprivate var token               :String?
     
     fileprivate var timer                = Timer()
+    
+    let dataManager         = DateBaseManager.sharedInstance
     
     public static let sharedInstance:(_ setting:PortalSetting, _ eventCallBack:EventCallBack, _ credentials:PortalCredentials) -> PortalCommunicator = {
         setting, eventCallBack, credetials in
@@ -120,13 +129,13 @@ public class PortalCommunicator: NSObject{
         }
         
         guard credentials.appId != "" else {
-            let error = NSError(domain: "Application ID is not inastaled", code: 10100, userInfo: nil)
+            let error = NSError(domain: "Application ID is not installed", code: 10100, userInfo: nil)
             callBack.onError(error)
             return
         }
         
         guard credentials.deviceId != "" else {
-            let error = NSError(domain: "Device ID is not inastaled", code: 10101, userInfo: nil)
+            let error = NSError(domain: "Device ID is not installed", code: 10101, userInfo: nil)
             callBack.onError(error)
             return
         }
@@ -151,17 +160,19 @@ public class PortalCommunicator: NSObject{
     }
     
     /*This method is used for cancelling request. It may happen if the result of the request is no longer needed. */
-    public func cancel(requestId:UInt8) -> Bool{
+    public func cancel(requestId:UInt8){
+        
+        
         for operation in queueOperation.operations{
             let dataOperation = operation as! DataOperation
             if dataOperation.uniqId == requestId {
                 dataOperation.cancel()
                 dataOperation.finish()
-                return true
+                return
             }
         }
-        print("Opertion id = \(requestId) isn't found in stack")
-        return false
+        //if operation only in DB
+        dataManager.delete(idOperation: requestId)
     }
     
     /*This method is used for cancelling all requests. It may happen if the result of the request is no longer needed. */
@@ -170,7 +181,7 @@ public class PortalCommunicator: NSObject{
             let dataOperation = operation as! DataOperation
             dataOperation.cancel()
             dataOperation.finish()
-            print("Opertion id = \(dataOperation.uniqId) is canceled")
+            _log("Opertion id = \(dataOperation.uniqId) is canceled")
         }
     }
     
@@ -218,18 +229,27 @@ public class PortalCommunicator: NSObject{
     public func statusOperations() -> [StatusOperation] {
         
         var operationsStatus = [StatusOperation]()
-        print("########### Current operation ###########")
+        _log("########### Current operation ###########")
         
         for operation in queueOperation.operations{
             let dataOperation = operation as! DataOperation
             let status:StatusOperation = (dataOperation.uniqId, dataOperation.type, dataOperation.state)
             operationsStatus.append(status)
-            print("id =  \(dataOperation.uniqId) type = \(dataOperation.type) state = \(dataOperation.state)")
+            _log("id =  \(dataOperation.uniqId) type = \(dataOperation.type) state = \(dataOperation.state)")
         }
-        print("#########################################")
+        _log("########### Async Operations in DB ###########")
+        getDataBase()
         return operationsStatus
     }
     
+    //print saved async operation
+    func getDataBase(){
+        if  let savedOperations = dataManager.readAll(){
+            for operation in savedOperations {
+                _log("id = \(operation.id) asyncDelay= \(operation.asyncDelay) dateCheked= \(String(describing: operation.dateChecked)) asyncToken= \(String(describing: operation.asyncToken))")
+            }
+        }
+    }
     //MARK: - EventCallBack
     
     func prepareEventCallBack(){
@@ -298,9 +318,12 @@ public class PortalCommunicator: NSObject{
     func receiveRemoteNotification(){
         pingServer()
     }
+    
+    
     //MARK: - memory control
     deinit {
         timer.invalidate()
     }
+    
 }
 

@@ -5,5 +5,4 @@ use_frameworks!
 
 target 'PortalCommunication' do
     pod 'Alamofire'
-    pod 'RealmSwift'
 end
