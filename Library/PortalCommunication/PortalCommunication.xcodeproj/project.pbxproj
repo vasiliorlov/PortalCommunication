@@ -11,8 +11,8 @@
 		1588CF1D1EEFC6EE00E178AB /* AsyncOperationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1588CF161EEFC55900E178AB /* AsyncOperationModel.swift */; };
 		1588CF1E1EEFC70800E178AB /* AsyncOperation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1588CF0B1EEFC3AB00E178AB /* AsyncOperation.xcdatamodeld */; };
 		1588CF201EEFCA9800E178AB /* CoreDataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1588CF1F1EEFCA9800E178AB /* CoreDataManger.swift */; };
-		1588CF231EEFD1E500E178AB /* AsyncOperationCoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1588CF211EEFD1E500E178AB /* AsyncOperationCoreDataClass.swift */; };
-		1588CF241EEFD1E500E178AB /* AsyncOperationCoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1588CF221EEFD1E500E178AB /* AsyncOperationCoreDataProperties.swift */; };
+		1588CF261EEFEBA300E178AB /* AsyncOperationCoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1588CF251EEFEBA300E178AB /* AsyncOperationCoreDataClass.swift */; };
+		1588CF281EEFEBE500E178AB /* AsyncOperationCoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1588CF271EEFEBE500E178AB /* AsyncOperationCoreDataProperties.swift */; };
 		15BFECBC1ED6FA0E005409F3 /* DataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BFECBB1ED6FA0E005409F3 /* DataOperation.swift */; };
 		15C2C8D41EDC6800008A9F45 /* PortalCommunicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C2C8D31EDC6800008A9F45 /* PortalCommunicationTests.swift */; };
 		15C2C8D61EDC6800008A9F45 /* PortalCommunication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E6C97A1ED4923500325060 /* PortalCommunication.framework */; };
@@ -39,8 +39,8 @@
 		1588CF0C1EEFC3AB00E178AB /* asyncOperation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = asyncOperation.xcdatamodel; sourceTree = "<group>"; };
 		1588CF161EEFC55900E178AB /* AsyncOperationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncOperationModel.swift; sourceTree = "<group>"; };
 		1588CF1F1EEFCA9800E178AB /* CoreDataManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManger.swift; sourceTree = "<group>"; };
-		1588CF211EEFD1E500E178AB /* AsyncOperationCoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AsyncOperationCoreDataClass.swift; path = ../AsyncOperationCoreDataClass.swift; sourceTree = "<group>"; };
-		1588CF221EEFD1E500E178AB /* AsyncOperationCoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AsyncOperationCoreDataProperties.swift; path = ../AsyncOperationCoreDataProperties.swift; sourceTree = "<group>"; };
+		1588CF251EEFEBA300E178AB /* AsyncOperationCoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncOperationCoreDataClass.swift; sourceTree = "<group>"; };
+		1588CF271EEFEBE500E178AB /* AsyncOperationCoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncOperationCoreDataProperties.swift; sourceTree = "<group>"; };
 		15BFECBB1ED6FA0E005409F3 /* DataOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataOperation.swift; sourceTree = "<group>"; };
 		15C2C8D11EDC6800008A9F45 /* PortalCommunicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PortalCommunicationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		15C2C8D31EDC6800008A9F45 /* PortalCommunicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalCommunicationTests.swift; sourceTree = "<group>"; };
@@ -116,8 +116,8 @@
 				15BFECBB1ED6FA0E005409F3 /* DataOperation.swift */,
 				15FADFD31ED492D900BA6C4F /* UniqId.swift */,
 				1588CF161EEFC55900E178AB /* AsyncOperationModel.swift */,
-				1588CF211EEFD1E500E178AB /* AsyncOperationCoreDataClass.swift */,
-				1588CF221EEFD1E500E178AB /* AsyncOperationCoreDataProperties.swift */,
+				1588CF251EEFEBA300E178AB /* AsyncOperationCoreDataClass.swift */,
+				1588CF271EEFEBE500E178AB /* AsyncOperationCoreDataProperties.swift */,
 				1588CF0B1EEFC3AB00E178AB /* AsyncOperation.xcdatamodeld */,
 				15E6C97E1ED4923500325060 /* Info.plist */,
 			);
@@ -296,10 +296,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1588CF241EEFD1E500E178AB /* AsyncOperationCoreDataProperties.swift in Sources */,
-				1588CF231EEFD1E500E178AB /* AsyncOperationCoreDataClass.swift in Sources */,
+				1588CF281EEFEBE500E178AB /* AsyncOperationCoreDataProperties.swift in Sources */,
 				1588CF201EEFCA9800E178AB /* CoreDataManger.swift in Sources */,
 				1588CF1E1EEFC70800E178AB /* AsyncOperation.xcdatamodeld in Sources */,
+				1588CF261EEFEBA300E178AB /* AsyncOperationCoreDataClass.swift in Sources */,
 				1588CF1D1EEFC6EE00E178AB /* AsyncOperationModel.swift in Sources */,
 				15FADFD41ED492D900BA6C4F /* UniqId.swift in Sources */,
 				15E6C9871ED4926200325060 /* PortalCommunicator.swift in Sources */,

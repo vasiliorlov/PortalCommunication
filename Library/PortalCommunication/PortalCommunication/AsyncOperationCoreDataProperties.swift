@@ -1,5 +1,5 @@
 //
-//  AsyncOperation+CoreDataProperties.swift
+//  AsyncOperationCoreDataProperties.swift
 //  PortalCommunication
 //
 //  Created by Vasilij Orlov on 6/13/17.
@@ -11,14 +11,14 @@ import CoreData
 
 
 extension AsyncOperation {
-
+    
     @nonobjc public class func fetchRequest() -> NSFetchRequest<AsyncOperation> {
         return NSFetchRequest<AsyncOperation>(entityName: "AsyncOperation")
     }
-
+    
     @NSManaged public var asyncDelay: Int64
     @NSManaged public var asyncToken: String?
     @NSManaged public var dateChecked: NSDate?
     @NSManaged public var id: Int16
-
+    
 }

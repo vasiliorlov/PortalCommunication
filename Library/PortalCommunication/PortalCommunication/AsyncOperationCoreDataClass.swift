@@ -1,5 +1,5 @@
 //
-//  AsyncOperation+CoreDataClass.swift
+//  AsyncOperationCoreDataClass.swift
 //  PortalCommunication
 //
 //  Created by Vasilij Orlov on 6/13/17.
@@ -11,5 +11,5 @@ import CoreData
 
 @objc(AsyncOperation)
 public class AsyncOperation: NSManagedObject {
-
+    
 }

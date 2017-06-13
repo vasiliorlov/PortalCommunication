@@ -19,6 +19,7 @@
     "PortalCommunication/**/*.{h,m,swift}"
   ],
   "exclude_files": "Classes/Exclude",
+  "resources": "PortalCommunication/asyncOperation.xcdatamodeld",
   "pod_target_xcconfig": {
     "SWIFT_VERSION": "3"
   },

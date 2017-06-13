@@ -19,13 +19,14 @@ class CoreDataManager: NSObject {
     }()
     
     lazy var managedObjectModel:NSManagedObjectModel = {
-        let modelUrl = Bundle.main.url(forResource: "AsyncOperation", withExtension: "momd")!
+        print(Bundle.main.bundleURL)
+        let modelUrl = Bundle.main.url(forResource: "asyncOperation", withExtension: "momd")!
         return NSManagedObjectModel(contentsOf: modelUrl)!
     }()
     
     lazy var persistentStoreCoordinator:NSPersistentStoreCoordinator = {
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let url = self.applicationDocumentDirectory.appendingPathComponent("AsyncOperationCoreData.sqlite")
+        let url = self.applicationDocumentDirectory.appendingPathComponent("asyncOperation.sqlite")
         do {
             try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
         }

@@ -7,40 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F360A38D9E01C325EB4F43473E61330 /* AsyncOperationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2322F70AC58841CFA789609F886117D1 /* AsyncOperationModel.swift */; };
 		10EB23E9ECC4B33E16933BB1EA560B6A /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87882A1F5A92C8138D54545E51D51E6F /* Timeline.swift */; };
+		186D6D243B6F06AEDEC48E20A3C9ABCA /* UniqId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EE7A89AD1E5414FE15341FA250FF42 /* UniqId.swift */; };
+		192A2F03E4FF40577604CA742BAC81F4 /* PortalCommunication-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7F703FE6565DE3CBC484D3858056C0 /* PortalCommunication-dummy.m */; };
 		1B9EDEDC964E6B08F78920B4F4B9DB84 /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B44A27EFBB0DA84D738057B77F3413B1 /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		23FB3D0BD207CF301DABA77F15778CF2 /* DataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAE9F7740A6CC7670A56DE372659889 /* DataOperation.swift */; };
-		2F8EA54A19301EC7C5ED48B348158F2A /* UniqId.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DBD94D9476C028CA633CA4F07194FF /* UniqId.swift */; };
 		3626B94094672CB1C9DEA32B9F9502E1 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01C037B4034EDA3D7955BC5E4E9D9D6 /* TaskDelegate.swift */; };
+		49F4D00659A3290836B5C44A754A415D /* RequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFAADC7B3AFC6EAF1EA839CE1213260 /* RequestOperation.swift */; };
 		5387216E723A3C68E851CA15573CDD71 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E230A0448B394DE26E688DAC8E6201E /* Request.swift */; };
-		538D14929A9562A6AB4D44D8C8867B05 /* PortalCommunication.h in Headers */ = {isa = PBXBuildFile; fileRef = B531CFD24CF36286DA393EB915987C81 /* PortalCommunication.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5B655824B94F835C0C1B873D89A7F6C9 /* CoreDataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D53B30303F9CAB7D4AB0B2D4E8F4C /* CoreDataManger.swift */; };
+		538D14929A9562A6AB4D44D8C8867B05 /* PortalCommunication.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A070309AEA9F160DCBE89F96D037C55 /* PortalCommunication.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		61200D01A1855D7920CEF835C8BE00B0 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCBF1EED873F61C6D46CE37FA5C39D3 /* DispatchQueue+Alamofire.swift */; };
 		62F65AD8DC4F0F9610F4B8B4738EC094 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B030D27CAC730C5EB0F22390645310 /* ServerTrustPolicy.swift */; };
+		6523BD5AF18841896AAECDDB93323EAA /* DateBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBF16F15CCE9FB4B96A3889E3CA42CE /* DateBaseManager.swift */; };
+		767482811C7272D4EC198AC38DD6426A /* DataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA8607702DE0E0CAD32B37F004A2F1F /* DataOperation.swift */; };
 		7959583B76CDA687D3FD0FEC999984AA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F9B2E024A80A62FE090406312870D33 /* Foundation.framework */; };
 		7B5FE28C7EA4122B0598738E54DBEBD8 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195D73DD9EF275A3C56569E2B1CA8026 /* SessionDelegate.swift */; };
 		7D8CC01E8C9EFFF9F4D65406CDE0AB66 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D60BC9955B4F7FFA62D7440CB385C11 /* Result.swift */; };
+		80D0326E07547128722E2E87CE4E99E5 /* asyncOperation.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 4568B0E6E82784E15B342037E822B508 /* asyncOperation.xcdatamodeld */; };
 		9ED2BB2981896E0A39EFA365503F58CE /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF006B0AD5765D1BFA8253C2DCBB126 /* AFError.swift */; };
 		A04BFC558D69E7DBB68023C80A9CFE4E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F9B2E024A80A62FE090406312870D33 /* Foundation.framework */; };
 		A2A6F71B727312BD45CC7A4AAD7B0AB7 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A8AA5F9EDED0A0BDDE7E830BF4AEE0 /* NetworkReachabilityManager.swift */; };
 		A9EEEA7477981DEEBC72432DE9990A4B /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C1C119BCE81C53F76CAC2BE27C38E0 /* Alamofire-dummy.m */; };
 		AE1EF48399533730D0066E04B22CA2D6 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CDAC6C1187C5467E576980E1062C8B /* SessionManager.swift */; };
+		AE5B0FE0DF1F140A21D90FC49FC6786D /* CoreDataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD7424B80E1F715ADB9D9F4488A37F8 /* CoreDataManger.swift */; };
 		B65FCF589DA398C3EFE0128064E510EC /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155538D91ACEEEDF82069ACF6C1A02E7 /* MultipartFormData.swift */; };
-		B780894FF48EE2BBDC4C494428EFEDD8 /* PortalCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEC1D1B3FD1428A7019095B6E62CE52 /* PortalCommunicator.swift */; };
 		BBEFE2F9CEB73DC7BD97FFA66A0D9D4F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B029DBC43E49A740F12B5E4D2E6DD452 /* Validation.swift */; };
-		BC5BA10B80E1E8961C380F2DB39272B2 /* PortalCommunication-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BBF269F62C2985CCB7CEFB0CB78376EF /* PortalCommunication-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BC5BA10B80E1E8961C380F2DB39272B2 /* PortalCommunication-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C9AEEF5144B2BDDED6E2E1C680A9344 /* PortalCommunication-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BE5C67A07E289FE1F9BE27335B159997 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6639346628280A0D0FAD35196BF56108 /* ParameterEncoding.swift */; };
 		BE71418026C397D3C3A69A7AE7EFE9FF /* Pods-appTestCommunicationPortal-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 669A1C48B8F47966F2BDFD84EBB1708E /* Pods-appTestCommunicationPortal-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB6D60925223897FFA2662667DF83E8A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F47F5C9CDB035C5AFADEBA5BF44F1C /* Response.swift */; };
-		E9C2E4B2E02A7F08806A863A83D87734 /* PortalCommunication-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C7B6B168F9944FD159E90B2D468562 /* PortalCommunication-dummy.m */; };
-		ECFF251964D79AFBE6491B1076F13A3D /* DateBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B819CD006A0F9DC1F300E1E27D476420 /* DateBaseManager.swift */; };
+		CE034A54A28EADCE4C8E2ADAE6A62B49 /* PortalCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B01BCF41747C6404AED1A788010D06 /* PortalCommunicator.swift */; };
+		D6024B976C2FF1F3E4BAA8AB824FBC5F /* AsyncOperationCoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D83DB6BF74C58C1062D61B8E31B804 /* AsyncOperationCoreDataClass.swift */; };
+		DA9D05B9518D021394568D213CF9B27E /* AsyncOperationCoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473416334BDCB7D4A5757A89357A9FD7 /* AsyncOperationCoreDataProperties.swift */; };
 		EFD264FC408EBF3BA2528E70B08DDD94 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A46F517F0AF7E85A16D723F6406896 /* Notifications.swift */; };
 		F6BECD98B97CBFEBE2C96F0E9E72A6C0 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9510473F6FFD7AA66524DB16C2263 /* ResponseSerialization.swift */; };
 		F8B3D3092ED0417E8CDF32033F6122F5 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCB8C44DE758E906C0BCDA455937B85 /* Alamofire.swift */; };
 		F98080E34D0C359D203BF2E53160B542 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 706C7AFFE37BA158C3553250F4B5FAED /* Alamofire.framework */; };
-		FAB1DE21B6FE88986F01ACF62350A820 /* RequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076ED0B0DE3649FB24A8EBA94298749F /* RequestOperation.swift */; };
 		FCD1DEEEFA760341E4FB046E145BBF03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F9B2E024A80A62FE090406312870D33 /* Foundation.framework */; };
+		FCF63725EBF6DFC350A9752ED9FCA31E /* AsyncOperationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1FD241B7779B8CFDC990ED0B64D30C /* AsyncOperationModel.swift */; };
 		FF009BA265F9B7A3CAA4A806DD9FC257 /* Pods-appTestCommunicationPortal-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 78662E74F96A0079B31578649B77D8B3 /* Pods-appTestCommunicationPortal-dummy.m */; };
 /* End PBXBuildFile section */
 
@@ -71,57 +74,60 @@
 /* Begin PBXFileReference section */
 		013C99869F0DA742E492F86314E92551 /* Pods-appTestCommunicationPortal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-appTestCommunicationPortal.debug.xcconfig"; sourceTree = "<group>"; };
 		04F47F5C9CDB035C5AFADEBA5BF44F1C /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
-		076ED0B0DE3649FB24A8EBA94298749F /* RequestOperation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RequestOperation.swift; sourceTree = "<group>"; };
 		09A6A8A3EAD1F17F6FA8DC020848A5CC /* Pods-appTestCommunicationPortal-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-appTestCommunicationPortal-frameworks.sh"; sourceTree = "<group>"; };
+		0FAA50D86B2C43C27E2C06ADCEC7CBC0 /* PortalCommunication.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = PortalCommunication.modulemap; sourceTree = "<group>"; };
 		0FCBF1EED873F61C6D46CE37FA5C39D3 /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Alamofire.swift"; path = "Source/DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
 		13A0A663B36A229C69D5274A83E93F88 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		155538D91ACEEEDF82069ACF6C1A02E7 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
 		195D73DD9EF275A3C56569E2B1CA8026 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
+		1A070309AEA9F160DCBE89F96D037C55 /* PortalCommunication.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PortalCommunication.h; sourceTree = "<group>"; };
 		1E230A0448B394DE26E688DAC8E6201E /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
 		1F57E3A186C07ACE19D419ACB3AD35AD /* Pods-appTestCommunicationPortal-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-appTestCommunicationPortal-resources.sh"; sourceTree = "<group>"; };
 		1F81A79038AD9DE60D911EE762214BB2 /* Pods_appTestCommunicationPortal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_appTestCommunicationPortal.framework; path = "Pods-appTestCommunicationPortal.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22C1C119BCE81C53F76CAC2BE27C38E0 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
-		2322F70AC58841CFA789609F886117D1 /* AsyncOperationModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AsyncOperationModel.swift; sourceTree = "<group>"; };
 		32B030D27CAC730C5EB0F22390645310 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
 		394195D402441077EAB7F008E03E6F9B /* Pods-appTestCommunicationPortal-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-appTestCommunicationPortal-acknowledgements.plist"; sourceTree = "<group>"; };
-		39C7B6B168F9944FD159E90B2D468562 /* PortalCommunication-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PortalCommunication-dummy.m"; sourceTree = "<group>"; };
 		3C025B3E81A9E10F7C4E7D6AC00AA6BD /* Pods-appTestCommunicationPortal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-appTestCommunicationPortal.release.xcconfig"; sourceTree = "<group>"; };
+		3C9AEEF5144B2BDDED6E2E1C680A9344 /* PortalCommunication-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PortalCommunication-umbrella.h"; sourceTree = "<group>"; };
 		3D60BC9955B4F7FFA62D7440CB385C11 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
 		3F9B2E024A80A62FE090406312870D33 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		43EE7A89AD1E5414FE15341FA250FF42 /* UniqId.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UniqId.swift; sourceTree = "<group>"; };
 		46CDAC6C1187C5467E576980E1062C8B /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = Source/SessionManager.swift; sourceTree = "<group>"; };
-		4AAE9F7740A6CC7670A56DE372659889 /* DataOperation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DataOperation.swift; sourceTree = "<group>"; };
+		473416334BDCB7D4A5757A89357A9FD7 /* AsyncOperationCoreDataProperties.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AsyncOperationCoreDataProperties.swift; sourceTree = "<group>"; };
 		4AF006B0AD5765D1BFA8253C2DCBB126 /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
-		58E88C9AADBE92D8776064FC93406B4F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5AFAADC7B3AFC6EAF1EA839CE1213260 /* RequestOperation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RequestOperation.swift; sourceTree = "<group>"; };
 		6639346628280A0D0FAD35196BF56108 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
 		669A1C48B8F47966F2BDFD84EBB1708E /* Pods-appTestCommunicationPortal-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-appTestCommunicationPortal-umbrella.h"; sourceTree = "<group>"; };
 		66A46F517F0AF7E85A16D723F6406896 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
-		6814B7150E9EEFA9ABECADA028E9C147 /* PortalCommunication.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = PortalCommunication.modulemap; sourceTree = "<group>"; };
+		6759758575000FFBE401ADC9DD0BDCAB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69ED1BFAF9BAB3BD36FD20D2C437E2BF /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6EEC1D1B3FD1428A7019095B6E62CE52 /* PortalCommunicator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PortalCommunicator.swift; sourceTree = "<group>"; };
+		6AD7424B80E1F715ADB9D9F4488A37F8 /* CoreDataManger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CoreDataManger.swift; sourceTree = "<group>"; };
 		706C7AFFE37BA158C3553250F4B5FAED /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78662E74F96A0079B31578649B77D8B3 /* Pods-appTestCommunicationPortal-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-appTestCommunicationPortal-dummy.m"; sourceTree = "<group>"; };
 		7B764560D618E45935D888C538864E54 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D141D1953E5C6E67E362CE73090E48A /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Alamofire.modulemap; sourceTree = "<group>"; };
 		87882A1F5A92C8138D54545E51D51E6F /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
-		8D7E2E90AA5390698DFD5992C9F9AB99 /* PortalCommunication-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PortalCommunication-prefix.pch"; sourceTree = "<group>"; };
-		938A9BF8DB308516AE84A0B613776651 /* PortalCommunication.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PortalCommunication.xcconfig; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9FF9860D3EE26BE739EA90CA20C6C02A /* PortalCommunication-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PortalCommunication-prefix.pch"; sourceTree = "<group>"; };
 		A01C037B4034EDA3D7955BC5E4E9D9D6 /* TaskDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskDelegate.swift; path = Source/TaskDelegate.swift; sourceTree = "<group>"; };
 		B029DBC43E49A740F12B5E4D2E6DD452 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
 		B44A27EFBB0DA84D738057B77F3413B1 /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
-		B4DBD94D9476C028CA633CA4F07194FF /* UniqId.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UniqId.swift; sourceTree = "<group>"; };
-		B531CFD24CF36286DA393EB915987C81 /* PortalCommunication.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PortalCommunication.h; sourceTree = "<group>"; };
-		B819CD006A0F9DC1F300E1E27D476420 /* DateBaseManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DateBaseManager.swift; sourceTree = "<group>"; };
-		BBF269F62C2985CCB7CEFB0CB78376EF /* PortalCommunication-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PortalCommunication-umbrella.h"; sourceTree = "<group>"; };
+		B7D83DB6BF74C58C1062D61B8E31B804 /* AsyncOperationCoreDataClass.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AsyncOperationCoreDataClass.swift; sourceTree = "<group>"; };
 		BCCA9CA7D9C1A2047BB93336C5708DFD /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
 		C50C91A0B9A97EA16C89B6D77892075E /* Pods-appTestCommunicationPortal-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-appTestCommunicationPortal-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CBA8607702DE0E0CAD32B37F004A2F1F /* DataOperation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DataOperation.swift; sourceTree = "<group>"; };
+		DDDCE542C4BCCA3C85B8BF2FC6D61141 /* PortalCommunication.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PortalCommunication.xcconfig; sourceTree = "<group>"; };
 		DFCB8C44DE758E906C0BCDA455937B85 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
+		E1B01BCF41747C6404AED1A788010D06 /* PortalCommunicator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PortalCommunicator.swift; sourceTree = "<group>"; };
+		E2EF768D108AB68ED39169B2C517465E /* asyncOperation.xcdatamodel */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcdatamodel; path = asyncOperation.xcdatamodel; sourceTree = "<group>"; };
 		E2F9510473F6FFD7AA66524DB16C2263 /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
 		E5A8AA5F9EDED0A0BDDE7E830BF4AEE0 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		E6F34CCF86067ED508C12C676E298C69 /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
-		EB4D53B30303F9CAB7D4AB0B2D4E8F4C /* CoreDataManger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CoreDataManger.swift; sourceTree = "<group>"; };
+		EB1FD241B7779B8CFDC990ED0B64D30C /* AsyncOperationModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AsyncOperationModel.swift; sourceTree = "<group>"; };
+		EE7F703FE6565DE3CBC484D3858056C0 /* PortalCommunication-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PortalCommunication-dummy.m"; sourceTree = "<group>"; };
 		FD576568A402FED454A9A2B592243A6B /* Pods-appTestCommunicationPortal.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-appTestCommunicationPortal.modulemap"; sourceTree = "<group>"; };
 		FE269192146061FD5D58027E58FDFF91 /* PortalCommunication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PortalCommunication.framework; path = PortalCommunication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEBF16F15CCE9FB4B96A3889E3CA42CE /* DateBaseManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DateBaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,20 +159,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1DE9A5A4A6831F54EBE0B5B6EF368565 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				58E88C9AADBE92D8776064FC93406B4F /* Info.plist */,
-				6814B7150E9EEFA9ABECADA028E9C147 /* PortalCommunication.modulemap */,
-				938A9BF8DB308516AE84A0B613776651 /* PortalCommunication.xcconfig */,
-				39C7B6B168F9944FD159E90B2D468562 /* PortalCommunication-dummy.m */,
-				8D7E2E90AA5390698DFD5992C9F9AB99 /* PortalCommunication-prefix.pch */,
-				BBF269F62C2985CCB7CEFB0CB78376EF /* PortalCommunication-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../../AppTest/appTestCommunicationPortal/Pods/Target Support Files/PortalCommunication";
-			sourceTree = "<group>";
-		};
 		200D10EB20F0397D47F022B50CF0433F /* Alamofire */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +185,14 @@
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
+		245EC5835B300A0D838A37FB32118DE6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7455BB221FDC1CA615A5B4C529AE9BB0 /* PortalCommunication */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		35F128EB69B6F7FB7DA93BBF6C130FAE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +200,17 @@
 			);
 			name = Pods;
 			sourceTree = "<group>";
+		};
+		502EBE6A3861974254BC783776960C1B /* PortalCommunication */ = {
+			isa = PBXGroup;
+			children = (
+				5DF1D0DCC6AD7835F11382BBBADA0571 /* PortalCommunication */,
+				245EC5835B300A0D838A37FB32118DE6 /* Resources */,
+				6B0C8AEB99A62249F5F51B5274374CFC /* Support Files */,
+			);
+			name = PortalCommunication;
+			path = /Users/vasilij_orlov/Documents/Portal/Library/PortalCommunication;
+			sourceTree = "<absolute>";
 		};
 		55F14F994FE7AB51F028BFE66CEF3106 /* Support Files */ = {
 			isa = PBXGroup;
@@ -224,17 +235,42 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		714936AD60F0EC80C2EFEBC44E6C1379 /* PortalCommunication */ = {
+		5DF1D0DCC6AD7835F11382BBBADA0571 /* PortalCommunication */ = {
 			isa = PBXGroup;
 			children = (
-				2322F70AC58841CFA789609F886117D1 /* AsyncOperationModel.swift */,
-				EB4D53B30303F9CAB7D4AB0B2D4E8F4C /* CoreDataManger.swift */,
-				4AAE9F7740A6CC7670A56DE372659889 /* DataOperation.swift */,
-				B819CD006A0F9DC1F300E1E27D476420 /* DateBaseManager.swift */,
-				B531CFD24CF36286DA393EB915987C81 /* PortalCommunication.h */,
-				6EEC1D1B3FD1428A7019095B6E62CE52 /* PortalCommunicator.swift */,
-				076ED0B0DE3649FB24A8EBA94298749F /* RequestOperation.swift */,
-				B4DBD94D9476C028CA633CA4F07194FF /* UniqId.swift */,
+				B7D83DB6BF74C58C1062D61B8E31B804 /* AsyncOperationCoreDataClass.swift */,
+				473416334BDCB7D4A5757A89357A9FD7 /* AsyncOperationCoreDataProperties.swift */,
+				EB1FD241B7779B8CFDC990ED0B64D30C /* AsyncOperationModel.swift */,
+				6AD7424B80E1F715ADB9D9F4488A37F8 /* CoreDataManger.swift */,
+				CBA8607702DE0E0CAD32B37F004A2F1F /* DataOperation.swift */,
+				FEBF16F15CCE9FB4B96A3889E3CA42CE /* DateBaseManager.swift */,
+				1A070309AEA9F160DCBE89F96D037C55 /* PortalCommunication.h */,
+				E1B01BCF41747C6404AED1A788010D06 /* PortalCommunicator.swift */,
+				5AFAADC7B3AFC6EAF1EA839CE1213260 /* RequestOperation.swift */,
+				43EE7A89AD1E5414FE15341FA250FF42 /* UniqId.swift */,
+			);
+			name = PortalCommunication;
+			path = PortalCommunication;
+			sourceTree = "<group>";
+		};
+		6B0C8AEB99A62249F5F51B5274374CFC /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6759758575000FFBE401ADC9DD0BDCAB /* Info.plist */,
+				0FAA50D86B2C43C27E2C06ADCEC7CBC0 /* PortalCommunication.modulemap */,
+				DDDCE542C4BCCA3C85B8BF2FC6D61141 /* PortalCommunication.xcconfig */,
+				EE7F703FE6565DE3CBC484D3858056C0 /* PortalCommunication-dummy.m */,
+				9FF9860D3EE26BE739EA90CA20C6C02A /* PortalCommunication-prefix.pch */,
+				3C9AEEF5144B2BDDED6E2E1C680A9344 /* PortalCommunication-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../../AppTest/appTestCommunicationPortal/Pods/Target Support Files/PortalCommunication";
+			sourceTree = "<group>";
+		};
+		7455BB221FDC1CA615A5B4C529AE9BB0 /* PortalCommunication */ = {
+			isa = PBXGroup;
+			children = (
+				4568B0E6E82784E15B342037E822B508 /* asyncOperation.xcdatamodeld */,
 			);
 			name = PortalCommunication;
 			path = PortalCommunication;
@@ -244,7 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				D8BB2E3F0EAAF6BEE223F0DA8E4948DE /* Development Pods */,
+				FB950826E6F2B935F5D44716B45D8610 /* Development Pods */,
 				59B91F212518421F271EBA85D5530651 /* Frameworks */,
 				35F128EB69B6F7FB7DA93BBF6C130FAE /* Pods */,
 				F802391AD05339F899D88E2A55AA61FC /* Products */,
@@ -266,24 +302,6 @@
 				F1EFE2C192D0D7141C5FFE48A4EAE7F1 /* Pods-appTestCommunicationPortal */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		B6413C532CFC6C52B9A3D635E3FA12BC /* PortalCommunication */ = {
-			isa = PBXGroup;
-			children = (
-				714936AD60F0EC80C2EFEBC44E6C1379 /* PortalCommunication */,
-				1DE9A5A4A6831F54EBE0B5B6EF368565 /* Support Files */,
-			);
-			name = PortalCommunication;
-			path = /Users/vasilij_orlov/Documents/Portal/Library/PortalCommunication;
-			sourceTree = "<absolute>";
-		};
-		D8BB2E3F0EAAF6BEE223F0DA8E4948DE /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B6413C532CFC6C52B9A3D635E3FA12BC /* PortalCommunication */,
-			);
-			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		F1EFE2C192D0D7141C5FFE48A4EAE7F1 /* Pods-appTestCommunicationPortal */ = {
@@ -312,6 +330,14 @@
 				FE269192146061FD5D58027E58FDFF91 /* PortalCommunication.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		FB950826E6F2B935F5D44716B45D8610 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				502EBE6A3861974254BC783776960C1B /* PortalCommunication */,
+			);
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,9 +392,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 95EDA405A23CBDD5BE0FDCB99DE64EF8 /* Build configuration list for PBXNativeTarget "PortalCommunication" */;
 			buildPhases = (
-				2C661AE001FDC156821FA42C89AF2EF7 /* Sources */,
+				7AF29CC784C3D8A187F05A8A63B92C71 /* Sources */,
 				5176F1BD69168E112C877DF370D4F603 /* Frameworks */,
 				23032EDFE3600001550AA5B7C03B9660 /* Headers */,
+				A0E8D6E749553C986BCD6FE2AC2311D5 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -427,27 +454,23 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		A0E8D6E749553C986BCD6FE2AC2311D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80D0326E07547128722E2E87CE4E99E5 /* asyncOperation.xcdatamodeld in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		016D1898799EEBB88D0CDDD35EAC45CC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FF009BA265F9B7A3CAA4A806DD9FC257 /* Pods-appTestCommunicationPortal-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2C661AE001FDC156821FA42C89AF2EF7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0F360A38D9E01C325EB4F43473E61330 /* AsyncOperationModel.swift in Sources */,
-				5B655824B94F835C0C1B873D89A7F6C9 /* CoreDataManger.swift in Sources */,
-				23FB3D0BD207CF301DABA77F15778CF2 /* DataOperation.swift in Sources */,
-				ECFF251964D79AFBE6491B1076F13A3D /* DateBaseManager.swift in Sources */,
-				E9C2E4B2E02A7F08806A863A83D87734 /* PortalCommunication-dummy.m in Sources */,
-				B780894FF48EE2BBDC4C494428EFEDD8 /* PortalCommunicator.swift in Sources */,
-				FAB1DE21B6FE88986F01ACF62350A820 /* RequestOperation.swift in Sources */,
-				2F8EA54A19301EC7C5ED48B348158F2A /* UniqId.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +496,23 @@
 				3626B94094672CB1C9DEA32B9F9502E1 /* TaskDelegate.swift in Sources */,
 				10EB23E9ECC4B33E16933BB1EA560B6A /* Timeline.swift in Sources */,
 				BBEFE2F9CEB73DC7BD97FFA66A0D9D4F /* Validation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AF29CC784C3D8A187F05A8A63B92C71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6024B976C2FF1F3E4BAA8AB824FBC5F /* AsyncOperationCoreDataClass.swift in Sources */,
+				DA9D05B9518D021394568D213CF9B27E /* AsyncOperationCoreDataProperties.swift in Sources */,
+				FCF63725EBF6DFC350A9752ED9FCA31E /* AsyncOperationModel.swift in Sources */,
+				AE5B0FE0DF1F140A21D90FC49FC6786D /* CoreDataManger.swift in Sources */,
+				767482811C7272D4EC198AC38DD6426A /* DataOperation.swift in Sources */,
+				6523BD5AF18841896AAECDDB93323EAA /* DateBaseManager.swift in Sources */,
+				192A2F03E4FF40577604CA742BAC81F4 /* PortalCommunication-dummy.m in Sources */,
+				CE034A54A28EADCE4C8E2ADAE6A62B49 /* PortalCommunicator.swift in Sources */,
+				49F4D00659A3290836B5C44A754A415D /* RequestOperation.swift in Sources */,
+				186D6D243B6F06AEDEC48E20A3C9ABCA /* UniqId.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,7 +574,7 @@
 		};
 		1A83DBD277CA6BCFEC075FEEBDED3F8C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 938A9BF8DB308516AE84A0B613776651 /* PortalCommunication.xcconfig */;
+			baseConfigurationReference = DDDCE542C4BCCA3C85B8BF2FC6D61141 /* PortalCommunication.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -721,7 +761,7 @@
 		};
 		D2CEAB0E1F0EFFEB3226078A9197A699 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 938A9BF8DB308516AE84A0B613776651 /* PortalCommunication.xcconfig */;
+			baseConfigurationReference = DDDCE542C4BCCA3C85B8BF2FC6D61141 /* PortalCommunication.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -825,6 +865,18 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4568B0E6E82784E15B342037E822B508 /* asyncOperation.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E2EF768D108AB68ED39169B2C517465E /* asyncOperation.xcdatamodel */,
+			);
+			path = asyncOperation.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 }
