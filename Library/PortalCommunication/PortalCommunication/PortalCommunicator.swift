@@ -186,6 +186,8 @@ public class PortalCommunicator: NSObject{
             dataOperation.finish()
             _log("Opertion id = \(dataOperation.uniqId) is canceled")
         }
+        //if operation only in DB
+        dataManager.deleteAll()
     }
     
     /*This method is used for getting any data from the app service. Both parameters and request.*/

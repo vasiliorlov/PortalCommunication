@@ -123,14 +123,14 @@ class RequestOperation: Operation {
     //MARK: - custom method
     func getResponseFromCheckLoop(asyncResponce:ResponseAsync, callBack: OperationCallBack, onLoginExpired:@escaping () -> ()){
         
-        
-        let delayMs = asyncResponce.asyncDelay
-        self.state = .waiting(delayMs: delayMs)
-        self.dateCheckedStatus = Date.init(timeIntervalSinceNow: TimeInterval(delayMs / 1000))
-        self.saveOperation(asyncResponce: asyncResponce)
-        
-        _log("\(Date())  - \(String(describing: self.dateCheckedStatus)) ")
         DispatchQueue.global().async {
+            let delayMs = asyncResponce.asyncDelay
+            self.state = .waiting(delayMs: delayMs)
+            self.dateCheckedStatus = Date.init(timeIntervalSinceNow: TimeInterval(delayMs / 1000))
+            self.saveOperation(asyncResponce: asyncResponce)
+            
+            _log("\(Date())  - \(String(describing: self.dateCheckedStatus)) ")
+            
             while true {
                 guard !self.isFinished     else { break }
                 guard !self.isCancelled    else { break }
