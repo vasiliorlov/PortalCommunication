@@ -15,4 +15,5 @@ target 'PortalCommunicationTests' do
     
     # Pods for appTestCommunicationPortal
     pod 'PortalCommunication', :path => '/Users/vasilij_orlov/Documents/Portal/Library/PortalCommunication'
+    pod 'OCMock'
 end

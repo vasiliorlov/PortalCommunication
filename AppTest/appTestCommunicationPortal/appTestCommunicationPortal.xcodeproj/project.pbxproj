@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1588CF601EF2A81A00E178AB /* PortalCommunicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1588CF5F1EF2A81A00E178AB /* PortalCommunicationTests.swift */; };
 		1588CF671EF2A88C00E178AB /* PortalCommunication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15BFECBE1ED82983005409F3 /* PortalCommunication.framework */; };
+		15BEC2071EF2D0C4002CD507 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15BEC2061EF2D0C4002CD507 /* OCMock.framework */; };
 		15BFECBF1ED82983005409F3 /* PortalCommunication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15BFECBE1ED82983005409F3 /* PortalCommunication.framework */; };
 		15BFECC11ED82986005409F3 /* PortalCommunication.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 15BFECBE1ED82983005409F3 /* PortalCommunication.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		15FADFE21ED4951900BA6C4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FADFE11ED4951900BA6C4F /* AppDelegate.swift */; };
@@ -48,6 +49,7 @@
 		1588CF5D1EF2A81A00E178AB /* PortalCommunicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PortalCommunicationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1588CF5F1EF2A81A00E178AB /* PortalCommunicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalCommunicationTests.swift; sourceTree = "<group>"; };
 		1588CF611EF2A81A00E178AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15BEC2061EF2D0C4002CD507 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = "Pods/../build/Debug-iphoneos/OCMock/OCMock.framework"; sourceTree = "<group>"; };
 		15BFECBE1ED82983005409F3 /* PortalCommunication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PortalCommunication.framework; path = "../../../../Library/Developer/Xcode/DerivedData/appTestCommunicationPortal-avnqkfxihaiimigpohlnspmglpzh/Build/Products/Debug-iphonesimulator/PortalCommunication/PortalCommunication.framework"; sourceTree = "<group>"; };
 		15C2C8CC1EDC42CE008A9F45 /* appTestCommunicationPortal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = appTestCommunicationPortal.entitlements; sourceTree = "<group>"; };
 		15FADFDE1ED4951900BA6C4F /* appTestCommunicationPortal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appTestCommunicationPortal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15BEC2071EF2D0C4002CD507 /* OCMock.framework in Frameworks */,
 				1588CF671EF2A88C00E178AB /* PortalCommunication.framework in Frameworks */,
 				17C17BC897F9B5D27C381959 /* Pods_PortalCommunicationTests.framework in Frameworks */,
 			);
@@ -134,6 +137,7 @@
 		554F5C60CB46938D5EF38FBE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				15BEC2061EF2D0C4002CD507 /* OCMock.framework */,
 				15BFECBE1ED82983005409F3 /* PortalCommunication.framework */,
 				6640B0DA8F4D781C8DD80302 /* Pods_appTestCommunicationPortal.framework */,
 				A7983D772B04B36D4963B29A /* Pods_PortalCommunicationTests.framework */,
@@ -413,6 +417,10 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 66FXUD76DR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/OCMock",
+				);
 				INFOPLIST_FILE = PortalCommunicationTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = by.stylesoft.PortalCommunicationTests;
@@ -428,6 +436,10 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 66FXUD76DR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/OCMock",
+				);
 				INFOPLIST_FILE = PortalCommunicationTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = by.stylesoft.PortalCommunicationTests;

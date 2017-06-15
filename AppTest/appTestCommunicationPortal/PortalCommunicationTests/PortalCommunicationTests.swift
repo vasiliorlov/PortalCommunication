@@ -8,6 +8,7 @@
 
 import XCTest
 import PortalCommunication
+import OCMock
 
 class PortalCommunicationTests: XCTestCase {
     
@@ -204,6 +205,9 @@ class PortalCommunicationTests: XCTestCase {
         }
     }
     
+    func testMock(){
+        
+    }
     
     
     override func setUp() {

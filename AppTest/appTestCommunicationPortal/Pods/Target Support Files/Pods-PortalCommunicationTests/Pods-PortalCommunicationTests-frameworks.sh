@@ -91,10 +91,12 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Alamofire-iOS10.3/Alamofire.framework"
   install_framework "$BUILT_PRODUCTS_DIR/PortalCommunication-iOS10.3/PortalCommunication.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/OCMock/OCMock.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Alamofire-iOS10.3/Alamofire.framework"
   install_framework "$BUILT_PRODUCTS_DIR/PortalCommunication-iOS10.3/PortalCommunication.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/OCMock/OCMock.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

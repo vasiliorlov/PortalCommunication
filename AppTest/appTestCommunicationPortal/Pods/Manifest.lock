@@ -1,9 +1,11 @@
 PODS:
   - Alamofire (4.4.0)
+  - OCMock (3.4)
   - PortalCommunication (1.0.0):
     - Alamofire
 
 DEPENDENCIES:
+  - OCMock
   - PortalCommunication (from `/Users/vasilij_orlov/Documents/Portal/Library/PortalCommunication`)
 
 EXTERNAL SOURCES:
@@ -12,8 +14,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  OCMock: 35ae71d6a8fcc1b59434d561d1520b9dd4f15765
   PortalCommunication: 3a468b3937534cf648859450546792196a49e30e
 
-PODFILE CHECKSUM: fbbfffc89f2f59280ed2e756d7567101e31549e0
+PODFILE CHECKSUM: e2862be4d97cc6ff5f0c3d5fbcbc76ab43cff272
 
 COCOAPODS: 1.2.0
