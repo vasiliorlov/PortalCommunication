@@ -91,7 +91,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="gRd-Eb-yNn"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="8"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -102,6 +102,13 @@
                                 </state>
                                 <connections>
                                     <action selector="clearTextView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xcQ-z2-dFF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dsv-gZ-qhs">
+                                <rect key="frame" x="10" y="20" width="78" height="30"/>
+                                <state key="normal" title="Cancel ALL"/>
+                                <connections>
+                                    <action selector="cancelAll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fqg-lP-FmH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -115,6 +122,7 @@
                             <constraint firstItem="M6O-DA-TZj" firstAttribute="top" secondItem="vhh-xW-9D0" secondAttribute="bottom" id="BNk-7U-sJ8"/>
                             <constraint firstItem="8k1-N7-gY1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Fjp-gN-nvH"/>
                             <constraint firstItem="Elo-7D-Beu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NFv-ls-I4i"/>
+                            <constraint firstItem="Dsv-gZ-qhs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="R9v-D5-YgO"/>
                             <constraint firstItem="DWf-TZ-Vme" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="S9E-mT-riA"/>
                             <constraint firstItem="DWf-TZ-Vme" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SMe-DE-bkz"/>
                             <constraint firstItem="N5e-0X-9Dh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Vqf-A5-naw"/>
@@ -126,6 +134,7 @@
                             <constraint firstItem="ppB-l5-ZqE" firstAttribute="top" secondItem="A8k-as-2Xt" secondAttribute="bottom" id="u5B-Uu-Npe"/>
                             <constraint firstItem="gLv-A4-5ab" firstAttribute="centerY" secondItem="M6O-DA-TZj" secondAttribute="centerY" id="uGu-hV-cze"/>
                             <constraint firstItem="5sW-c1-5ul" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="vBp-ZR-0q3"/>
+                            <constraint firstItem="Dsv-gZ-qhs" firstAttribute="centerY" secondItem="DWf-TZ-Vme" secondAttribute="centerY" id="yYR-h1-wrz"/>
                             <constraint firstItem="8k1-N7-gY1" firstAttribute="top" secondItem="DWf-TZ-Vme" secondAttribute="bottom" id="z9O-xi-s8a"/>
                             <constraint firstItem="vhh-xW-9D0" firstAttribute="top" secondItem="ppB-l5-ZqE" secondAttribute="bottom" id="zqP-UT-9aq"/>
                         </constraints>

@@ -6,3 +6,7 @@ use_frameworks!
 target 'PortalCommunication' do
     pod 'Alamofire'
 end
+
+target 'PortalCommunicationTests' do
+    pod 'Alamofire'
+end

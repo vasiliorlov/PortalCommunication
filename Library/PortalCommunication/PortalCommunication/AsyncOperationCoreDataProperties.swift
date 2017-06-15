@@ -16,9 +16,10 @@ extension AsyncOperation {
         return NSFetchRequest<AsyncOperation>(entityName: "AsyncOperation")
     }
     
-    @NSManaged public var asyncDelay: Int64
-    @NSManaged public var asyncToken: String?
-    @NSManaged public var dateChecked: NSDate?
-    @NSManaged public var id: Int16
+    @NSManaged public var asyncDelay        : Int64
+    @NSManaged public var asyncToken        : String?
+    @NSManaged public var urlVerification   : String?
+    @NSManaged public var dateVerification  : NSDate?
+    @NSManaged public var id                : Int16
     
 }

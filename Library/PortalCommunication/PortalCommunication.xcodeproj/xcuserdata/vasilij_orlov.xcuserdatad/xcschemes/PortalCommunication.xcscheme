@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "15C2C8D01EDC6800008A9F45"
+               BuildableName = "PortalCommunicationTests.xctest"
+               BlueprintName = "PortalCommunicationTests"
+               ReferencedContainer = "container:PortalCommunication.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "15E6C9791ED4923500325060"
+            BuildableName = "PortalCommunication.framework"
+            BlueprintName = "PortalCommunication"
+            ReferencedContainer = "container:PortalCommunication.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

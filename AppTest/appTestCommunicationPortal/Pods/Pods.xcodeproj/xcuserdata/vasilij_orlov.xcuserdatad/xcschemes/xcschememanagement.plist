@@ -4,7 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Alamofire.xcscheme</key>
+		<key>Alamofire-iOS10.3.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Alamofire-iOS8.2.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-PortalCommunicationTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -14,12 +24,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>PortalCommunication-PortalCommunication.xcscheme</key>
+		<key>PortalCommunication-iOS10.3-PortalCommunication.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>PortalCommunication.xcscheme</key>
+		<key>PortalCommunication-iOS10.3.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>PortalCommunication-iOS8.2-PortalCommunication.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>PortalCommunication-iOS8.2.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,22 +47,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>575ACCBE332BD6ECA7BC3BC202368DBE</key>
+		<key>51313392AE71F79FD8989FD6BD91CC90</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
+		<key>61A0443DE402E9EE1B39424F23DB6800</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AA02AA70E134AF4D32DD21D554011440</key>
+		<key>9050BFB1FDA8F7334BB7B67BAB2D93E4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B42DE4457DC0743ED27673E1132BCD5D</key>
+		<key>B40F57B1E23F869A7A7ED55D184D72A5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B5CC7625322DC2068AB9220B477364F9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D20AAE8E61DEC4ACE9587B3511A37565</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F431F7C6D4CA29836E50C6BE11E499BD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F818C48233D786C88226C41ADD2D72A7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

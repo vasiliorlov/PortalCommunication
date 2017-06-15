@@ -58,7 +58,6 @@ public struct EventCallBack {
         self.onPingFailed       = onPingFailed
         self.onCommandReceived  = onCommandReceived
     }
-    
 }
 
 public struct PortalCredentials {
@@ -75,15 +74,18 @@ public struct PortalCredentials {
         self.init(appId: appId, deviceId: deviceId)
         self.companyCode        = companyCode
     }
-    
 }
 
-public typealias StatusOperation = (unigId:UInt8, type:RequestOperationType, state:RequestOperationState)
+public typealias StatusOperation = (unigId:UInt8, type:RequestOperationType, state:RequestOperationState, isSavedDB:Bool)
 
 func _log(_ info:String) {
     if Constans.debugLog {
         Swift.print(info)
     }
+}
+
+@objc public protocol PortalDelegate{
+  @objc optional func operation(id:UInt8, didFinishWithData:[String:Any]?)
 }
 
 public class PortalCommunicator: NSObject{
@@ -93,9 +95,10 @@ public class PortalCommunicator: NSObject{
     fileprivate var credentials         :PortalCredentials
     
     fileprivate var queueOperation      = OperationQueue()
-    fileprivate var token               :String?
+    fileprivate var authToken           :String?
     
-    fileprivate var timer                = Timer()
+    fileprivate var timer               = Timer()
+    public var delegate                 :PortDelegate?
     
     let dataManager         = DateBaseManager.sharedInstance
     
@@ -148,8 +151,8 @@ public class PortalCommunicator: NSObject{
         var authCallBack = callBack
         authCallBack.onSuccess = { [unowned self] data in
             if let token = data?["auth_token"]{
-                self.token = token as? String
-                print("Auth token \(String(describing: self.token!)) was saved")
+                self.authToken = token as? String
+                print("Auth token \(String(describing: self.authToken!)) was saved")
             }
             callBack.onSuccess(data)
         }
@@ -194,7 +197,7 @@ public class PortalCommunicator: NSObject{
         guard urlGetDataService != nil else {
             let error = NSError(domain: "AuthServiceRoot is not correct", code: 10001, userInfo: nil)
             callBack.onError(error)
-            return nil
+             return nil
         }
         
         let operation = DataOperation(serviceRoot: urlGetDataService!, type:.data, params: params/*add auth*/, callBack: callBack, onLoginExpired: self.eventCallBack.onLoginExpired)
@@ -233,22 +236,38 @@ public class PortalCommunicator: NSObject{
         
         for operation in queueOperation.operations{
             let dataOperation = operation as! DataOperation
-            let status:StatusOperation = (dataOperation.uniqId, dataOperation.type, dataOperation.state)
+            let status:StatusOperation = (dataOperation.uniqId, dataOperation.type, dataOperation.state, false)
             operationsStatus.append(status)
             _log("id =  \(dataOperation.uniqId) type = \(dataOperation.type) state = \(dataOperation.state)")
         }
         _log("########### Async Operations in DB ###########")
-        getDataBase()
+        getDataBase(arrayStatus: &operationsStatus)
         return operationsStatus
     }
     
-    //print saved async operation
-    func getDataBase(){
-        if  let savedOperations = dataManager.readAll(){
-            for operation in savedOperations {
-                _log("\(operation.description)")
-            }
+    /*This method is used for register device for receiving push notifications. The only usage for now "push-to-ping"*/
+    public func registerForPush(pushToken:String, callBack:OperationCallBack) -> UInt8?{
+        var urlRegisterpushService = URL.init(string: setting.commonServiceRoot)
+        urlRegisterpushService?.appendPathComponent(Constans.Methodname.registerPush)
+        
+        guard urlRegisterpushService != nil else {
+            let error = NSError(domain: "urlRegisterForPushService is not correct", code: 10001, userInfo: nil)
+            eventCallBack.onPingFailed(error)
+            return nil
         }
+        
+        
+        
+        let paramsPush:[String:Any] = ["auth_token":self.authToken ?? "", "push_token":pushToken, "push_service":"APNS" ]
+        
+        let operation = DataOperation(serviceRoot: urlRegisterpushService!,type:.registerForPush, params: paramsPush, callBack: callBack, onLoginExpired: self.eventCallBack.onLoginExpired)
+        queueOperation.addOperation(operation)
+        return operation.uniqId
+    }
+    
+    /*This method is used for resume all operation from DB after reload application.*/
+    public func resumeOperationFromDB(id:UInt8, callBack:OperationCallBack){
+
     }
     
     //MARK: - EventCallBack
@@ -257,6 +276,18 @@ public class PortalCommunicator: NSObject{
         let repeatInterval = TimeInterval(setting.pingIntervalMs / 1000) //in Sec
         timer = Timer.scheduledTimer(timeInterval: repeatInterval, target: self, selector: #selector(pingServer), userInfo: nil, repeats: true)
         
+    }
+    
+    //MARK: - private method
+    //print saved async operation
+    func getDataBase( arrayStatus:inout [StatusOperation]){
+        if  let savedOperations = dataManager.readAll(){
+            for operation in savedOperations {
+                _log("\(operation.description)")
+                let status:StatusOperation = (operation.id!, RequestOperationType.data, RequestOperationState.waiting(delayMs: operation.asyncDelay!), true)
+                arrayStatus.append(status)
+            }
+        }
     }
     
     /* This method is used for fetching the commands that can be executed by a mobile app.*/
@@ -289,31 +320,11 @@ public class PortalCommunicator: NSObject{
             //code
         }
         
-        let paramsAuth:[String:Any] = ["auth_token":self.token ?? ""]
+        let paramsAuth:[String:Any] = ["auth_token":self.authToken ?? ""]
         
         let operation = DataOperation(serviceRoot: urlPingService!,type:.ping, params: paramsAuth/*add auth*/, callBack: pingCallBack, onLoginExpired: self.eventCallBack.onLoginExpired)
         queueOperation.addOperation(operation)
         
-    }
-    
-    /*This method is used for register device for receiving push notifications. The only usage for now "push-to-ping"*/
-    public func registerForPush(pushToken:String, callBack:OperationCallBack) -> UInt8?{
-        var urlRegisterpushService = URL.init(string: setting.commonServiceRoot)
-        urlRegisterpushService?.appendPathComponent(Constans.Methodname.registerPush)
-        
-        guard urlRegisterpushService != nil else {
-            let error = NSError(domain: "urlRegisterForPushService is not correct", code: 10001, userInfo: nil)
-            eventCallBack.onPingFailed(error)
-            return nil
-        }
-        
-        
-        
-        let paramsPush:[String:Any] = ["auth_token":self.token ?? "", "push_token":pushToken, "push_service":"APNS" ]
-        
-        let operation = DataOperation(serviceRoot: urlRegisterpushService!,type:.registerForPush, params: paramsPush, callBack: callBack, onLoginExpired: self.eventCallBack.onLoginExpired)
-        queueOperation.addOperation(operation)
-        return operation.uniqId
     }
     
     func receiveRemoteNotification(){

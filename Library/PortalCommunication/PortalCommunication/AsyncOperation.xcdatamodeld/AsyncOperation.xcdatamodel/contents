@@ -3,10 +3,11 @@
     <entity name="AsyncOperation" representedClassName="AsyncOperation" syncable="YES">
         <attribute name="asyncDelay" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="asyncToken" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="dateChecked" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="dateVerification" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" indexed="YES" syncable="YES"/>
+        <attribute name="urlVerification" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="AsyncOperation" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="AsyncOperation" positionX="-63" positionY="-18" width="128" height="120"/>
     </elements>
 </model>

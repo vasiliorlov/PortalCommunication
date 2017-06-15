@@ -35,13 +35,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*
-         
-         portal.login(params: loginParam, callBack: operationCallBack)
-         portal.login(params: loginParam, callBack: operationCallBack)
-         */
-        
-        
         // Do any additional setup after loading the view, typically from a nib.
         
         
@@ -190,6 +183,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         console("status \(String(describing: operations)) \n")
         
     }
+    
+    @IBAction func cancelAll(_ sender: Any) {
+        portal.cancelAll()
+    }
+    
+    
     func console(_ addText:String){
         if (consoleLabel.text != nil) {
             consoleLabel.text =  consoleLabel.text! + addText

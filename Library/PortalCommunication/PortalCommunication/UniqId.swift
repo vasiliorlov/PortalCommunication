@@ -14,8 +14,22 @@ enum UniqIdError:Error{
 
 class UniqId: NSObject {
     
-    var setUniqId:Set<UInt8> = []
-    static let shared = UniqId()
+    fileprivate var setUniqId:Set<UInt8> = []
+    fileprivate let dataManager          = DateBaseManager.sharedInstance
+    static let shared                    = UniqId()
+    
+    override init() {
+        super.init()
+        addUniqIdFromDb()
+    }
+    
+   fileprivate func addUniqIdFromDb(){
+        if let operations = dataManager.readAll(){
+            for operation in operations{
+                setUniqId.insert(operation.id!)
+            }
+        }
+    }
     
     func getId() throws -> UInt8  {
         

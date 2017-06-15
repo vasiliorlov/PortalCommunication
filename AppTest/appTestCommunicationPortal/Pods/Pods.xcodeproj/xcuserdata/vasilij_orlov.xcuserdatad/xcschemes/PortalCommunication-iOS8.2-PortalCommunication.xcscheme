@@ -14,8 +14,8 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '575ACCBE332BD6ECA7BC3BC202368DBE'
-               BlueprintName = 'PortalCommunication-PortalCommunication'
+               BlueprintIdentifier = 'F818C48233D786C88226C41ADD2D72A7'
+               BlueprintName = 'PortalCommunication-iOS8.2-PortalCommunication'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'PortalCommunication.bundle'>
             </BuildableReference>

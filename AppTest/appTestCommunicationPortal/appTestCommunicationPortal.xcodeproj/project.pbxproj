@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1588CF601EF2A81A00E178AB /* PortalCommunicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1588CF5F1EF2A81A00E178AB /* PortalCommunicationTests.swift */; };
+		1588CF671EF2A88C00E178AB /* PortalCommunication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15BFECBE1ED82983005409F3 /* PortalCommunication.framework */; };
 		15BFECBF1ED82983005409F3 /* PortalCommunication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15BFECBE1ED82983005409F3 /* PortalCommunication.framework */; };
 		15BFECC11ED82986005409F3 /* PortalCommunication.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 15BFECBE1ED82983005409F3 /* PortalCommunication.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		15FADFE21ED4951900BA6C4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FADFE11ED4951900BA6C4F /* AppDelegate.swift */; };
@@ -14,8 +16,19 @@
 		15FADFE91ED4951A00BA6C4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15FADFE81ED4951A00BA6C4F /* Assets.xcassets */; };
 		15FADFEC1ED4951A00BA6C4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15FADFEA1ED4951A00BA6C4F /* LaunchScreen.storyboard */; };
 		15FADFF51ED4953A00BA6C4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FADFF41ED4953A00BA6C4F /* ViewController.swift */; };
+		17C17BC897F9B5D27C381959 /* Pods_PortalCommunicationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7983D772B04B36D4963B29A /* Pods_PortalCommunicationTests.framework */; };
 		AEB41A604E0CA5BCC8135AA7 /* Pods_appTestCommunicationPortal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6640B0DA8F4D781C8DD80302 /* Pods_appTestCommunicationPortal.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1588CF621EF2A81A00E178AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 15FADFD61ED4951900BA6C4F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 15FADFDD1ED4951900BA6C4F;
+			remoteInfo = appTestCommunicationPortal;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		15FAE0001ED4955500BA6C4F /* Embed Frameworks */ = {
@@ -32,6 +45,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1588CF5D1EF2A81A00E178AB /* PortalCommunicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PortalCommunicationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1588CF5F1EF2A81A00E178AB /* PortalCommunicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalCommunicationTests.swift; sourceTree = "<group>"; };
+		1588CF611EF2A81A00E178AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15BFECBE1ED82983005409F3 /* PortalCommunication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PortalCommunication.framework; path = "../../../../Library/Developer/Xcode/DerivedData/appTestCommunicationPortal-avnqkfxihaiimigpohlnspmglpzh/Build/Products/Debug-iphonesimulator/PortalCommunication/PortalCommunication.framework"; sourceTree = "<group>"; };
 		15C2C8CC1EDC42CE008A9F45 /* appTestCommunicationPortal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = appTestCommunicationPortal.entitlements; sourceTree = "<group>"; };
 		15FADFDE1ED4951900BA6C4F /* appTestCommunicationPortal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appTestCommunicationPortal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,13 +56,25 @@
 		15FADFE81ED4951A00BA6C4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15FADFEB1ED4951A00BA6C4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15FADFED1ED4951A00BA6C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		15FADFF41ED4953A00BA6C4F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		15FADFF41ED4953A00BA6C4F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		22DCE210E92721ABB9092346 /* Pods-appTestCommunicationPortal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appTestCommunicationPortal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-appTestCommunicationPortal/Pods-appTestCommunicationPortal.debug.xcconfig"; sourceTree = "<group>"; };
 		6640B0DA8F4D781C8DD80302 /* Pods_appTestCommunicationPortal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_appTestCommunicationPortal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BF3B35FA44C9DA2FC327CA4 /* Pods-PortalCommunicationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortalCommunicationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PortalCommunicationTests/Pods-PortalCommunicationTests.release.xcconfig"; sourceTree = "<group>"; };
+		A7983D772B04B36D4963B29A /* Pods_PortalCommunicationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortalCommunicationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFA26EE15F94D46B0AF02F8A /* Pods-PortalCommunicationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortalCommunicationTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PortalCommunicationTests/Pods-PortalCommunicationTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BDED52FD283116CAA3282FEE /* Pods-appTestCommunicationPortal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appTestCommunicationPortal.release.xcconfig"; path = "Pods/Target Support Files/Pods-appTestCommunicationPortal/Pods-appTestCommunicationPortal.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1588CF5A1EF2A81A00E178AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1588CF671EF2A88C00E178AB /* PortalCommunication.framework in Frameworks */,
+				17C17BC897F9B5D27C381959 /* Pods_PortalCommunicationTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		15FADFDB1ED4951900BA6C4F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -59,10 +87,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1588CF5E1EF2A81A00E178AB /* PortalCommunicationTests */ = {
+			isa = PBXGroup;
+			children = (
+				1588CF5F1EF2A81A00E178AB /* PortalCommunicationTests.swift */,
+				1588CF611EF2A81A00E178AB /* Info.plist */,
+			);
+			path = PortalCommunicationTests;
+			sourceTree = "<group>";
+			usesTabs = 0;
+		};
 		15FADFD51ED4951900BA6C4F = {
 			isa = PBXGroup;
 			children = (
 				15FADFE01ED4951900BA6C4F /* appTestCommunicationPortal */,
+				1588CF5E1EF2A81A00E178AB /* PortalCommunicationTests */,
 				15FADFDF1ED4951900BA6C4F /* Products */,
 				F39B7E3BD89B9EE2CA8DA85F /* Pods */,
 				554F5C60CB46938D5EF38FBE /* Frameworks */,
@@ -73,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				15FADFDE1ED4951900BA6C4F /* appTestCommunicationPortal.app */,
+				1588CF5D1EF2A81A00E178AB /* PortalCommunicationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -96,6 +136,7 @@
 			children = (
 				15BFECBE1ED82983005409F3 /* PortalCommunication.framework */,
 				6640B0DA8F4D781C8DD80302 /* Pods_appTestCommunicationPortal.framework */,
+				A7983D772B04B36D4963B29A /* Pods_PortalCommunicationTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -105,6 +146,8 @@
 			children = (
 				22DCE210E92721ABB9092346 /* Pods-appTestCommunicationPortal.debug.xcconfig */,
 				BDED52FD283116CAA3282FEE /* Pods-appTestCommunicationPortal.release.xcconfig */,
+				AFA26EE15F94D46B0AF02F8A /* Pods-PortalCommunicationTests.debug.xcconfig */,
+				9BF3B35FA44C9DA2FC327CA4 /* Pods-PortalCommunicationTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -112,6 +155,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1588CF5C1EF2A81A00E178AB /* PortalCommunicationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1588CF641EF2A81A00E178AB /* Build configuration list for PBXNativeTarget "PortalCommunicationTests" */;
+			buildPhases = (
+				2EF58D122CBD8FA2EA6728B1 /* [CP] Check Pods Manifest.lock */,
+				1588CF591EF2A81A00E178AB /* Sources */,
+				1588CF5A1EF2A81A00E178AB /* Frameworks */,
+				1588CF5B1EF2A81A00E178AB /* Resources */,
+				61BE7C871D664FDB7BAD4E23 /* [CP] Embed Pods Frameworks */,
+				299EB9166093E1052C1E2CFA /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1588CF631EF2A81A00E178AB /* PBXTargetDependency */,
+			);
+			name = PortalCommunicationTests;
+			productName = PortalCommunicationTests;
+			productReference = 1588CF5D1EF2A81A00E178AB /* PortalCommunicationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		15FADFDD1ED4951900BA6C4F /* appTestCommunicationPortal */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 15FADFF01ED4951A00BA6C4F /* Build configuration list for PBXNativeTarget "appTestCommunicationPortal" */;
@@ -143,6 +207,12 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Stylesoft LLC";
 				TargetAttributes = {
+					1588CF5C1EF2A81A00E178AB = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 66FXUD76DR;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 15FADFDD1ED4951900BA6C4F;
+					};
 					15FADFDD1ED4951900BA6C4F = {
 						CreatedOnToolsVersion = 8.3.2;
 						ProvisioningStyle = Manual;
@@ -171,11 +241,19 @@
 			projectRoot = "";
 			targets = (
 				15FADFDD1ED4951900BA6C4F /* appTestCommunicationPortal */,
+				1588CF5C1EF2A81A00E178AB /* PortalCommunicationTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1588CF5B1EF2A81A00E178AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		15FADFDC1ED4951900BA6C4F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -189,6 +267,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		299EB9166093E1052C1E2CFA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PortalCommunicationTests/Pods-PortalCommunicationTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2EF58D122CBD8FA2EA6728B1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		31C732DCA7CCECE99F61A853 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -219,6 +327,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		61BE7C871D664FDB7BAD4E23 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PortalCommunicationTests/Pods-PortalCommunicationTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6DA307C5ADD59FA6E936E554 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -237,6 +360,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1588CF591EF2A81A00E178AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1588CF601EF2A81A00E178AB /* PortalCommunicationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		15FADFDA1ED4951900BA6C4F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -247,6 +378,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1588CF631EF2A81A00E178AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 15FADFDD1ED4951900BA6C4F /* appTestCommunicationPortal */;
+			targetProxy = 1588CF621EF2A81A00E178AB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		15FADFE51ED4951900BA6C4F /* Main.storyboard */ = {
@@ -268,6 +407,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1588CF651EF2A81A00E178AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFA26EE15F94D46B0AF02F8A /* Pods-PortalCommunicationTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 66FXUD76DR;
+				INFOPLIST_FILE = PortalCommunicationTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = by.stylesoft.PortalCommunicationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/appTestCommunicationPortal.app/appTestCommunicationPortal";
+			};
+			name = Debug;
+		};
+		1588CF661EF2A81A00E178AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BF3B35FA44C9DA2FC327CA4 /* Pods-PortalCommunicationTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 66FXUD76DR;
+				INFOPLIST_FILE = PortalCommunicationTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = by.stylesoft.PortalCommunicationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/appTestCommunicationPortal.app/appTestCommunicationPortal";
+			};
+			name = Release;
+		};
 		15FADFEE1ED4951A00BA6C4F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -403,6 +572,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1588CF641EF2A81A00E178AB /* Build configuration list for PBXNativeTarget "PortalCommunicationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1588CF651EF2A81A00E178AB /* Debug */,
+				1588CF661EF2A81A00E178AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		15FADFD91ED4951900BA6C4F /* Build configuration list for PBXProject "appTestCommunicationPortal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

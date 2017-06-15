@@ -11,13 +11,13 @@ import UIKit
 
 class DateBaseManager: NSObject {
     
-    static let sharedInstance = DateBaseManager()
-    let coreManager = CoreDataManager.sharedInstance
+    static let sharedInstance   = DateBaseManager()
+    fileprivate let coreManager = CoreDataManager.sharedInstance
     
     
     
     func save(model:AsyncOperationModel) {
-        coreManager.saveContext(idOperation: model.id!, asyncToken: model.asyncToken!, dateChecked: model.dateChecked!, asyncDelay: model.asyncDelay!)
+        coreManager.saveContext(idOperation: model.id!, asyncToken: model.asyncToken!, dateVerification: model.dateVerification!, asyncDelay: model.asyncDelay!, urlVerification: model.urlVerification!)
     }
     
     func read(idOperation:UInt8) -> AsyncOperationModel?{

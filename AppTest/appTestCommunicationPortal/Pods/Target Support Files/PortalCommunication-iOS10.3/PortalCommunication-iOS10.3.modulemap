@@ -1,5 +1,5 @@
 framework module PortalCommunication {
-  umbrella header "PortalCommunication-umbrella.h"
+  umbrella header "PortalCommunication-iOS10.3-umbrella.h"
 
   export *
   module * { export * }

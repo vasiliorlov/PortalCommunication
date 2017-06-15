@@ -89,12 +89,12 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/Alamofire/Alamofire.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/PortalCommunication/PortalCommunication.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Alamofire-iOS8.2/Alamofire.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/PortalCommunication-iOS8.2/PortalCommunication.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/Alamofire/Alamofire.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/PortalCommunication/PortalCommunication.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Alamofire-iOS8.2/Alamofire.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/PortalCommunication-iOS8.2/PortalCommunication.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

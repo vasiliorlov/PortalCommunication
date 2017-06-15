@@ -55,22 +55,24 @@ class CoreDataManager: NSObject {
         return fetchRequest
     }
     
-    func saveContext(idOperation:UInt8 , asyncToken:String, dateChecked:Date, asyncDelay:UInt){
+    func saveContext(idOperation:UInt8 , asyncToken:String, dateVerification:Date, asyncDelay:UInt, urlVerification:URL){
         
         // if operation is exist then update else insert new entity
         let request = fetchRequest(withIdOperation: idOperation)
         do {
             let fetchedEntities = try self.managedObjectContext.fetch(request)
             if let asyncOperation = fetchedEntities.first {
-                asyncOperation.asyncToken = asyncToken
-                asyncOperation.dateChecked = dateChecked as NSDate
-                asyncOperation.asyncDelay = Int64(asyncDelay)
+                asyncOperation.asyncToken           = asyncToken
+                asyncOperation.dateVerification     = dateVerification as NSDate
+                asyncOperation.asyncDelay           = Int64(asyncDelay)
+                asyncOperation.urlVerification      = urlVerification.absoluteString
             } else {
-                let newAsyncOperation   = NSEntityDescription.insertNewObject(forEntityName: "AsyncOperation", into: self.managedObjectContext) as! AsyncOperation
-                newAsyncOperation.id = Int16(idOperation)
-                newAsyncOperation.asyncToken = asyncToken
-                newAsyncOperation.dateChecked = dateChecked as NSDate
-                newAsyncOperation.asyncDelay = Int64(asyncDelay)
+                let newAsyncOperation               = NSEntityDescription.insertNewObject(forEntityName: "AsyncOperation", into: self.managedObjectContext) as! AsyncOperation
+                newAsyncOperation.id                = Int16(idOperation)
+                newAsyncOperation.asyncToken        = asyncToken
+                newAsyncOperation.dateVerification  = dateVerification as NSDate
+                newAsyncOperation.asyncDelay        = Int64(asyncDelay)
+                newAsyncOperation.urlVerification   = urlVerification.absoluteString
             }
         } catch {
             fatalError("Failure to create context: \(error)")
