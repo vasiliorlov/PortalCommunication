@@ -23,13 +23,19 @@ class DataOperation: RequestOperation {
         self.onLoginExpired     = onLoginExpired
         super.init(serviceRoot: serviceRoot, type: type)
     }
+    
+    convenience init(resumeOperationModel:AsyncOperationModel,callBack:OperationCallBack, onLoginExpired:@escaping () -> ()){
+        let url = resumeOperationModel.urlVerification
+        self.init(serviceRoot: url!, type: .data, params: [String:Any](), callBack: callBack, onLoginExpired: onLoginExpired)
+        self.isResumed = true
+    }
     //MARK: - override operation method
     
     
     override func start() {
         _log("[\(Date())] start")
         _executing = true
-
+        
         state = .requesting(requestPath: self.serviceRoot.absoluteString)
         
         Alamofire.request(self.serviceRoot, method: .post, parameters: self.params, encoding: URLEncoding.default, headers: nil).validate().responseJSON { response in
@@ -73,7 +79,7 @@ class DataOperation: RequestOperation {
         }
         
     }
-
+    
     override func main() {
         _log("[\(Date())] main")
     }

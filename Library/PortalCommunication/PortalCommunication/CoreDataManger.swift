@@ -23,7 +23,6 @@ class CoreDataManager: NSObject {
         let frameworkBundle = Bundle.init(url: bundleURL)!
         let momURL = frameworkBundle.url(forResource: "AsyncOperation", withExtension: "momd")!
         
-        
         return NSManagedObjectModel(contentsOf: momURL)!
     }()
     

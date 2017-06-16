@@ -43,6 +43,7 @@ class RequestOperation: Operation {
         // return serviceRoot.appendingPathComponent(Constans.Methodname.status)
     }
     let dataManager         = DateBaseManager.sharedInstance
+    var isResumed           :Bool = false
     
     override var isAsynchronous: Bool {
         return true
@@ -106,6 +107,7 @@ class RequestOperation: Operation {
         super.init()
     }
     
+    
     //MARK: - control operation method
     /* This method is used for stopping operation. The current asynctoken's cycle will be closed immediately. The request's status won't be checked.*/
     func finish() {
@@ -157,7 +159,7 @@ class RequestOperation: Operation {
                 if let responseDict = JSON as? [String:Any]{
                     
                     guard responseDict["is_success"] as! Bool else {
-                        let error = NSError(domain: "Service returns incorrct response", code: 10007, userInfo: nil)
+                        let error = NSError(domain: "Service returned incorrect response", code: 10007, userInfo: nil)
                         callBack.onError(error)
                         self.finish()
                         return
@@ -178,7 +180,7 @@ class RequestOperation: Operation {
                                     self.getResponseFromCheckLoop(asyncResponce: asyncResponse , callBack: callBack, onLoginExpired: onLoginExpired)
                                 }
                             }else{
-                                let error = NSError(domain: "Async response doesn't have async_token value ", code: 10004, userInfo: nil)
+                                let error = NSError(domain: "Async response doesn't have async_token value", code: 10004, userInfo: nil)
                                 callBack.onError(error)
                                 self.finish()
                             }
@@ -213,7 +215,7 @@ class RequestOperation: Operation {
         let delay      = asyncResponce.asyncDelay
         
         
-        let model = AsyncOperationModel(idOperation: uniqId, asyncToken: asyncToken, dateVerification: self.dateCheckedStatus, asyncDelay: delay, urlVerification: self.serviceRootForStatus)
+        let model = AsyncOperationModel(idOperation: uniqId, asyncToken: asyncToken, dateVerification: self.dateCheckedStatus, asyncDelay: delay, urlVerification: self.serviceRoot)
         dataManager.save(model: model)
         
     }

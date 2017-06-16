@@ -150,7 +150,7 @@ class PortalCommunicationTests: XCTestCase {
         
         
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             countDB = self.portal.statusOperations().filter{$0.isSavedDB}.count
             countAll = self.portal.statusOperations().count
             XCTAssertEqual(countDB, 1, "\(countDB) equal to 1")
@@ -180,7 +180,7 @@ class PortalCommunicationTests: XCTestCase {
         let idGetDataAync1  = portal.getData(methodName: methodName, params: getParam, callBack: getDataSyncOperationCallBack)
         _                   = portal.getData(methodName: methodName, params: getParam, callBack: getDataSyncOperationCallBack)
         _                   = portal.getData(methodName: methodName, params: getParam, callBack: getDataSyncOperationCallBack)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             countDB = self.portal.statusOperations().filter{$0.isSavedDB}.count
             countAll = self.portal.statusOperations().count
             
@@ -205,9 +205,7 @@ class PortalCommunicationTests: XCTestCase {
         }
     }
     
-    func testMock(){
-        
-    }
+
     
     
     override func setUp() {
@@ -227,11 +225,6 @@ class PortalCommunicationTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+
     
 }

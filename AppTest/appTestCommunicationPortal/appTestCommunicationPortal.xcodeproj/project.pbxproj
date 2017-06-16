@@ -46,6 +46,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1535D84D1EF4197200FF6FA5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		1588CF5D1EF2A81A00E178AB /* PortalCommunicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PortalCommunicationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1588CF5F1EF2A81A00E178AB /* PortalCommunicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalCommunicationTests.swift; sourceTree = "<group>"; };
 		1588CF611EF2A81A00E178AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -396,6 +397,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				15FADFE61ED4951900BA6C4F /* Base */,
+				1535D84D1EF4197200FF6FA5 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

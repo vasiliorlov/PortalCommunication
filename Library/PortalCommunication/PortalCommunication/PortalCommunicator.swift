@@ -269,7 +269,14 @@ public class PortalCommunicator: NSObject{
     
     /*This method is used for resume all operation from DB after reload application.*/
     public func resumeOperationFromDB(id:UInt8, callBack:OperationCallBack){
-
+         let oper  = dataManager.read(idOperation: id)
+        guard (oper != nil) else {
+            let error = NSError(domain: "Async operation is not found in DB", code: 10013, userInfo: nil)
+            callBack.onError(error)
+            return
+        }
+        
+        
     }
     
     //MARK: - EventCallBack

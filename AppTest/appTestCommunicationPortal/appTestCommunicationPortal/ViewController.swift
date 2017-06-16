@@ -14,6 +14,8 @@ import PortalCommunication
 class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var cancelOperationId: UITextField!
+    @IBOutlet weak var resumeOperationId: UITextField!
+    
     @IBOutlet weak var consoleLabel: UILabel!
     let portal = { () -> PortalCommunicator in
         // ##########################
@@ -188,6 +190,32 @@ class ViewController: UIViewController, UITextFieldDelegate {
         portal.cancelAll()
     }
     
+    @IBAction func resumeOperation(_ sender: Any) {
+        // ##########################
+        // --- Resume Operation --
+        
+        let resumeOperationCallBack = OperationCallBack(onSuccess: { (data) in
+            //code
+            self.console("success \(Date.init(timeIntervalSinceNow: 0)) data \(String(describing: data)) \n")
+            print("success \(Date.init(timeIntervalSinceNow: 0)) data \(String(describing: data))")
+        }, onError: { (error) in
+            //code
+            self.console("error \(Date.init(timeIntervalSinceNow: 0)) error = \(error.localizedDescription) \n")
+            print("error \(Date.init(timeIntervalSinceNow: 0)) error = \(error.localizedDescription) ")
+            
+        }) { (delayMS, message) in
+            //code
+            print ("progress \(Date.init(timeIntervalSinceNow: 0)) delay = \(delayMS) \(message) ")
+            self.console("progress \(Date.init(timeIntervalSinceNow: 0)) delay = \(delayMS) \(message) \n")
+            
+        }
+        
+        if let idOperation = UInt8(self.resumeOperationId.text ?? "0"){
+            self.console("resume operation id = \(String(describing: idOperation)) \n")
+            portal.resumeOperationFromDB(id: idOperation, callBack: resumeOperationCallBack)
+            
+        }
+    }
     
     func console(_ addText:String){
         if (consoleLabel.text != nil) {

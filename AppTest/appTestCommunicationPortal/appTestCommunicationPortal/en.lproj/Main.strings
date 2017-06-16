@@ -1,0 +1,30 @@
+
+/* Class = "UIButton"; normalTitle = "getDataSync"; ObjectID = "8k1-N7-gY1"; */
+"8k1-N7-gY1.normalTitle" = "getDataSync";
+
+/* Class = "UIButton"; normalTitle = "setDataSync"; ObjectID = "A8k-as-2Xt"; */
+"A8k-as-2Xt.normalTitle" = "setDataSync";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "DWf-TZ-Vme"; */
+"DWf-TZ-Vme.normalTitle" = "Login";
+
+/* Class = "UIButton"; normalTitle = "Cancel ALL"; ObjectID = "Dsv-gZ-qhs"; */
+"Dsv-gZ-qhs.normalTitle" = "Cancel ALL";
+
+/* Class = "UIButton"; normalTitle = "getDataAsync"; ObjectID = "Elo-7D-Beu"; */
+"Elo-7D-Beu.normalTitle" = "getDataAsync";
+
+/* Class = "UIButton"; normalTitle = "Cancel operation with Id ="; ObjectID = "M6O-DA-TZj"; */
+"M6O-DA-TZj.normalTitle" = "Cancel operation with Id =";
+
+/* Class = "UIButton"; normalTitle = "Clear"; ObjectID = "N5e-0X-9Dh"; */
+"N5e-0X-9Dh.normalTitle" = "Clear";
+
+/* Class = "UIButton"; normalTitle = "Resume Opertion Id ="; ObjectID = "RrY-aC-qz9"; */
+"RrY-aC-qz9.normalTitle" = "Resume Opertion Id =";
+
+/* Class = "UIButton"; normalTitle = "setDataAsync"; ObjectID = "ppB-l5-ZqE"; */
+"ppB-l5-ZqE.normalTitle" = "setDataAsync";
+
+/* Class = "UIButton"; normalTitle = "Status"; ObjectID = "vhh-xW-9D0"; */
+"vhh-xW-9D0.normalTitle" = "Status";
