@@ -24,11 +24,7 @@ class DataOperation: RequestOperation {
         super.init(serviceRoot: serviceRoot, type: type)
     }
     
-    convenience init(resumeOperationModel:AsyncOperationModel,callBack:OperationCallBack, onLoginExpired:@escaping () -> ()){
-        let url = resumeOperationModel.urlVerification
-        self.init(serviceRoot: url!, type: .data, params: [String:Any](), callBack: callBack, onLoginExpired: onLoginExpired)
-        self.isResumed = true
-    }
+
     //MARK: - override operation method
     
     
@@ -37,6 +33,7 @@ class DataOperation: RequestOperation {
         _executing = true
         
         state = .requesting(requestPath: self.serviceRoot.absoluteString)
+        
         
         Alamofire.request(self.serviceRoot, method: .post, parameters: self.params, encoding: URLEncoding.default, headers: nil).validate().responseJSON { response in
             

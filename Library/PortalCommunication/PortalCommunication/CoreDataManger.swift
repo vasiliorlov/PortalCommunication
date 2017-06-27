@@ -133,12 +133,14 @@ class CoreDataManager: NSObject {
     }
     
     func saveContext(){
-        if managedObjectContext.hasChanges{
-            do {
-                try managedObjectContext.save()
-            }
-            catch{
-                fatalError("Failure to save context: \(error)")
+        DispatchQueue.main.async{
+            if self.managedObjectContext.hasChanges{
+                do {
+                    try self.managedObjectContext.save()
+                }
+                catch{
+                    fatalError("Failure to save context: \(error)")
+                }
             }
         }
     }

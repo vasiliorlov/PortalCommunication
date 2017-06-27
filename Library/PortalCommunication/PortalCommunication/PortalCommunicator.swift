@@ -167,7 +167,7 @@ public class PortalCommunicator: NSObject{
         
         
         for operation in queueOperation.operations{
-            let dataOperation = operation as! DataOperation
+            let dataOperation = operation as! RequestOperation
             if dataOperation.uniqId == requestId {
                 dataOperation.cancel()
                 dataOperation.finish()
@@ -181,7 +181,7 @@ public class PortalCommunicator: NSObject{
     /*This method is used for cancelling all requests. It may happen if the result of the request is no longer needed. */
     public func cancelAll(){
         for operation in queueOperation.operations{
-            let dataOperation = operation as! DataOperation
+            let dataOperation = operation as! RequestOperation
             dataOperation.cancel()
             dataOperation.finish()
             _log("Opertion id = \(dataOperation.uniqId) is canceled")
@@ -269,13 +269,15 @@ public class PortalCommunicator: NSObject{
     
     /*This method is used for resume all operation from DB after reload application.*/
     public func resumeOperationFromDB(id:UInt8, callBack:OperationCallBack){
-         let oper  = dataManager.read(idOperation: id)
-        guard (oper != nil) else {
+         let resumeOperationModel  = dataManager.read(idOperation: id)
+        guard (resumeOperationModel != nil) else {
             let error = NSError(domain: "Async operation is not found in DB", code: 10013, userInfo: nil)
             callBack.onError(error)
             return
         }
-        
+        let resumeOperation = ResumeOperation.init(resumeOperationModel: resumeOperationModel!, callBack: callBack, onLoginExpired: self.eventCallBack.onLoginExpired)
+
+        queueOperation.addOperation(resumeOperation)
         
     }
     

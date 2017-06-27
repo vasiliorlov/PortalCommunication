@@ -39,11 +39,10 @@ class RequestOperation: Operation {
     var uniqId              :UInt8
     var dateCheckedStatus   :Date? = nil
     var serviceRootForStatus:URL {
-        return URL.init(string:"http://localhost:8080//api/status/ready")! //for localhost simulator test
+        return URL.init(string:"http://localhost:8080//api/status/noready")! //for localhost simulator test
         // return serviceRoot.appendingPathComponent(Constans.Methodname.status)
     }
     let dataManager         = DateBaseManager.sharedInstance
-    var isResumed           :Bool = false
     
     override var isAsynchronous: Bool {
         return true

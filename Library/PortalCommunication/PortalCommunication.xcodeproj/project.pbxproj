@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1500743A1EE546C500FB6716 /* DateBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150074391EE546C500FB6716 /* DateBaseManager.swift */; };
+		1535D84F1EF41E0400FF6FA5 /* ResumeOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1535D84E1EF41E0400FF6FA5 /* ResumeOperation.swift */; };
 		1588CF1D1EEFC6EE00E178AB /* AsyncOperationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1588CF161EEFC55900E178AB /* AsyncOperationModel.swift */; };
 		1588CF1E1EEFC70800E178AB /* AsyncOperation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1588CF0B1EEFC3AB00E178AB /* AsyncOperation.xcdatamodeld */; };
 		1588CF201EEFCA9800E178AB /* CoreDataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1588CF1F1EEFCA9800E178AB /* CoreDataManger.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		150074391EE546C500FB6716 /* DateBaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateBaseManager.swift; sourceTree = "<group>"; };
+		1535D84E1EF41E0400FF6FA5 /* ResumeOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResumeOperation.swift; sourceTree = "<group>"; };
 		1588CF091EE98E7000E178AB /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = build/Debug/Realm.framework; sourceTree = "<group>"; };
 		1588CF0C1EEFC3AB00E178AB /* asyncOperation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = asyncOperation.xcdatamodel; sourceTree = "<group>"; };
 		1588CF161EEFC55900E178AB /* AsyncOperationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncOperationModel.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				150074391EE546C500FB6716 /* DateBaseManager.swift */,
 				1588CF1F1EEFCA9800E178AB /* CoreDataManger.swift */,
 				15BFECBB1ED6FA0E005409F3 /* DataOperation.swift */,
+				1535D84E1EF41E0400FF6FA5 /* ResumeOperation.swift */,
 				15FADFD31ED492D900BA6C4F /* UniqId.swift */,
 				1588CF161EEFC55900E178AB /* AsyncOperationModel.swift */,
 				1588CF251EEFEBA300E178AB /* AsyncOperationCoreDataClass.swift */,
@@ -237,6 +240,7 @@
 				15FADFD41ED492D900BA6C4F /* UniqId.swift in Sources */,
 				15E6C9871ED4926200325060 /* PortalCommunicator.swift in Sources */,
 				1500743A1EE546C500FB6716 /* DateBaseManager.swift in Sources */,
+				1535D84F1EF41E0400FF6FA5 /* ResumeOperation.swift in Sources */,
 				15E6C9881ED4926200325060 /* RequestOperation.swift in Sources */,
 				15BFECBC1ED6FA0E005409F3 /* DataOperation.swift in Sources */,
 			);
